@@ -1,8 +1,10 @@
 import './App.css';
+import ResponsiveAppBar from './components/AppBar.js';
 
 function App() {
   return (
     <>
+    <ResponsiveAppBar/>
       </>
   );
 }

@@ -26,7 +26,6 @@ module.exports = babelJest.createTransformer({
   ],
   plugins: [
     // other plugins
-    '@babel/plugin-proposal-private-property-in-object',
   ],
   babelrc: false,
   configFile: false,
