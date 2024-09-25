@@ -13,11 +13,15 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Home', 'About', 'Contact', 'Pricing', 'Products'];
 
+
+
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -28,7 +32,15 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
-
+  const handlePageClick = (page) => { 
+    const route = `/${page.toLowerCase()}`;
+    navigate(route);
+    handleCloseNavMenu();
+  };
+    
+  const handleLogoClick = () => {
+    navigate('/home'); // Navigate to the home page (adjust the route if needed)
+  };
 
   return (
     <AppBar position="static">
@@ -39,7 +51,7 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            onClick={handleLogoClick}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -48,14 +60,17 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              cursor: 'pointer', // Show pointer on hover
             }}
           >
 
             LOGO
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+
+
             {/*(MobileDropDown) - Dugme*/}
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton 
               size="large"
               aria-label="account of current user"
@@ -66,7 +81,10 @@ function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            {/*(MobileDropDown) - Pozicija Iskoka const Page prilikom klika na dugme*/}
+
+
+
+            {/*(MobileDropDown) - Menu for Pages on Button Click */}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -84,18 +102,20 @@ function ResponsiveAppBar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handlePageClick(page)}>
                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+
+
+
            {/*(Mobile) - Logo Stilizacija  */}
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -110,18 +130,22 @@ function ResponsiveAppBar() {
             LOGO
           </Typography>
 
+
+
+            {/*(PC) - Display Pages */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {/*(PC) - Ispis const Page */}
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handlePageClick(page)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
           </Box>
+
+
 
            {/*(PC) - Icons*/}
           <Box sx={{ 
@@ -134,13 +158,19 @@ function ResponsiveAppBar() {
               fontSize: 'large',
               color: 'inherit',
               textDecoration: 'none',
+              cursor: 'pointer',
 
            }}>
-            <InstagramIcon/>
-            <FacebookIcon/>
-            <EmailIcon/>
-            <PhoneIcon/>+381 63 8077687
-
+          <a href="https://instagram.com/profile" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <InstagramIcon  />
+            </a>
+            <a href="https://facebook.com/profile" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <FacebookIcon />
+            </a>
+            <a href="mailto:someone@example.com" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <EmailIcon  />
+            </a>
+              <PhoneIcon />+381 63 8077687
           </Box>
         
 
@@ -149,4 +179,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;

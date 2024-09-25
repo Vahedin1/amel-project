@@ -1,6 +1,6 @@
 import ResponsiveAppBar from '../components/AppBar';
 
-export default function Product() {
+export default function Products() {
     return(
         <>
             <ResponsiveAppBar/>

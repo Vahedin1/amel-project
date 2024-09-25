@@ -1,26 +1,27 @@
 import './App.css';
-import ResponsiveAppBar from './components/AppBar.js';
+//import ResponsiveAppBar from './components/AppBar.js';         //Dont need it because of  =          router index
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home.js';
 import About from './pages/About.js';
 import Contact from './pages/Contact.js';
 import Pricing from './pages/Pricing.js';
-import Product from './pages/Product.js';
-
+import Products from './pages/Product.js';
+import NoPage from './pages/NoPage.js';
 function App() {
   return (
     <>
-      <ResponsiveAppBar/>
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
           <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/product' element={<Product />} />
           <Route path='/pricing' element={<Pricing />} />
-          
+          <Route path='/products' element={<Products />} />
+          <Route path='/*' element={<NoPage />} />
+
         </Routes>
+
       </BrowserRouter>
     </>
   );
