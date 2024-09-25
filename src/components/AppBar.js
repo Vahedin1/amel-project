@@ -7,42 +7,34 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import PhoneIcon from '@mui/icons-material/Phone';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import EmailIcon from '@mui/icons-material/Email';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home', 'About', 'Contact', 'Pricing', 'Products'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
 
-
-  //      <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> 
-  //      za iconu do LOGOA
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+           {/*(PC) - Logo Stilizacija  */}
           <Typography
             variant="h6"
             noWrap
@@ -58,20 +50,23 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
+
             LOGO
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
+            {/*(MobileDropDown) - Dugme*/}
+            <IconButton 
               size="large"
               aria-label="account of current user"
-              aria-controls="menu-appbar"
+              ria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
+            {/*(MobileDropDown) - Pozicija Iskoka const Page prilikom klika na dugme*/}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -95,7 +90,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+           {/*(Mobile) - Logo Stilizacija  */}
           <Typography
             variant="h5"
             noWrap
@@ -114,7 +109,9 @@ function ResponsiveAppBar() {
           >
             LOGO
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {/*(PC) - Ispis const Page */}
             {pages.map((page) => (
               <Button
                 key={page}
@@ -125,35 +122,28 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+
+           {/*(PC) - Icons*/}
+          <Box sx={{ 
+              flexGrow: 0,     
+              display: 'flex',
+              alignItems: 'center', 
+              gap: 1,  
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              fontSize: 'large',
+              color: 'inherit',
+              textDecoration: 'none',
+
+           }}>
+            <InstagramIcon/>
+            <FacebookIcon/>
+            <EmailIcon/>
+            <PhoneIcon/>+381 63 8077687
+
           </Box>
+        
+
         </Toolbar>
       </Container>
     </AppBar>
