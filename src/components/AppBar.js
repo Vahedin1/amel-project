@@ -17,6 +17,14 @@ import { useNavigate } from 'react-router-dom';
 
 const pages = ['Home', 'About', 'Contact', 'Pricing', 'Products'];
 
+const colors = {
+  white: '#FFFFFF',
+  orange: '#FF6A1A',
+  brown: '#532912',
+  gray: '#7A7979',
+  orange2: '#AA4D1B',
+  darkbrown: '#29180E',
+};
 
 
 function ResponsiveAppBar() {
@@ -26,7 +34,6 @@ function ResponsiveAppBar() {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -43,7 +50,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{
+      backgroundColor: colors.darkbrown,
+      color: colors.white,
+    }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
            {/*(PC) - Logo Stilizacija  */}
@@ -70,7 +80,9 @@ function ResponsiveAppBar() {
 
 
             {/*(MobileDropDown) - Dugme*/}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ 
+            flexGrow: 1, 
+            display: { xs: 'flex', md: 'none' }, }}>
             <IconButton 
               size="large"
               aria-label="account of current user"
@@ -99,7 +111,9 @@ function ResponsiveAppBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
+              sx={{ 
+                display: { xs: 'block', md: 'none' },
+                }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={() => handlePageClick(page)}>
@@ -138,7 +152,13 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={() => handlePageClick(page)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ 
+                  my: 2, 
+                  color: colors.white, 
+                  display: 'block',
+                  fontFamily: 'monospace',
+                  fontWeight: 700,
+                   }}
               >
                 {page}
               </Button>
@@ -179,5 +199,6 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
+
 
 export default ResponsiveAppBar;
