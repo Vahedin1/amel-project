@@ -123,6 +123,7 @@ const Footer = () => {
                 </Grid>
             </Grid>
 
+
             {/* Horizontal Divider */}
             <Box
                 sx={{borderBottom: '1px solid #444',marginY: '20px',}}/>

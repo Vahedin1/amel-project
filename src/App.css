@@ -1,4 +1,7 @@
 
 body {
-    margin-top: 90px; /* Adjust based on the height of your AppBar */
+    margin-top: 90px; /* Adjust based on the height of your (AppBar) because of position sticky */
+}
+.no-scroll {
+    overflow: hidden; /* Disable/Enable scrolling (AppBar Menu)*/
 }

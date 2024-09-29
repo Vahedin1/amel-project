@@ -40,7 +40,7 @@ export default function Home() {
                     <br/>
                     -
                     <br/>
-                    Bug: kad se u mobile view stisne na menu bar, i ne izgasis taj menu i ukljucis sad fullscreen onda ne radi scroll
+                    -
                     <br/>
                     -
                     <br/>

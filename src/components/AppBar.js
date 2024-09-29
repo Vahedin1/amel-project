@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react'; 
 
 // Material UI components
 import AppBar from '@mui/material/AppBar';
@@ -32,19 +33,20 @@ const logoStyles = {
   cursor: 'pointer',
   textDecoration: 'none',
 };
-// Menu button styles
+
 const menuItemStyles = {
   backgroundColor: colors.orange,
   '&:hover': {
     backgroundColor: colors.gray,
   },
 };
-//  Pages text colors
+
 const pagesItemStyles = {
   fontFamily: 'monospace',
   fontWeight: 700,
   color: colors.white, 
 };
+
 const appbarItemStyles = {
   backgroundColor: colors.orange2,
   color: colors.white,
@@ -55,11 +57,14 @@ function ResponsiveAppBar() {
   const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
+    event.preventDefault();
     setAnchorElNav(event.currentTarget);
+    document.body.classList.add('no-scroll'); 
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+    document.body.classList.remove('no-scroll'); 
   };
 
   const handlePageClick = (page) => { 
@@ -72,42 +77,57 @@ function ResponsiveAppBar() {
     navigate('/home'); 
   };
 
+
+  
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 600 && anchorElNav) {
+        handleCloseNavMenu(); // Close menu if resized to desktop view
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [anchorElNav]);
+
+
   return (
-    <AppBar position="fixed" sx={{...appbarItemStyles}}>
+    <AppBar position="fixed" sx={{ ...appbarItemStyles }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{justifyContent: 'space-between', alignItems: 'center'}}>
-           {/*(PC) - Logo Stilizacija  */}
+        <Toolbar disableGutters sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
+          {/* (PC) - Logo */}
           <Typography
             variant="h6"
             noWrap
             component="a"
             onClick={handleLogoClick}
-            sx={{...logoStyles,
+            sx={{
+              ...logoStyles,
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-            }}>
+            }}
+          >
             LOGO
           </Typography>
 
 
-
-            {/*(MobileDropDown) - Dugme*/}
-          <Box sx={{ 
-            flexGrow: 1, 
-            display: { xs: 'flex', md: 'none' },
-            justifyContent: 'flex-start',
-            }}>
-            <IconButton 
-              size="large"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
+          {/* (MobileDropDown) - Button */}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'flex', md: 'none' },
+              justifyContent: 'flex-start',
+            }}
+          >
+            <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />
             </IconButton>
 
 
-
-            {/*(MobileDropDown) - Menu for Pages on Button Click */}
+            {/* (MobileDropDown) - Menu for Pages on Button Click */}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -122,22 +142,24 @@ function ResponsiveAppBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ 
+              sx={{
                 display: { xs: 'block', md: 'none' },
-                }}
+              }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={() => handlePageClick(page)}
-                sx = {{...menuItemStyles}}>
-                  <Typography sx={{ textAlign: 'center', ...pagesItemStyles, }}>{page}</Typography>
+                <MenuItem
+                  key={page}
+                  onClick={() => handlePageClick(page)}
+                  sx={{ ...menuItemStyles }}
+                >
+                  <Typography sx={{ textAlign: 'center', ...pagesItemStyles }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
 
-
-           {/*(Mobile) - Logo Stilizacija  */}
+          {/* (Mobile) - Logo */}
           <Typography
             variant="h5"
             noWrap
@@ -154,23 +176,25 @@ function ResponsiveAppBar() {
           </Typography>
 
 
-
-            {/*(PC) - Display Pages */}
-          <Box sx={{ 
-            flexGrow: 1, 
-            display: { xs: 'none', md: 'flex' },
-            justifyContent: 'center',
-            alignItems: 'center',
-            }}>
+          {/* (PC) - Display Pages */}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={() => handlePageClick(page)}
                 sx={{
-                  ...pagesItemStyles, 
-                  my: 2, 
+                  ...pagesItemStyles,
+                  my: 2,
                   display: 'block',
-                }}>
+                }}
+              >
                 {page}
               </Button>
             ))}
@@ -180,6 +204,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-
 
 export default ResponsiveAppBar;
