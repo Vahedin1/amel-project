@@ -7,6 +7,7 @@ import Contact from './pages/Contact.js';
 import Pricing from './pages/Pricing.js';
 import Products from './pages/Product.js';
 import NoPage from './pages/NoPage.js';
+import Footer from './components/Footer.js';
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
         </Routes>
 
       </BrowserRouter>
+      <Footer/>
     </>
   );
 }

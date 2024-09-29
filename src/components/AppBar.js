@@ -9,10 +9,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import PhoneIcon from '@mui/icons-material/Phone';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import EmailIcon from '@mui/icons-material/Email';
 import { useNavigate } from 'react-router-dom';
 
 const pages = ['Home', 'About', 'Contact', 'Pricing', 'Products'];
@@ -55,7 +51,7 @@ function ResponsiveAppBar() {
       color: colors.white,
     }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{justifyContent: 'space-between', alignItems: 'center'}}>
            {/*(PC) - Logo Stilizacija  */}
           <Typography
             variant="h6"
@@ -82,12 +78,11 @@ function ResponsiveAppBar() {
             {/*(MobileDropDown) - Dugme*/}
           <Box sx={{ 
             flexGrow: 1, 
-            display: { xs: 'flex', md: 'none' }, }}>
+            display: { xs: 'flex', md: 'none' },
+            justifyContent: 'flex-start',
+            }}>
             <IconButton 
               size="large"
-              aria-label="account of current user"
-              ria-controls="menu-appbar"
-              aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
             >
@@ -147,7 +142,12 @@ function ResponsiveAppBar() {
 
 
             {/*(PC) - Display Pages */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ 
+            flexGrow: 1, 
+            display: { xs: 'none', md: 'flex' },
+            justifyContent: 'center',
+            alignItems: 'center',
+            }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -158,7 +158,7 @@ function ResponsiveAppBar() {
                   display: 'block',
                   fontFamily: 'monospace',
                   fontWeight: 700,
-                   }}
+                }}
               >
                 {page}
               </Button>
@@ -167,31 +167,7 @@ function ResponsiveAppBar() {
 
 
 
-           {/*(PC) - Icons*/}
-          <Box sx={{ 
-              flexGrow: 0,     
-              display: 'flex',
-              alignItems: 'center', 
-              gap: 1,  
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              fontSize: 'large',
-              color: 'inherit',
-              textDecoration: 'none',
-              cursor: 'pointer',
 
-           }}>
-          <a href="https://instagram.com/profile" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <InstagramIcon  />
-            </a>
-            <a href="https://facebook.com/profile" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <FacebookIcon />
-            </a>
-            <a href="mailto:someone@example.com" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <EmailIcon  />
-            </a>
-              <PhoneIcon />+381 63 8077687
-          </Box>
         
 
         </Toolbar>
