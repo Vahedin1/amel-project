@@ -1,5 +1,4 @@
 import './App.css';
-//import ResponsiveAppBar from './components/AppBar.js';         //Dont need it because of  =          router index
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home.js';
 import About from './pages/About.js';

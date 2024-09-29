@@ -35,7 +35,7 @@ const Footer = () => {
                 spacing={4}
                 justifyContent="center"  // horizontal 
                 >
-                {/* Logo and slogan */}
+                {/* Logo  */}
                 <Grid item xs={12} sm={3}>
                     <Typography variant="h6" align='center'  noWrap sx={{ fontFamily: 'monospace',
                     fontWeight: 700,
@@ -60,7 +60,6 @@ const Footer = () => {
                         <span id="email">atsomebody @example.com</span>
                         <br/>
                         <span id="phone">+381 63 8077687</span>
-                        <br/>
                     </div>
 
                     </Box>

@@ -42,7 +42,7 @@ function ResponsiveAppBar() {
   };
     
   const handleLogoClick = () => {
-    navigate('/home'); // Navigate to the home page (adjust the route if needed)
+    navigate('/home'); 
   };
 
   return (
@@ -66,7 +66,7 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-              cursor: 'pointer', // Show pointer on hover
+              cursor: 'pointer',
             }}
           >
 
