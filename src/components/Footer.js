@@ -13,8 +13,6 @@ const colors = {
 };
 
 
-
-
 const Footer = () => {
 
     
@@ -57,22 +55,22 @@ const Footer = () => {
                     <FacebookIcon />
                     </a>
                     <div>
-                        <span id="email">atsomebody @example.com</span>
-                        <br/>
-                        <span id="phone">+381 63 8077687</span>
+                    <span id="email" sx={{ margin: '0px 0' }} style={{ display: 'block', margin: '13px 0 0 0' }}>atsomebody @example.com</span>
+                    <br/>
+                    <span id="phone" sx={{ margin: '0px 0' }} style={{ display: 'block', margin: '0px 0' }}>+381 63 8077687</span>
                     </div>
 
                     </Box>
                 </Grid>
 
                 {/* Menu Links */}
-                <Grid item xs={12} sm={9}>
+                <Grid item xs={9} sm={9}>
                     <Grid 
                     container 
                     spacing={4}
                     justifyContent="center"  // horizontal 
                     >
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={6} lg={3} md={3}>
                         <Typography variant="body1" align='center'>Option</Typography>
                         <Link href="#" color="inherit" underline="hover" display="block" align="center" >
                         -
@@ -85,8 +83,12 @@ const Footer = () => {
                         <Link href="#" color="inherit" underline="hover" display="block" align="center">
                         -
                         </Link>
+                        <br />
+                        <Link href="#" color="inherit" underline="hover" display="block" align="center">
+                        -
+                        </Link>
                     </Grid>
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={6} lg={3} md={3}>
                         <Typography variant="body1"  align='center'>Option1</Typography>
                         <Link href="#" color="inherit" underline="hover" display="block" align="center">
                         -
@@ -99,8 +101,12 @@ const Footer = () => {
                         <Link href="#" color="inherit" underline="hover" display="block" align="center">
                         -
                         </Link>
+                        <br />
+                        <Link href="#" color="inherit" underline="hover" display="block" align="center">
+                        -
+                        </Link>
                     </Grid>
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={6} lg={3} md={3}>
                         <Typography variant="body1"  align='center'>Option2</Typography>
                         <Link href="#" color="inherit" underline="hover" display="block" align="center">
                         -
@@ -114,7 +120,7 @@ const Footer = () => {
                         -
                         </Link>
                     </Grid>
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={6} lg={3} md={3}>
                         <Typography variant="body1"  align='center'>Option3</Typography>
                         <Link href="#" color="inherit" underline="hover" display="block" align="center">
                         -
@@ -124,9 +130,7 @@ const Footer = () => {
                         -
                         </Link>
                         <br />
-                        <Link href="#" color="inherit" underline="hover" display="block" align="center">
-                        -
-                        </Link>
+
                     </Grid>
                     </Grid>
                 </Grid>

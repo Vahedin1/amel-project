@@ -106,13 +106,21 @@ function ResponsiveAppBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
+
+
               sx={{ 
                 display: { xs: 'block', md: 'none' },
                 }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={() => handlePageClick(page)}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                <MenuItem key={page} onClick={() => handlePageClick(page)}
+                sx = {{backgroundColor: colors.orange, 
+                  '&:hover': {
+                  backgroundColor: colors.gray,  // Hover color for MenuItem
+
+                },   }}
+                >
+                  <Typography sx={{ textAlign: 'center', color: colors.white }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>

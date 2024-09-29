@@ -26,16 +26,9 @@ export default function Home() {
                 }}>
                     -
                     <br/>
-                    izbriso sam ikone sa headera, pa cemo ih dodat u contact? 
-                    ili da ih dodamo u liniju ispod logo
-                    <br/>
-                    i dodao sam te iste ikone u footer
-                    <br/>
                     -
                     <br/>
-                    namesti break point za tablet (izgleda sve zguceno na nekih 600px)
-                    <br/>
-                    i malo margina kod emaila i broja u footer
+                    -
                     <br/>
                     -
                     <br/>
@@ -44,6 +37,14 @@ export default function Home() {
                     -
                     <br/>
                     -
+                    <br/>
+                    -
+                    <br/>
+                    Bug: kad se u mobile view stisne na menu bar, i ne izgasis taj menu i ukljucis sad fullscreen onda ne radi scroll
+                    <br/>
+                    -
+                    <br/>
+                    Debbug??      Mobile view menu nece cio da primi boju (pokuso sam da resim al ne uspesno)
                     <br/>
                     -
                     <br/>
