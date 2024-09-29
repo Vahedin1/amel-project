@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// Material UI components
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,7 +12,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from 'react-router-dom';
 
 const pages = ['Home', 'About', 'Contact', 'Pricing', 'Products'];
 
@@ -22,6 +24,31 @@ const colors = {
   darkbrown: '#29180E',
 };
 
+const logoStyles = {
+  fontFamily: 'monospace',
+  fontWeight: 700,
+  letterSpacing: '.3rem',
+  color: 'inherit',
+  cursor: 'pointer',
+  textDecoration: 'none',
+};
+// Menu button styles
+const menuItemStyles = {
+  backgroundColor: colors.orange,
+  '&:hover': {
+    backgroundColor: colors.gray,
+  },
+};
+//  Pages text colors
+const pagesItemStyles = {
+  fontFamily: 'monospace',
+  fontWeight: 700,
+  color: colors.white, 
+};
+const appbarItemStyles = {
+  backgroundColor: colors.orange2,
+  color: colors.white,
+};
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -46,10 +73,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{
-      backgroundColor: colors.darkbrown,
-      color: colors.white,
-    }}>
+    <AppBar position="fixed" sx={{...appbarItemStyles}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{justifyContent: 'space-between', alignItems: 'center'}}>
            {/*(PC) - Logo Stilizacija  */}
@@ -58,18 +82,10 @@ function ResponsiveAppBar() {
             noWrap
             component="a"
             onClick={handleLogoClick}
-            sx={{
+            sx={{...logoStyles,
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-              cursor: 'pointer',
-            }}
-          >
-
+            }}>
             LOGO
           </Typography>
 
@@ -106,21 +122,14 @@ function ResponsiveAppBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-
-
               sx={{ 
                 display: { xs: 'block', md: 'none' },
                 }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={() => handlePageClick(page)}
-                sx = {{backgroundColor: colors.orange, 
-                  '&:hover': {
-                  backgroundColor: colors.gray,  // Hover color for MenuItem
-
-                },   }}
-                >
-                  <Typography sx={{ textAlign: 'center', color: colors.white }}>{page}</Typography>
+                sx = {{...menuItemStyles}}>
+                  <Typography sx={{ textAlign: 'center', ...pagesItemStyles, }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -134,14 +143,11 @@ function ResponsiveAppBar() {
             noWrap
             component="a"
             sx={{
+              ...logoStyles,
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              cursor: 'pointer',
             }}
           >
             LOGO
@@ -160,24 +166,15 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={() => handlePageClick(page)}
-                sx={{ 
+                sx={{
+                  ...pagesItemStyles, 
                   my: 2, 
-                  color: colors.white, 
                   display: 'block',
-                  fontFamily: 'monospace',
-                  fontWeight: 700,
-                }}
-              >
+                }}>
                 {page}
               </Button>
             ))}
           </Box>
-
-
-
-
-        
-
         </Toolbar>
       </Container>
     </AppBar>

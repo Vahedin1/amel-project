@@ -1,1 +1,4 @@
 
+body {
+    margin-top: 90px; /* Adjust based on the height of your AppBar */
+}

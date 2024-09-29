@@ -19,9 +19,7 @@ function App() {
           <Route path='/pricing' element={<Pricing />} />
           <Route path='/products' element={<Products />} />
           <Route path='/*' element={<NoPage />} />
-
         </Routes>
-
       </BrowserRouter>
       <Footer/>
     </>
