@@ -3,16 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react'; 
 
 // Material UI components
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
+import { AppBar, Box, Toolbar, Container, Button, Menu, MenuItem, Typography, IconButton } from '@mui/material';
+import { Menu as MenuIcon } from '@mui/icons-material';
+
 
 const pages = ['Home', 'About', 'Contact', 'Pricing', 'Products'];
 
@@ -51,6 +44,10 @@ const appbarItemStyles = {
   backgroundColor: colors.orange2,
   color: colors.white,
 };
+
+const logo = (
+<img src="/assets/logo-test.png" alt="Logo" style={{ height: '40px' }} />
+);
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -110,7 +107,7 @@ function ResponsiveAppBar() {
               display: { xs: 'none', md: 'flex' },
             }}
           >
-            LOGO
+            {logo} 
           </Typography>
 
 

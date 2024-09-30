@@ -1,7 +1,9 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, Link,  } from '@mui/material';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
+
+//Material UI Components
+import { Box, Container, Typography, Grid, Link } from '@mui/material';
+import { Instagram as InstagramIcon, Facebook as FacebookIcon } from '@mui/icons-material';
+
 
 const colors = {
     white: '#FFFFFF',
@@ -34,8 +36,14 @@ const logoStyles = {
     cursor: 'pointer',
 };
 
+const logo = (
+    <img src="/assets/logo-test.png" alt="Logo" style={{ height: '40px' }} />
+);
+    
+
 
 const Footer = () => {
+    //  
     const renderLinks = (option) => (
         <>
             <Typography variant="body1" align="center">{option.title}</Typography>
@@ -90,8 +98,8 @@ const Footer = () => {
                     {/* Logo  */}
                     <Grid item xs={12} sm={3}>
                         <Typography variant="h6" align='center'  noWrap 
-                        sx={{marginLeft: '10px', ...logoStyles}}>
-                            LOGO
+                            sx={{marginLeft: '10px', ...logoStyles}}>
+                            {logo} 
                         </Typography>
 
 
@@ -126,7 +134,7 @@ const Footer = () => {
 
             {/* Horizontal Divider */}
             <Box
-                sx={{borderBottom: '1px solid #444',marginY: '20px',}}/>
+                sx={{borderBottom: '2px solid #444', marginY: '20px',}}/>
                     <Typography variant="body2" align="center" >
                         &copy; Copyright. All rights reserved.
                     </Typography>
