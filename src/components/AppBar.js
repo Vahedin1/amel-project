@@ -7,7 +7,7 @@ import { AppBar, Box, Toolbar, Container, Button, Menu, MenuItem, Typography, Ic
 import { Menu as MenuIcon } from '@mui/icons-material';
 
 
-const pages = ['Home', 'About', 'Contact', 'Pricing', 'Products'];
+const pages = ['Home', 'Leistungen', 'KontaKt', 'Vita'];
 
 const colors = {
   white: '#FFFFFF',
@@ -28,9 +28,9 @@ const logoStyles = {
 };
 
 const menuItemStyles = {
-  backgroundColor: colors.orange,
+  backgroundColor: colors.white,
   '&:hover': {
-    backgroundColor: colors.gray,
+  //  backgroundColor: colors.gray,
   },
 };
 
@@ -41,7 +41,7 @@ const pagesItemStyles = {
 };
 
 const appbarItemStyles = {
-  backgroundColor: colors.orange2,
+  backgroundColor: colors.gray,
   color: colors.white,
 };
 
@@ -93,9 +93,10 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="fixed" sx={{ ...appbarItemStyles }}>
-      <Container maxWidth="xl">
+        <Container maxWidth='false' sx={{ maxWidth: '1100px', margin: '0 auto'}}>
         <Toolbar disableGutters sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
           {/* (PC) - Logo */}
+          <Box  sx={{ flexGrow: 0 }}>
           <Typography
             variant="h6"
             noWrap
@@ -109,7 +110,7 @@ function ResponsiveAppBar() {
           >
             {logo} 
           </Typography>
-
+          </Box>
 
           {/* (MobileDropDown) - Button */}
           <Box
@@ -169,7 +170,7 @@ function ResponsiveAppBar() {
               cursor: 'pointer',
             }}
           >
-            LOGO
+            {logo}
           </Typography>
 
 
@@ -178,7 +179,7 @@ function ResponsiveAppBar() {
             sx={{
               flexGrow: 1,
               display: { xs: 'none', md: 'flex' },
-              justifyContent: 'center',
+              justifyContent: 'flex-end',
               alignItems: 'center',
             }}
           >

@@ -1,10 +1,9 @@
 import ResponsiveAppBar from '../components/AppBar';
 
-export default function Contact() {
+export default function Vita() {
     return(
         <>
             <ResponsiveAppBar/>
-            <h1>Contact</h1>
 
         </>
     );

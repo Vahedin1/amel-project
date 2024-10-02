@@ -1,10 +1,9 @@
 import ResponsiveAppBar from '../components/AppBar';
 
-export default function Pricing() {
+export default function KontaKt() {
     return(
         <>
             <ResponsiveAppBar/>
-            <h1>Pricing</h1>
 
         </>
     );

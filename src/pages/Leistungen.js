@@ -1,10 +1,9 @@
 import ResponsiveAppBar from '../components/AppBar';
 
-export default function About() {
+export default function Leistungen() {
     return(
         <>
             <ResponsiveAppBar/>
-            <h1>About Page</h1>
         </>
     );
 }
