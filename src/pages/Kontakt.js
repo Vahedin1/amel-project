@@ -1,6 +1,6 @@
 import ResponsiveAppBar from '../components/AppBar';
 
-export default function KontaKt() {
+export default function Kontakt() {
     return(
         <>
             <ResponsiveAppBar/>

@@ -1,9 +1,11 @@
 import ResponsiveAppBar from '../components/AppBar';
 
-export default function Leistungen() {
+export default function Maler() {
+
     return(
         <>
             <ResponsiveAppBar/>
+
         </>
     );
 }
