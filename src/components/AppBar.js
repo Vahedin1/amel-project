@@ -44,7 +44,8 @@ const logoStyles = {
 const menuItemStyles = {
   backgroundColor: colors.white,
   '&:hover': {
-    // backgroundColor: colors.gray,
+    backgroundColor: colors.orange,
+    color: colors.white,
   },
 };
 
@@ -53,21 +54,20 @@ const leistungenItemStyles = {
   fontWeight: 700,
   cursor: 'pointer',
   textDecoration: 'none',
-  backgroundColor: colors.white,
   color: colors.gray,
-}
+};
 
-const pagesItemStyles = { 
+const pagesItemStyles = {
   fontFamily: 'monospace',
   fontWeight: 700,
   color: {
-    xs: colors.gray,  
-    md: colors.white,  
-  }, 
+    xs: colors.gray,
+    md: colors.white,
+  },
 };
 
 const appbarItemStyles = {
-  backgroundColor: colors.gray,
+  backgroundColor: colors.darkbrown,
   color: colors.white,
 };
 
@@ -77,35 +77,34 @@ const logo = (
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElLeistungen, setAnchorElLeistungen] = React.useState(null); 
+  const [anchorElLeistungen, setAnchorElLeistungen] = React.useState(null);
   const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     event.preventDefault();
     setAnchorElNav(event.currentTarget);
-    document.body.classList.add('no-scroll'); 
+    document.body.classList.add('no-scroll');
     console.log('Scroll disabled');
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-    setAnchorElLeistungen(null); // Close Leistungen submenu on menu close
-    document.body.classList.remove('no-scroll'); 
+    setAnchorElLeistungen(null);
+    document.body.classList.remove('no-scroll');
     console.log('Scroll enabled');
   };
 
-  const handlePageClick = (page) => { 
+  const handlePageClick = (page) => {
     if (page === 'Leistungen') {
-      setAnchorElLeistungen((prev) => prev ? null : anchorElNav); // Toggle Leistungen submenu
+      setAnchorElLeistungen((prev) => prev ? null : anchorElNav);
       return;
     }
-    const route = `/${page.toLowerCase()}`;
+    const route = page === 'Home' ? '/' : `/${page.toLowerCase()}`;
     navigate(route);
     handleCloseNavMenu();
   };
-
   const handleLogoClick = () => {
-    navigate('/home'); 
+    navigate('/');
   };
 
   const handleCloseLeistungenMenu = () => {
@@ -116,7 +115,7 @@ function ResponsiveAppBar() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 600 && anchorElNav) {
-        handleCloseNavMenu(); // Close menu if resized to desktop view
+        handleCloseNavMenu();
       }
     };
 
@@ -129,31 +128,38 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="fixed" sx={{ ...appbarItemStyles }}>
-      <Container maxWidth='false' sx={{ 
-        maxWidth: '1100px',  
-        margin: '0 auto'}}>  {/* Centers AppBar to middle */}
-        <Toolbar disableGutters > 
+      <Container maxWidth='false' sx={{
+        maxWidth: '1300px',
+        margin: '0 auto'
+      }}>
+        <Toolbar disableGutters >
           {/* (PC) - Logo */}
           <Box sx={{ flexGrow: 0 }}>
             <Typography
               variant="h6"
-              noWrap  
-              component="a"  
+              noWrap
+              component="a"
               onClick={handleLogoClick}
               sx={{
                 ...logoStyles,
-                mr: 2,  
+                mr: 2,
+                flexDirection: 'culumn',
                 display: { xs: 'none', md: 'flex' },
               }}
             >
-              {logo} 
+              {logo}
+              <Box ml={2}>
+                                <Typography variant="h7" noWrap>MAURERMEISTER </Typography>
+                                <Typography variant="h7" noWrap>AMEL MEMIC </Typography>
+
+                            </Box>
             </Typography>
           </Box>
 
           {/* (MobileDropDown) - Button */}
           <Box
             sx={{
-              flexGrow: 1, 
+              flexGrow: 1,
               display: { xs: 'flex', md: 'none' },
               justifyContent: 'flex-start',
             }}
@@ -179,23 +185,23 @@ function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
-                
+
               }}
             >
               {pages.map((page) => (
                 <div key={page}>
-                  <MenuItem 
-                    onClick={() => handlePageClick(page)} 
+                  <MenuItem
+                    onClick={() => handlePageClick(page)}
                     sx={{ ...menuItemStyles }}>
 
                     <Typography sx={{ textAlign: 'center', ...pagesItemStyles }}>
                       {page}
-                      {page === 'Leistungen' && (
-                        <span style={{marginLeft: '8px', color: colors.orange}}>▼</span>
-                      )}
+                      {/*  {page === 'Leistungen' && (  
+                        <span style={{marginLeft: '8px', color: colors.orange}}>▼</span>  
+                      )}*/}
                     </Typography>
                   </MenuItem>
-                  
+
                   {/* Conditionally render the submenu items if 'Leistungen' is clicked */}
                   {page === 'Leistungen' && anchorElLeistungen && (
                     leistungenSubmenu.map((item) => (
@@ -205,9 +211,9 @@ function ResponsiveAppBar() {
                           navigate(leistungenRoutes[item]);
                           handleCloseNavMenu();
                         }}
-                        sx={{ ...menuItemStyles, pl: 4 }} // Removed position and top/left styles
+                        sx={{ ...menuItemStyles, pl: 4 }}
                       >
-                        <Typography sx={{...leistungenItemStyles}}>{item}</Typography>
+                        <Typography sx={{ ...leistungenItemStyles }}>{item}</Typography>
                       </MenuItem>
                     ))
                   )}
@@ -248,7 +254,7 @@ function ResponsiveAppBar() {
                     key={page}
                     onClick={(event) => {
                       setAnchorElLeistungen((prev) => prev ? null : event.currentTarget); // Set the anchor element to the button
-                    }} 
+                    }}
                     sx={{
                       ...pagesItemStyles,
                       my: 2,
@@ -256,7 +262,7 @@ function ResponsiveAppBar() {
                       paddingRight: '20px',
                       '&::after': {
                         color: colors.orange,
-                        content: '"▼"',
+                        //content: '"▼"',
                         position: 'absolute',
                         right: '10px',
                         top: '50%',
@@ -291,11 +297,12 @@ function ResponsiveAppBar() {
                             navigate(leistungenRoutes[item]);
                             handleCloseLeistungenMenu();
                           }}
-                          sx={{ ...menuItemStyles
-                            
-                           }}
+                          sx={{
+                            ...menuItemStyles
+
+                          }}
                         >
-                          <Typography sx={{...leistungenItemStyles}}>{item}</Typography>      
+                          <Typography sx={{ ...leistungenItemStyles }}>{item}</Typography>
                         </MenuItem>
                       ))}
                     </Menu>
@@ -309,7 +316,7 @@ function ResponsiveAppBar() {
                     ...pagesItemStyles,
                     my: 2,
                     display: 'block',
-                    
+
                   }}
                 >
                   {page}
