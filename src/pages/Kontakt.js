@@ -153,7 +153,7 @@ const ContactForm = () => {
                 variant="contained"
                 color="primary"
                 onClick={handleSubmit}
-                sx={{ backgroundColor: "brown" }}
+                sx={{ backgroundColor: colors.orange2 }}
             >
                 Senden
             </Button>

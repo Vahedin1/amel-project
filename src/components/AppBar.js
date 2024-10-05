@@ -44,7 +44,7 @@ const logoStyles = {
 const menuItemStyles = {
   backgroundColor: colors.white,
   '&:hover': {
-    backgroundColor: colors.orange,
+    backgroundColor:            '           #f7e4c6        ',  
     color: colors.white,
   },
 };
@@ -149,8 +149,7 @@ function ResponsiveAppBar() {
             >
               {logo}
               <Box ml={2}>
-                                <Typography variant="h7" noWrap>MAURERMEISTER </Typography>
-                                <Typography variant="h7" noWrap>AMEL MEMIC </Typography>
+                                <Typography variant="h7" noWrap sx={{color: colors.white, }} style={{marginTop: '30px'}} >AMEL MEMIC </Typography>
 
                             </Box>
             </Typography>

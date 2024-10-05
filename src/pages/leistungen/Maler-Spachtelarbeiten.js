@@ -12,16 +12,7 @@ const colors = {
     darkbrown: "#29180E",
 };
 
-const leistungenItemStyles = {
-    backgroundColor: colors.darkbrown,
-    color: colors.white,
-    paddingTop: "40px",
-    paddingBottom: "20px",
-    width: "100%",
-    margin: "0 auto",
-    padding: "0 auto",
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-};
+
 
 export default function Maler() {
 
@@ -38,10 +29,19 @@ export default function Maler() {
                     <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
                         {/* Image Section */}
                         <Grid item xs={12} md={6}>
-                            <Card>
+                            <Card
+                                sx={{
+                                    marginBottom: { xs: '10px', md: '50px' },
+                                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
+                                    transition: '0.3s',              // Smooth transition
+                                    '&:hover': {
+                                        boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
+                                        transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                    },
+                                }}>
                                 <CardMedia
                                     component="img"
-                                    height="300"
+                                    height="350"
                                     image="/assets/img10.jpg"
                                     alt="Drywall construction"
                                 />
@@ -50,10 +50,31 @@ export default function Maler() {
 
                         {/* Text Section */}
                         <Grid item xs={12} md={6}>
-                            <Card>
-                                <CardContent>
-                                    <Typography variant="h6" gutterBottom>
-                                        Egal ob weiß oder doch lieber Farbe, wir erfüllen ihn jeden Wunsch und helfen gerne bei der Umsetzung ihrer Träume. Die alte Tapete sieht einfach nicht mehr gut aus sie wollen was Modernes auch kein Problem wir entfernen ihre Tapete Spachteln und Schleifen ihre Wände in Q3 Qualität für eine Optimale glatte Wand.
+                            <Card
+                                sx={{
+                                    marginBottom: '50px',
+                                    backgroundColor: '#f5f5f5',  // Light gray background
+                                    color: '#333',               // Text color
+                                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
+                                    transition: '0.3s',              // Smooth transition
+                                    '&:hover': {
+                                        boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
+                                        transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                    },
+                                }}>
+                                <CardContent sx={{
+                                    borderRadius: '8px',
+                                    padding: '16px',
+                                    margin: '8px',
+                                }}>
+                                    <Typography variant="h6" gutterBottom sx={{ color: colors.orange2 }}>
+                                        Egal ob weiß oder doch lieber Farbe, wir erfüllen ihn jeden Wunsch und helfen gerne bei der Umsetzung ihrer Träume.
+                                    </Typography>
+                                    <Typography variant="body1" paragraph>
+                                        Ob es nun um die Deckengestaltung, Leichtbau-Wände, Ständerwerke, Brandschutz oder den Dachgeschossausbau geht. Wir erledigen Trockenbauarbeiten aller Art. Sprechen Sie uns mit Ihrer individuellen Planung an.
+                                    </Typography>
+                                    <Typography variant="body1" paragraph>
+                                        Ob es nun um die Deckengestaltung, Leichtbau-Wände, Ständerwerke, Brandschutz oder den Dachgeschossausbau geht. Wir erledigen Trockenbauarbeiten aller Art. Sprechen Sie uns mit Ihrer individuellen Planung an.
                                     </Typography>
                                 </CardContent>
                             </Card>
