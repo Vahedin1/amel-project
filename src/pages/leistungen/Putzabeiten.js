@@ -51,7 +51,8 @@ export default function Putzabeiten() {
                                 sx={{
                                     marginBottom: '50px',
                                     backgroundColor: '#f5f5f5',  // Light gray background
-                                    color: '#333',               // Text color
+                                    color: '#333',
+                                    height: '300px'  ,             // Text color
                                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
                                     transition: '0.3s',              // Smooth transition
                                     '&:hover': {

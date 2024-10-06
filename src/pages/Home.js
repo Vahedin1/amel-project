@@ -72,7 +72,7 @@ export default function Home() {
 
                     <Card sx={{
                         marginBottom: '100px',
-                        marginTop: { xs: '0px', md: '110px' },
+                        marginTop: { xs: '50px', md: '110px' },
                         backgroundColor: '#f5f5f5',
                         color: '#333',
                         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
@@ -84,7 +84,7 @@ export default function Home() {
                     }}>
 
                         <Box textAlign={'center'} marginBottom={4}>
-                            <Typography className='tkt' variant="h4" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px' }}>
+                            <Typography className='tkt' variant="h4" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px'}}>
                                 Jedes Bauprojekt ist eine Herzensangelegenheit.
                             </Typography>
                             <Typography variant="body1" gutterBottom sx={{ textAlign: 'center', }}>
