@@ -39,11 +39,8 @@ export default function Home() {
                 {/* Welcome Section */}
                 <Box textAlign="center"
                     sx={{
-                        backgroundImage: `url('/assets/img16.jpg')`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        height: '800px',
+                        position: 'relative',
+                        height: '900px',
                         width: '100%',
                         display: 'flex',
                         alignItems: 'center',
@@ -53,15 +50,42 @@ export default function Home() {
                         paddingBottom: 4,
                     }}
                 >
-                    <Typography variant="h2" component="h1" gutterBottom sx={{ ...titleItemStyles, }}>
-                        Willkommen bei Amel-Bau
-                    </Typography>
-                    <Typography variant="h6" color="textSecondary" sx={{ ...titleItemStyles }}>
-                        Ihr zuverlässiger Partner für Bauen und Renovieren.
-                    </Typography>
-                    <Button variant="contained" color="primary" size="large" style={{ marginTop: '40px' }} onClick={handleKontaktClick}>
-                        Schreiben Sie uns
-                    </Button>
+                    <Box
+                        sx={{
+                            position: 'absolute',  // Position absolute for the image
+                            top: 0,
+                            left: 0,
+                            height: '100%',
+                            width: '100%',
+                            backgroundImage: `url('/assets/img16.jpg')`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            '::before': {
+                                content: '""',
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                backgroundColor: 'rgba(0, 0, 0, 0.5)',  // Black overlay with 50% opacity
+                            },
+                        }}>
+
+                    </Box>
+
+                    <Box sx={{ position: 'relative', zIndex: 1 }}>
+                        <Typography variant="h2" component="h1" gutterBottom sx={{ ...titleItemStyles, }}>
+                            Willkommen bei Amel-Bau
+                        </Typography>
+                        <Typography variant="h6" color="textSecondary" sx={{ ...titleItemStyles }}>
+                            Ihr zuverlässiger Partner für Bauen und Renovieren.
+                        </Typography>
+                        <Button variant="contained" color="primary" size="large" style={{ marginTop: '40px' }} onClick={handleKontaktClick}>
+                            Schreiben Sie uns
+                        </Button>
+                    </Box>
+
                 </Box>
                 <Container
                     maxWidth="false"
@@ -84,7 +108,7 @@ export default function Home() {
                     }}>
 
                         <Box textAlign={'center'} marginBottom={4}>
-                            <Typography className='tkt' variant="h4" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px'}}>
+                            <Typography className='tkt' variant="h4" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px' }}>
                                 Jedes Bauprojekt ist eine Herzensangelegenheit.
                             </Typography>
                             <Typography variant="body1" gutterBottom sx={{ textAlign: 'center', }}>
@@ -127,7 +151,7 @@ export default function Home() {
                                         transform: 'scale(1.05)',      // Slight scaling effect on hover
                                     },
                                 }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{  color: colors.gray  }}>
+                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.gray }}>
                                     TrackenBau
                                 </Typography>
                                 <Typography>
@@ -151,7 +175,7 @@ export default function Home() {
                                         transform: 'scale(1.05)',      // Slight scaling effect on hover
                                     },
                                 }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{  color: colors.gray  }}>
+                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.gray }}>
                                     Maurerarbeiten
                                 </Typography>
                                 <Typography color="textSecondary">
@@ -175,7 +199,7 @@ export default function Home() {
                                         transform: 'scale(1.05)',      // Slight scaling effect on hover
                                     },
                                 }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{  color: colors.gray  }}>
+                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.gray }}>
                                     Um - @ Anbauten
                                 </Typography>
                                 <Typography color="textSecondary">
@@ -199,7 +223,7 @@ export default function Home() {
                                         transform: 'scale(1.05)',      // Slight scaling effect on hover
                                     },
                                 }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.gray  }}>
+                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.gray }}>
                                     Maler und Spachtelarbeiten
                                 </Typography>
                                 <Typography color="textSecondary">

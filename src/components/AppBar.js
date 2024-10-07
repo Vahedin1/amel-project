@@ -7,21 +7,7 @@ import { AppBar, Box, Toolbar, Container, Button, Menu, MenuItem, Typography, Ic
 import { Menu as MenuIcon } from '@mui/icons-material';
 
 const pages = ['Home', 'Leistungen', 'Kontakt', 'Vita'];
-const leistungenSubmenu = [
-  'Trockenbau',
-  'Maurerarbeiten',
-  'Um - @ Anbauten',
-  'Maler und Spachtelarbeiten',
-  'Putzabeiten',
-];
 
-const leistungenRoutes = {
-  'Trockenbau': '/trackenbau',
-  'Maurerarbeiten': '/maurerbeiten',
-  'Um - @ Anbauten': '/um-anbauten',
-  'Maler und Spachtelarbeiten': '/maler-und-spachtelarbeiten',
-  'Putzabeiten': '/putzabeiten',
-};
 
 const colors = {
   white: '#FFFFFF',
@@ -44,18 +30,11 @@ const logoStyles = {
 const menuItemStyles = {
   backgroundColor: colors.white,
   '&:hover': {
-    backgroundColor:            '           #f7e4c6        ',  
+    backgroundColor: '           #f7e4c6        ',
     color: colors.white,
   },
 };
 
-const leistungenItemStyles = {
-  fontFamily: 'monospace',
-  fontWeight: 700,
-  cursor: 'pointer',
-  textDecoration: 'none',
-  color: colors.gray,
-};
 
 const pagesItemStyles = {
   fontFamily: 'monospace',
@@ -77,39 +56,33 @@ const logo = (
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElLeistungen, setAnchorElLeistungen] = React.useState(null);
   const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     event.preventDefault();
     setAnchorElNav(event.currentTarget);
     document.body.classList.add('no-scroll');
-    console.log('Scroll disabled');
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-    setAnchorElLeistungen(null);
     document.body.classList.remove('no-scroll');
-    console.log('Scroll enabled');
   };
 
   const handlePageClick = (page) => {
     if (page === 'Leistungen') {
-      setAnchorElLeistungen((prev) => prev ? null : anchorElNav);
-      return;
+      navigate('/leistungen'); // Directly navigate to /leistungen
+    } else {
+      const route = page === 'Home' ? '/' : `/${page.toLowerCase()}`;
+      navigate(route);
     }
-    const route = page === 'Home' ? '/' : `/${page.toLowerCase()}`;
-    navigate(route);
     handleCloseNavMenu();
   };
+
   const handleLogoClick = () => {
     navigate('/');
   };
 
-  const handleCloseLeistungenMenu = () => {
-    setAnchorElLeistungen(null);
-  };
 
 
   useEffect(() => {
@@ -145,13 +118,18 @@ function ResponsiveAppBar() {
                 mr: 2,
                 flexDirection: 'culumn',
                 display: { xs: 'none', md: 'flex' },
+                transition: '0.3s',              // Smooth transition
+                '&:hover': {
+                  //   boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
+                  transform: 'scale(1.05)',      // Slight scaling effect on hover
+                },
               }}
             >
               {logo}
               <Box ml={2}>
-                                <Typography variant="h7" noWrap sx={{color: colors.white, }} style={{marginTop: '30px'}} >AMEL MEMIC </Typography>
+                <Typography variant="h7" noWrap sx={{ color: colors.white, }} style={{ marginTop: '30px' }} >AMEL MEMIC </Typography>
 
-                            </Box>
+              </Box>
             </Typography>
           </Box>
 
@@ -161,14 +139,15 @@ function ResponsiveAppBar() {
               flexGrow: 1,
               display: { xs: 'flex', md: 'none' },
               justifyContent: 'flex-start',
+
             }}
           >
             <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />
             </IconButton>
 
-            {/* (Mobile) - Menu */}
-            <Menu
+           {/* (Mobile) - Menu */}
+           <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -184,58 +163,20 @@ function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
-
               }}
             >
               {pages.map((page) => (
-                <div key={page}>
-                  <MenuItem
-                    onClick={() => handlePageClick(page)}
-                    sx={{ ...menuItemStyles }}>
-
-                    <Typography sx={{ textAlign: 'center', ...pagesItemStyles }}>
-                      {page}
-                      {/*  {page === 'Leistungen' && (  
-                        <span style={{marginLeft: '8px', color: colors.orange}}>▼</span>  
-                      )}*/}
-                    </Typography>
-                  </MenuItem>
-
-                  {/* Conditionally render the submenu items if 'Leistungen' is clicked */}
-                  {page === 'Leistungen' && anchorElLeistungen && (
-                    leistungenSubmenu.map((item) => (
-                      <MenuItem
-                        key={item}
-                        onClick={() => {
-                          navigate(leistungenRoutes[item]);
-                          handleCloseNavMenu();
-                        }}
-                        sx={{ ...menuItemStyles, pl: 4 }}
-                      >
-                        <Typography sx={{ ...leistungenItemStyles }}>{item}</Typography>
-                      </MenuItem>
-                    ))
-                  )}
-                </div>
+                <MenuItem
+                  key={page}
+                  onClick={() => handlePageClick(page)}
+                  sx={{ ...menuItemStyles }}>
+                  <Typography sx={{ textAlign: 'center', ...pagesItemStyles }}>
+                    {page}
+                  </Typography>
+                </MenuItem>
               ))}
             </Menu>
           </Box>
-
-          {/* (Mobile) - Logo */}
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            sx={{
-              ...logoStyles,
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              cursor: 'pointer',
-            }}
-          >
-            {logo}
-          </Typography>
 
           {/* (PC) - Display Pages */}
           <Box
@@ -246,82 +187,23 @@ function ResponsiveAppBar() {
               alignItems: 'center',
             }}
           >
-            {pages.map((page) =>
-              page === 'Leistungen' ? (
-                <Box key={page} sx={{ position: 'relative' }}>
-                  <Button
-                    key={page}
-                    onClick={(event) => {
-                      setAnchorElLeistungen((prev) => prev ? null : event.currentTarget); // Set the anchor element to the button
-                    }}
-                    sx={{
-                      ...pagesItemStyles,
-                      my: 2,
-                      display: 'block',
-                      paddingRight: '20px',
-                      '&::after': {
-                        color: colors.orange,
-                        //content: '"▼"',
-                        position: 'absolute',
-                        right: '10px',
-                        top: '50%',
-                        transform: 'translateY(-50%)', // Center vertically
-                      },
-                    }}
-                  >
-                    {page}
-                  </Button>
-                  {anchorElLeistungen && (
-                    <Menu
-                      anchorEl={anchorElLeistungen}
-                      open={Boolean(anchorElLeistungen)}
-                      onClose={handleCloseLeistungenMenu}
-                      anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                      }}
-                      transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'left',
-                      }}
-                      sx={{
-                        display: { xs: 'none', md: 'block' },
-                        position: 'absolute', // Ensures it's positioned relative to the parent
-                      }}
-                    >
-                      {leistungenSubmenu.map((item) => (
-                        <MenuItem
-                          key={item}
-                          onClick={() => {
-                            navigate(leistungenRoutes[item]);
-                            handleCloseLeistungenMenu();
-                          }}
-                          sx={{
-                            ...menuItemStyles
-
-                          }}
-                        >
-                          <Typography sx={{ ...leistungenItemStyles }}>{item}</Typography>
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  )}
-                </Box>
-              ) : (
-                <Button
-                  key={page}
-                  onClick={() => handlePageClick(page)}
-                  sx={{
-                    ...pagesItemStyles,
-                    my: 2,
-                    display: 'block',
-
-                  }}
-                >
-                  {page}
-                </Button>
-              )
-            )}
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={() => handlePageClick(page)} // Handle click here
+                sx={{
+                  ...pagesItemStyles,
+                  my: 2,
+                  display: 'block',
+                  '&:hover': {
+                    boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                    transform: 'scale(1.1)',
+                  },
+                }}
+              >
+                {page}
+              </Button>
+            ))}
           </Box>
         </Toolbar>
       </Container>

@@ -125,10 +125,13 @@ const Footer = () => {
                             onClick={handleLogoClick}
                             sx={{
                                 display: "flex",
-                                flexDirection: {xs: "column", md: "column"},
+                                flexDirection: { xs: "column", md: "column" },
                                 justifyContent: { xs: "center", sm: "center" },
                                 alignItems: "center",
                                 cursor: "pointer",
+                                '&:hover': {
+                                    transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                },
                             }}
                         >
                             {logo}
@@ -230,14 +233,21 @@ const Footer = () => {
                             sx={{
                                 textAlign: { xs: "center", sm: "center" },
                                 ...footerItemStyles,
+
                             }}
                         >
                             {menuOptions.map((option, index) => (
-                                <Box key={index}>
-                                    <Typography sx={{ ...footerItemStyles }}>
+                                    <Typography key={index} sx={{
+                                        ...footerItemStyles,
+                                        display: 'inline-block', // Makes each menu option its own block
+                                        transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Smooth transition for 
+                                        '&:hover': {
+                                            transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                        },
+                                        display: 'inline-block',  // Make each text behave individually
+                                    }}>
                                         {renderLinks(option)}
                                     </Typography>
-                                </Box>
                             ))}
                         </Box>
                     </Grid>

@@ -14,6 +14,7 @@ const VitaContent = () => {
         orange2: "#AA4D1B",
         darkbrown: "#29180E",
     };
+    
     const titleItemStyles = {
         color: colors.white,
         fontWeight: 600,

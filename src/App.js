@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-
 // Pages
 import Home from './pages/Home.js';
 import Kontakt from './pages/Kontakt.js';
@@ -13,12 +12,8 @@ import Cookie from './pages/zakoni/Cookie-Richtlinie-EU.js';
 import Datenschutzerklarung from './pages/zakoni/Datenschurzerklarung.js';
 import Impressum from './pages/zakoni/Impressum.js';
 
-// Leistungen
-import Maler from './pages/leistungen/Maler-Spachtelarbeiten.js';
-import Maurerbeiten from './pages/leistungen/Maurerbeiten.js';
-import Putzabeiten from './pages/leistungen/Putzabeiten.js';
-import TrackenBau from './pages/leistungen/TrackenBau.js';
-import UmAnbauten from './pages/leistungen/Um-Anbauten.js';
+// Combined Page for Leistungen
+import CombinedPage from './pages/Leistungen.js';
 
 function App() {
   return (
@@ -37,11 +32,10 @@ function App() {
             <Route path='/cookie-richtlinie-eu' element={<Cookie />} />
             <Route path='/datenschutzerklarung' element={<Datenschutzerklarung />} />
             <Route path='/impressum' element={<Impressum />} />
-            <Route path='/maler-und-spachtelarbeiten' element={<Maler />} />
-            <Route path='/maurerbeiten' element={<Maurerbeiten />} />
-            <Route path='/putzabeiten' element={<Putzabeiten />} />
-            <Route path='/trackenbau' element={<TrackenBau />} />
-            <Route path='/um-anbauten' element={<UmAnbauten />} />
+
+            {/* Use CombinedPage for all Leistungen routes */}
+            <Route path='/leistungen' element={<CombinedPage />} />
+
             <Route path='/*' element={<NoPage />} />
           </Routes>
       </BrowserRouter>
