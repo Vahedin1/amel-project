@@ -1,6 +1,7 @@
 import ResponsiveAppBar from '../components/AppBar';
 import Footer from '../components/Footer';
 import { Grid, Card, CardContent, Typography, Avatar, Box, Container } from '@mui/material';
+import '../CardAnimations.css';
 
 
 
@@ -14,7 +15,7 @@ const VitaContent = () => {
         orange2: "#AA4D1B",
         darkbrown: "#29180E",
     };
-    
+
     const titleItemStyles = {
         color: colors.white,
         fontWeight: 600,
@@ -24,7 +25,7 @@ const VitaContent = () => {
     const backgroundColorTitle = {
         backgroundColor: colors.darkbrown,
         color: colors.white,
-        padding: '20px 0',          
+        padding: '20px 0',
         width: '100%',
     }
 
@@ -50,23 +51,26 @@ const VitaContent = () => {
                 <Grid container spacing={4} alignItems="center" justifyContent={'center'} >
                     {/* Left Side - Image  sx={{ padding: 0, margin: 0, boxShadow: 'none', border: 'none' }}*/}
                     <Grid item xs={12} md={3}> {/* Set md to 3 to leave space for text */}
-                        <Card sx={{
-                            marginTop: '150px',
-                            padding: '0',
-                            display: 'flex',
-                            alignContent: 'center',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexDirection: 'column',
-                            marginBottom: { xs: '0px', md: '225px' },
-                            boxShadow: 'none',
-                            border: 'none',
-                            transition: '0.3s',              // Smooth transition
-                            '&:hover': {
-                                transform: 'scale(1.05)',      // Slight scaling effect on hover
-                            },
-                        }}>
-                            <CardContent >
+                        <Card
+                            className="slide-card"
+                            sx={{
+                                marginTop: '150px',
+                                padding: '0',
+                                display: 'flex',
+                                alignContent: 'center',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                flexDirection: 'column',
+                                marginBottom: { xs: '0px', md: '225px' },
+                                boxShadow: 'none',
+                                border: 'none',
+                                transition: '0.3s',              // Smooth transition
+                                '&:hover': {
+                                    transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                },
+                            }}>
+                            <CardContent
+                            >
                                 <Avatar
                                     src="/assets/person.jpg" // Replace with actual image URL
                                     alt="Person Image"
@@ -86,6 +90,7 @@ const VitaContent = () => {
                     {/* Center - Text */}
                     <Grid item xs={12} md={6}> {/* Set md to 6 for text */}
                         <Card
+                            className="slide-card"
                             sx={{
                                 marginBottom: '200px',
                                 marginTop: { xs: '0px', md: '110px' },

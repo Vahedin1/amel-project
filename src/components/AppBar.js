@@ -120,7 +120,6 @@ function ResponsiveAppBar() {
                 display: { xs: 'none', md: 'flex' },
                 transition: '0.3s',              // Smooth transition
                 '&:hover': {
-                  //   boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
                   transform: 'scale(1.05)',      // Slight scaling effect on hover
                 },
               }}
@@ -146,8 +145,8 @@ function ResponsiveAppBar() {
               <MenuIcon />
             </IconButton>
 
-           {/* (Mobile) - Menu */}
-           <Menu
+            {/* (Mobile) - Menu */}
+            <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -196,8 +195,8 @@ function ResponsiveAppBar() {
                   my: 2,
                   display: 'block',
                   '&:hover': {
-                    boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
                     transform: 'scale(1.1)',
+                    backgroundColor: colors.darkbrown,
                   },
                 }}
               >

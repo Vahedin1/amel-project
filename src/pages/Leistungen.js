@@ -2,6 +2,7 @@ import ResponsiveAppBar from '../components/AppBar';
 import Footer from '../components/Footer';
 import React from 'react';
 import { Grid, Typography, Card, CardMedia, CardContent, Container } from '@mui/material';
+import '../CardAnimations.css';
 
 const colors = {
     white: "#FFFFFF",
@@ -34,6 +35,7 @@ function SectionUmAnbauten() {
             <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
                 <Grid item xs={12} md={6}>
                     <Card
+                        className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
                             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
@@ -52,17 +54,19 @@ function SectionUmAnbauten() {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Card sx={{
-                        marginBottom: '50px',
-                        backgroundColor: '#f5f5f5',
-                        color: '#333',
-                        boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                        transition: '0.3s',
-                        '&:hover': {
-                            boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                            transform: 'scale(1.05)',
-                        },
-                    }}>
+                    <Card
+                        className="slide-card"
+                        sx={{
+                            marginBottom: '50px',
+                            backgroundColor: '#f5f5f5',
+                            color: '#333',
+                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
+                            transition: '0.3s',
+                            '&:hover': {
+                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                transform: 'scale(1.05)',
+                            },
+                        }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
                             <Typography variant="h6" gutterBottom sx={{ color: colors.orange2 }}>
                                 UmAbauten
@@ -87,6 +91,7 @@ function SectionTrackenBau() {
             <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
                 <Grid item xs={12} md={6}>
                     <Card
+                        className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
                             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
@@ -105,20 +110,22 @@ function SectionTrackenBau() {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Card sx={{
-                        marginBottom: '50px',
-                        backgroundColor: '#f5f5f5',
-                        color: '#333',
-                        boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                        transition: '0.3s',
-                        '&:hover': {
-                            boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                            transform: 'scale(1.05)',
-                        },
-                    }}>
+                    <Card
+                        className="slide-card"
+                        sx={{
+                            marginBottom: '50px',
+                            backgroundColor: '#f5f5f5',
+                            color: '#333',
+                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
+                            transition: '0.3s',
+                            '&:hover': {
+                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                transform: 'scale(1.05)',
+                            },
+                        }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
                             <Typography variant="h5" gutterBottom sx={{ color: colors.orange2 }}>
-                            TrackenBau
+                                TrackenBau
                             </Typography>
                             <Typography variant="body1" paragraph>
                                 Unsere Leistungsbereiche umschließen den kompletten Trockenbau Bereich vom Einfamilienhaus oder Mehrfamilienhäuser bis hin zu Büro- und Verwaltungsgebäuden.
@@ -140,6 +147,7 @@ function SectionPutzabeiten() {
             <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
                 <Grid item xs={12} md={6}>
                     <Card
+                        className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
                             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
@@ -158,18 +166,20 @@ function SectionPutzabeiten() {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Card sx={{
-                        marginBottom: '50px',
-                        backgroundColor: '#f5f5f5',
-                        color: '#333',
-                        height: '300px',
-                        boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                        transition: '0.3s',
-                        '&:hover': {
-                            boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                            transform: 'scale(1.05)',
-                        },
-                    }}>
+                    <Card
+                        className="slide-card"
+                        sx={{
+                            marginBottom: '50px',
+                            backgroundColor: '#f5f5f5',
+                            color: '#333',
+                            height: '300px',
+                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
+                            transition: '0.3s',
+                            '&:hover': {
+                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                transform: 'scale(1.05)',
+                            },
+                        }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
                             <Typography variant="h5" gutterBottom sx={{ color: colors.orange2 }}>
                                 Putzarbeiten sind nicht jedermanns Sache.
@@ -191,6 +201,7 @@ function SectionMaurerarbeiten() {
             <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
                 <Grid item xs={12} md={6}>
                     <Card
+                        className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
                             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
@@ -209,17 +220,19 @@ function SectionMaurerarbeiten() {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Card sx={{
-                        marginBottom: '50px',
-                        backgroundColor: '#f5f5f5',
-                        color: '#333',
-                        boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                        transition: '0.3s',
-                        '&:hover': {
-                            boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                            transform: 'scale(1.05)',
-                        },
-                    }}>
+                    <Card
+                        className="slide-card"
+                        sx={{
+                            marginBottom: '50px',
+                            backgroundColor: '#f5f5f5',
+                            color: '#333',
+                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
+                            transition: '0.3s',
+                            '&:hover': {
+                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                transform: 'scale(1.05)',
+                            },
+                        }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
                             <Typography variant="h5" gutterBottom sx={{ color: colors.orange2 }}>
                                 Maurerarbeiten
@@ -244,6 +257,7 @@ function SectionMaler() {
             <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
                 <Grid item xs={12} md={6}>
                     <Card
+                        className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
                             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
@@ -262,17 +276,19 @@ function SectionMaler() {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Card sx={{
-                        marginBottom: '50px',
-                        backgroundColor: '#f5f5f5',
-                        color: '#333',
-                        boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                        transition: '0.3s',
-                        '&:hover': {
-                            boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                            transform: 'scale(1.05)',
-                        },
-                    }}>
+                    <Card
+                        className="slide-card"
+                        sx={{
+                            marginBottom: '50px',
+                            backgroundColor: '#f5f5f5',
+                            color: '#333',
+                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
+                            transition: '0.3s',
+                            '&:hover': {
+                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                transform: 'scale(1.05)',
+                            },
+                        }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
                             <Typography variant="h5" gutterBottom sx={{ color: colors.orange2 }}>
                                 Malerarbeiten

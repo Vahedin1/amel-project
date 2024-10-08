@@ -1,7 +1,8 @@
 import ResponsiveAppBar from '../components/AppBar';
 import React, { useState } from "react";
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import { Box, Button, Checkbox, FormControlLabel, Grid, MenuItem, Select, TextField } from "@mui/material";
+import { Box, Button, Checkbox, FormControlLabel, Grid, MenuItem, Select, TextField, Avatar, Typography } from "@mui/material";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import emailjs from 'emailjs-com';
 import Footer from '../components/Footer';
 
@@ -17,6 +18,20 @@ const colors = {
 const mapContainerStyle = {
     width: '100%',
     height: '400px',
+};
+
+
+const CustomMarker = ({ label }) => {
+    return (
+        <div style={{ textAlign: 'center' }}>
+            <Typography variant="caption" sx={{ marginBottom: '4px', color: 'black', textAlign: 'center' }}>
+                {label}
+            </Typography>
+            <Avatar sx={{ bgcolor: 'orange', width: 30, height: 30 }}>
+                <LocationOnIcon sx={{ color: 'white' }} />
+            </Avatar>
+        </div>
+    );
 };
 
 const center = {
@@ -96,7 +111,7 @@ const ContactForm = () => {
             setIsSubmitting(false);
             return;
         }
-        
+
         console.log('Sending email with data:', {
             name: formData.name,
             email: formData.email,
@@ -252,6 +267,7 @@ const ContactForm = () => {
 };
 
 export default function Kontakt() {
+    const address = "Alte Dorfstraße 28, 14542 Werder/Have";
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <ResponsiveAppBar />
@@ -272,6 +288,18 @@ export default function Kontakt() {
                             >
                                 {/* Add a marker at the desired location */}
                                 <Marker position={center} />
+
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        transform: 'translate(-50%, -100%)', // This keeps it centered
+                                        left: `${(center.lng + 180) * (100 / 360)}%`, // Adjust longitude position
+                                        top: `${(90 - center.lat) * (100 / 180)}%`, // Adjust latitude position
+                                        zIndex: 1
+                                    }}>
+                                    <CustomMarker label={address} />
+                                </div>
+
                             </GoogleMap>
                         </LoadScript>
                     </Grid>
