@@ -5,7 +5,20 @@ import ResponsiveAppBar from '../components/AppBar';
 import Footer from '../components/Footer.js';
 import '../CardAnimations.css';
 
-// Define keyframes for fade-in
+import { keyframes } from '@mui/system';
+
+// Define the slide-in animation
+const slideIn = keyframes`
+0% {
+    transform: translateX(-100%); /* Start off-screen to the left */
+    opacity: 0; /* Start transparent */
+}
+100% {
+    transform: translateX(0); /* End at the original position */
+    opacity: 1; /* Fully opaque */
+}
+`;
+
 
 // Colors object
 const colors = {
@@ -35,6 +48,12 @@ export default function Home() {
     const handleKontaktClick = () => {
         navigate('/kontakt');
     };
+    const fadeIn = {
+        '@keyframes fadeIn': {
+            '0%': { opacity: 0 },
+            '100%': { opacity: 1 },
+        },
+    };
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -44,6 +63,7 @@ export default function Home() {
                 <Box
                     textAlign="center"
                     sx={{
+                        ...fadeIn,
                         animation: 'fadeIn 2s ease-out',
                         position: 'relative',
                         height: '900px',
@@ -79,11 +99,12 @@ export default function Home() {
                         }}
                     />
 
-                    <Box sx={{ position: 'relative', zIndex: 1 }}>
+                    <Box
+                        sx={{ animation: `${slideIn} 1s ease-out`, position: 'relative', zIndex: 1 }}>
                         <Typography variant="h2" component="h1" gutterBottom sx={titleItemStyles}>
                             Willkommen bei Amel-Bau
                         </Typography>
-                        <Typography variant="h6" color="textSecondary" sx={titleItemStyles}>
+                        <Typography variant="h6" color="textSecondary" sx={{ animation: `${slideIn}, 1s ease-out`, ...titleItemStyles}}>
                             Ihr zuverlässiger Partner für Bauen und Renovieren.
                         </Typography>
                         <Button
