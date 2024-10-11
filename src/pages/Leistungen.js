@@ -38,10 +38,11 @@ function SectionUmAnbauten() {
                         className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                            transition: '0.3s',
+                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                            transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -60,10 +61,10 @@ function SectionUmAnbauten() {
                             marginBottom: '50px',
                             backgroundColor: '#f5f5f5',
                             color: '#333',
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                            transition: '0.3s',
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                            transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -99,10 +100,10 @@ function SectionTrackenBau() {
                         className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                            transition: '0.3s',
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                            transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -121,10 +122,10 @@ function SectionTrackenBau() {
                             marginBottom: '50px',
                             backgroundColor: '#f5f5f5',
                             color: '#333',
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                            transition: '0.3s',
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                            transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -155,10 +156,10 @@ function SectionPutzabeiten() {
                         className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                            transition: '0.3s',
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                            transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -178,10 +179,10 @@ function SectionPutzabeiten() {
                             backgroundColor: '#f5f5f5',
                             color: '#333',
                             height: '300px',
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                            transition: '0.3s',
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                            transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -210,10 +211,10 @@ function SectionMaurerarbeiten() {
                         className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                            transition: '0.3s',
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                            transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -232,10 +233,10 @@ function SectionMaurerarbeiten() {
                             marginBottom: '50px',
                             backgroundColor: '#f5f5f5',
                             color: '#333',
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                            transition: '0.3s',
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                            transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -268,10 +269,10 @@ function SectionMaler() {
                         className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                            transition: '0.3s',
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                            transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -290,10 +291,10 @@ function SectionMaler() {
                             marginBottom: '50px',
                             backgroundColor: '#f5f5f5',
                             color: '#333',
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                            transition: '0.3s',
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                            transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>

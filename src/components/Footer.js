@@ -44,7 +44,7 @@ const socialLinks = [
 ];
 
 const pagesItemStyles = {
-    backgroundColor: colors.darkbrown,
+    backgroundColor: colors.orange,
     color: colors.white,
     paddingTop: "40px",
     paddingBottom: "20px",
@@ -54,7 +54,7 @@ const pagesItemStyles = {
     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Adds shadow effect
     transition: 'background-color 0.3s', // Smooth transition
     '&:hover': {
-      backgroundColor: colors.orange2, // Change this to your desired hover color
+      backgroundColor: colors.orange, // Change this to your desired hover color
     },
 };
 

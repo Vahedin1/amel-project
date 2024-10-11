@@ -37,7 +37,7 @@ const titleItemStyles = {
 };
 
 const backgroundColorTitle = {
-    backgroundColor: colors.darkbrown,
+    backgroundColor: colors.orange,
     color: colors.white,
 };
 
@@ -130,10 +130,10 @@ export default function Home() {
                             marginTop: { xs: '50px', md: '110px' },
                             backgroundColor: '#f5f5f5',
                             color: '#333',
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
+                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
+                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}
@@ -175,14 +175,14 @@ export default function Home() {
                                     height: { md: '250px', xs: '150px' },
                                     widht: '150px',
                                     textAlign: 'center',             // Text color
-                                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
-                                    transition: '0.3s',              // Smooth transition
+                                    boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                                    transition: 'transform 0.3s, box-shadow 0.3s',
                                     '&:hover': {
-                                        boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
-                                        transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                        boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
+                                        transform: 'scale(1.05) !important',
                                     },
                                 }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange2 }}>
+                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange }}>
                                     TrackenBau
                                 </Typography>
                                 <Typography color='textSecondary'>
@@ -200,14 +200,14 @@ export default function Home() {
                                     widht: '150px',
                                     textAlign: 'center',
                                     color: '#333',               // Text color
-                                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
-                                    transition: '0.3s',              // Smooth transition
+                                    boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                                    transition: 'transform 0.3s, box-shadow 0.3s',
                                     '&:hover': {
-                                        boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
-                                        transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                        boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
+                                        transform: 'scale(1.05) !important',
                                     },
                                 }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange2 }}>
+                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange }}>
                                     Maurerarbeiten
                                 </Typography>
                                 <Typography color="textSecondary">
@@ -224,14 +224,14 @@ export default function Home() {
                                     height: { md: '250px', xs: '150px' },
                                     widht: '150px',
                                     textAlign: 'center',              // Text color
-                                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
-                                    transition: '0.3s',              // Smooth transition
+                                    boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                                    transition: 'transform 0.3s, box-shadow 0.3s',
                                     '&:hover': {
-                                        boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
-                                        transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                        boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
+                                        transform: 'scale(1.05) !important',
                                     },
                                 }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange2 }}>
+                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange }}>
                                     Um - @ Anbauten
                                 </Typography>
                                 <Typography color="textSecondary">
@@ -248,14 +248,14 @@ export default function Home() {
                                     height: { md: '250px', xs: '150px' },
                                     widht: '150px',
                                     textAlign: 'center',              // Text color
-                                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
-                                    transition: '0.3s',              // Smooth transition
+                                    boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                                    transition: 'transform 0.3s, box-shadow 0.3s',
                                     '&:hover': {
-                                        boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
-                                        transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                        boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
+                                        transform: 'scale(1.05) !important',
                                     },
                                 }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange2 }}>
+                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange }}>
                                     Maler und Spachtelarbeiten
                                 </Typography>
                                 <Typography color="textSecondary">
@@ -272,14 +272,14 @@ export default function Home() {
                                     height: { md: '250px', xs: '150px' },
                                     widht: '150px',
                                     textAlign: 'center',            // Text color
-                                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
-                                    transition: '0.3s',              // Smooth transition
+                                    boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                                    transition: 'transform 0.3s, box-shadow 0.3s',
                                     '&:hover': {
-                                        boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
-                                        transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                        boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
+                                        transform: 'scale(1.05) !important',
                                     },
                                 }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange2 }}>
+                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange }}>
                                     Putzarbeiten  {/* Corrected spelling */}
                                 </Typography>
                                 <Typography color="textSecondary">

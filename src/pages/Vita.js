@@ -84,11 +84,11 @@ const VitaContent = () => {
                                 marginTop: { xs: '0px', md: '110px' },
                                 backgroundColor: '#f5f5f5',  // Light gray background
                                 color: '#333',               // Text color
-                                boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
-                                transition: '0.3s',              // Smooth transition
+                                boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
+                                transition: 'transform 0.3s, box-shadow 0.3s',
                                 '&:hover': {
-                                    boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
-                                    transform: 'scale(1.05) !important',      // Slight scaling effect on hover
+                                    boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
+                                    transform: 'scale(1.05) !important',
                                 },
                             }}>
                             <CardContent>
