@@ -104,7 +104,7 @@ export default function Home() {
                         <Typography variant="h2" component="h1" gutterBottom sx={titleItemStyles}>
                             Willkommen bei Amel-Bau
                         </Typography>
-                        <Typography variant="h6" color="textSecondary" sx={{ animation: `${slideIn}, 1s ease-out`, ...titleItemStyles}}>
+                        <Typography variant="h6" color="textSecondary" sx={{ animation: `${slideIn}, 1s ease-out`, ...titleItemStyles }}>
                             Ihr zuverlässiger Partner für Bauen und Renovieren.
                         </Typography>
                         <Button
@@ -143,15 +143,24 @@ export default function Home() {
                                 Jedes Bauprojekt ist eine Herzensangelegenheit.
                             </Typography>
                             <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
-                                Und deswegen ist es unser oberstes Ziel, Ihre architektonische Bauplanung passgenau umzusetzen...
+                                Und deswegen ist es unser oberstes Ziel, Ihre architektonische Bauplanung passgenau umzusetzen. Wir sind bei Ihrem Bauprojekt die zentrale Schnittstelle
+                                in der Ausführung auf Ihrem Bau.
+                                Hierbei sorgen wir unter anderem für die Planung der Bauleistungen, die Koordination auf Ihrer Baustelle, die Gewährleistung der Bauqualität, eine stetige Kostenübersicht und
+                                terminliche Koordination.
+                                Auch finden wir für Sie das beste Preisleistungsverhältnis bei allen notwendigen Baustoffen für jeden Bereich Ihres Projekts.
                             </Typography>
                             <Box sx={{ borderBottom: "2px solid #444", marginY: "20px" }} />
                             <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
-                                Und deswegen ist es unser oberstes Ziel, Ihre architektonische Bauplanung passgenau umzusetzen...
+                                Wir können bereits auf mehr als 10 Jahre Erfahrung rund um den Bau zurückblicken. Hierbei handelt es sich sowohl um die praktische Ausführung von Bauprojekten,
+                                als auch eine zuverlässige Planung und Koordinierung von Baustellen.
+                                Dies kommt uns nicht nur zugute, wenn es darum geht die Qualität Ihres Bauprojekts stetig Hoch zu halten, sondern auch wichtige Details zu erkennen und für eine
+                                optimale und hochwertige Bauausführung zu sorgen.
                             </Typography>
                             <Box sx={{ borderBottom: "2px solid #444", marginY: "20px" }} />
                             <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
-                                Und deswegen ist es unser oberstes Ziel, Ihre architektonische Bauplanung passgenau umzusetzen...
+                                In über 10 Jahren Bauerfahrung haben wir eine Vielzahl von Bauprojekten betreut, geplant und abgeschlossen.
+                                <br />
+                                Ein Schwerpunkt unserer Arbeit lag in dieser Zeit auf dem Ausbau von Neubauten, der Sanierung von Altbauten, Terrassen und Balkonen, Klinkerarbeiten sowie Außenwand-Abdichtungen.
                             </Typography>
                         </Box>
                     </Card>
@@ -176,8 +185,9 @@ export default function Home() {
                                 <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange2 }}>
                                     TrackenBau
                                 </Typography>
-                                <Typography>
-                                    Hochwertige Bauleistungen für Wohn- und Gewerbeprojekte.
+                                <Typography color='textSecondary'>
+                                    Büroräume und Innenausbau oder einfach nur renovierungsbedingte Trockenbauarbeiten? Unsere Leistungsbereiche
+                                    umschließen den kompletten Tro
                                 </Typography>
                             </Card>
                         </Grid>
@@ -201,7 +211,7 @@ export default function Home() {
                                     Maurerarbeiten
                                 </Typography>
                                 <Typography color="textSecondary">
-                                    Verwandeln Sie Ihre Räume mit unseren fachmännischen Renovierungsdiensten.
+                                    Ebenfalls zu unserem Spektrum gehören natürlich die Maurer- und Betonarbeiten. Das Kerngeschäft unseres Unternehmens beinhaltet die Ausführung sämtlicher Maurerarbeiten.
                                 </Typography>
                             </Card>
 
@@ -225,7 +235,7 @@ export default function Home() {
                                     Um - @ Anbauten
                                 </Typography>
                                 <Typography color="textSecondary">
-                                    Professionelle Beratung und Projektmanagement für eine reibungslose Umsetzung.
+                                    Bei einem Umbau von bestehenden Gebäuden werden überwiegend Sanierungen im Innenbereich vorgenommen.
                                 </Typography>
                             </Card>
 
@@ -273,7 +283,8 @@ export default function Home() {
                                     Putzarbeiten  {/* Corrected spelling */}
                                 </Typography>
                                 <Typography color="textSecondary">
-                                    Verwandeln Sie Ihre Räume mit unseren fachmännischen Renovierungsdiensten.
+                                    Putzarbeiten sind nicht jedermanns Sache. Ihr alter Putz sieht einfach nicht mehr gut aus oder löst sich von der Wand –
+                                    kein Problem! Wir entfernen und erneuern gerne alles für Sie, egal ob Innen- oder Außenputz.
                                 </Typography>
                             </Card>
                         </Grid>

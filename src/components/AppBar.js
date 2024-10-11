@@ -48,6 +48,10 @@ const pagesItemStyles = {
 const appbarItemStyles = {
   backgroundColor: colors.darkbrown,
   color: colors.white,
+  transition: 'background-color 0.3s', // Smooth transition
+  '&:hover': {
+    backgroundColor: colors.orange2, // Change this to your desired hover color
+  },
 };
 
 const logo = (

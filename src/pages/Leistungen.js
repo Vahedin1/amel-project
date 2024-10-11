@@ -72,11 +72,16 @@ function SectionUmAnbauten() {
                                 UmAbauten
                             </Typography>
                             <Typography variant="body1" paragraph>
-                                Unsere Leistungsbereiche umschließen den kompletten Trockenbau Bereich vom Einfamilienhaus oder Mehrfamilienhäuser bis hin zu Büro- und Verwaltungsgebäuden.
+                                Bei einem Umbau von bestehenden Gebäuden werden überwiegend Sanierungen im Innenbereich vorgenommen. Dabei kann entweder der vorhandene Grundriss
+                                umgestaltet
+                                oder das Dachgeschoss beziehungsweise allgemein der Innenbereich ausgebaut werden.
+                                Anbauten umfassen hauptsächlich die Erweiterung der vorhandenen Gebäudehülle von außen, meist in Zusammenhang mit Umbauarbeiten im Innenbereich.
+                                Anbauarbeiten können beispielsweise in
+                                Form eines ein- oder mehrgeschossigen Anbaus an das Bestandsobjekt oder auch in Form einer Gebäudeaufstockung um ein- oder mehrere Geschosse ausgeführt
+                                werden. Die Ausführung kann als umfangreich angesehen werden, da die überwiegenden Gewerke vergleichbar wie im Neubau anzutreffen sein können.
+                                Als Meisterbetrieb und Bauunternehmen aus Potsdam führen wir gerne alle Arten von Um- und Anbauten für Sie aus! Kontaktieren Sie uns heute!
                             </Typography>
-                            <Typography variant="body1" paragraph>
-                                Ob es nun um die Deckengestaltung, Leichtbau-Wände, Ständerwerke, Brandschutz oder den Dachgeschossausbau geht. Wir erledigen Trockenbauarbeiten aller Art. Sprechen Sie uns mit Ihrer individuellen Planung an.
-                            </Typography>
+
                         </CardContent>
                     </Card>
                 </Grid>
@@ -128,11 +133,11 @@ function SectionTrackenBau() {
                                 TrackenBau
                             </Typography>
                             <Typography variant="body1" paragraph>
-                                Unsere Leistungsbereiche umschließen den kompletten Trockenbau Bereich vom Einfamilienhaus oder Mehrfamilienhäuser bis hin zu Büro- und Verwaltungsgebäuden.
+                                Büroräume und Innenausbau oder einfach nur renovierungsbedingte Trockenbauarbeiten? Unsere Leistungsbereiche umschließen den kompletten Trockenbau Bereich vom Einfamilienhaus
+                                oder Mehrfamilienhäuser bis hin zu Büro- und Verwaltungsgebäuden. Ob es nun um die Deckengestaltung,
+                                Leichtbau-Wände, Ständerwerke, Brandschutz oder den Dachgeschossausbau geht. Wir erledigen Trockenbauarbeiten aller Art. Sprechen Sie uns mit Ihrer individuellen Planung an.
                             </Typography>
-                            <Typography variant="body1" paragraph>
-                                Ob es nun um die Deckengestaltung, Leichtbau-Wände, Ständerwerke, Brandschutz oder den Dachgeschossausbau geht. Wir erledigen Trockenbauarbeiten aller Art. Sprechen Sie uns mit Ihrer individuellen Planung an.
-                            </Typography>
+
                         </CardContent>
                     </Card>
                 </Grid>
@@ -185,7 +190,8 @@ function SectionPutzabeiten() {
                                 Putzarbeiten sind nicht jedermanns Sache.
                             </Typography>
                             <Typography variant="body1" gutterBottom>
-                                Ihr alter Putz sieht einfach nicht mehr gut aus oder löst sich von der Wand – kein Problem! Wir entfernen und erneuern gerne alles für Sie, egal ob Innen- oder Außenputz.
+                                Putzarbeiten sind nicht jedermanns Sache. Ihr alter Putz sieht einfach nicht mehr gut aus oder löst sich von der Wand
+                                – kein Problem! Wir entfernen und erneuern gerne alles für Sie, egal ob Innen- oder Außenputz.
                             </Typography>
                         </CardContent>
                     </Card>
@@ -230,7 +236,7 @@ function SectionMaurerarbeiten() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05) !important' ,
+                                transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
@@ -238,11 +244,13 @@ function SectionMaurerarbeiten() {
                                 Maurerarbeiten
                             </Typography>
                             <Typography variant="body1" gutterBottom>
-                                Vom Entkernen Ihrer Räume, Überarbeitung Ihres Mauerwerks, bis hin zum Anbau oder kompletten Umbau Ihrer Immobilie.
+                                Ebenfalls zu unserem Spektrum gehören natürlich die Maurer- und Betonarbeiten. Das Kerngeschäft unseres Unternehmens beinhaltet die Ausführung
+                                sämtlicher Maurerarbeiten. Hierzu zählen der Neubau von kleineren Anbauten, Umbauarbeiten oder auch die Kompletterrichtung von Einfamilienhäusern
+                                oder Wohn- und Geschäftshäusern. Unser Fachbetrieb ist also nicht nur im Neubau, sondern auch
+                                in der Sanierung, Modernisierung und Instandsetzung der verschiedensten Bauwerke tätig. Individuell wie Sie bringen wir Ihr Bauvorhaben in die
+                                richtige Spur! Sprechen Sie uns an!
                             </Typography>
-                            <Typography variant="body1" gutterBottom>
-                                Ob es dabei um Reparaturen, Sanierungen oder Modernisierungen geht – wir bieten Ihnen qualitativ hochwertige Lösungen.
-                            </Typography>
+
                         </CardContent>
                     </Card>
                 </Grid>
@@ -294,7 +302,9 @@ function SectionMaler() {
                                 Malerarbeiten
                             </Typography>
                             <Typography variant="body1" gutterBottom>
-                                Vom Tapezieren, Streichen bis hin zur Fassadengestaltung. Wir bieten eine Vielzahl an Maler- und Renovierungsarbeiten für den Innen- und Außenbereich an.
+                                Egal ob weiß oder doch lieber Farbe, wir erfüllen ihn jeden Wunsch und helfen gerne bei der Umsetzung ihrer Träume.
+                                Die alte Tapete sieht einfach nicht mehr gut aus sie wollen was Modernes auch kein Problem wir entfernen ihre Tapete Spachteln und Schleifen ihre Wände
+                                in Q3 Qualität für eine Optimale glatte Wand.
                             </Typography>
                         </CardContent>
                     </Card>

@@ -21,13 +21,13 @@ const colors = {
 };
 
 const footerItemStyles = {
-    backgroundColor: colors.darkbrown,
     color: colors.white,
     textDecoration: "none",
     fontFamily: "monospace",
     fontWeight: 700,
     letterSpacing: "0rem",
     textAlign: "center",
+    
 };
 
 const socialLinks = [
@@ -52,6 +52,10 @@ const pagesItemStyles = {
     margin: "0 auto",
     padding: "0 auto",
     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Adds shadow effect
+    transition: 'background-color 0.3s', // Smooth transition
+    '&:hover': {
+      backgroundColor: colors.orange2, // Change this to your desired hover color
+    },
 };
 
 const logo = (
