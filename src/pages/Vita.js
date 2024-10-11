@@ -66,7 +66,7 @@ const VitaContent = () => {
                                 border: 'none',
                                 transition: '0.3s',              // Smooth transition
                                 '&:hover': {
-                                    transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                    transform: 'scale(1.05) !important',      // Slight scaling effect on hover
                                 },
                             }}>
                             <CardContent
@@ -100,7 +100,7 @@ const VitaContent = () => {
                                 transition: '0.3s',              // Smooth transition
                                 '&:hover': {
                                     boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',  // Larger shadow on hover
-                                    transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                    transform: 'scale(1.05) !important',      // Slight scaling effect on hover
                                 },
                             }}>
                             <CardContent>

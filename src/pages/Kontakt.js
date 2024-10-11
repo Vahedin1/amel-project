@@ -1,10 +1,10 @@
 import ResponsiveAppBar from '../components/AppBar';
+import Footer from '../components/Footer';
 import React, { useState } from "react";
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import { Box, Button, Checkbox, FormControlLabel, Grid, MenuItem, Select, TextField, Avatar, Typography } from "@mui/material";
+import { Box, Button, Alert, Snackbar, Grid, MenuItem, Select, TextField, Avatar, Typography } from "@mui/material";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import emailjs from 'emailjs-com';
-import Footer from '../components/Footer';
 
 const colors = {
     white: "#FFFFFF",
@@ -13,6 +13,7 @@ const colors = {
     gray: "#7A7979",
     orange2: "#AA4D1B",
     darkbrown: "#29180E",
+    darkYellow: "#DAA520",
 };
 
 const mapContainerStyle = {
@@ -20,23 +21,22 @@ const mapContainerStyle = {
     height: '400px',
 };
 
+const center = {
+    lat: 43.268032,
+    lng: 20.013592,
+};
 
 const CustomMarker = ({ label }) => {
     return (
-        <div style={{ textAlign: 'center' }}>
-            <Typography variant="caption" sx={{ marginBottom: '4px', color: 'black', textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+            <Typography variant="caption" sx={{ marginBottom: '4px', color: colors.orange2, textAlign: 'center' }}>
                 {label}
             </Typography>
-            <Avatar sx={{ bgcolor: 'orange', width: 30, height: 30 }}>
+            <Avatar sx={{ bgcolor: colors.orange2, width: 40, height: 40 }}> {/* Adjust size here */}
                 <LocationOnIcon sx={{ color: 'white' }} />
             </Avatar>
         </div>
     );
-};
-
-const center = {
-    lat: 52.379189,  // Set the latitude of your location
-    lng: 13.506111,  // Set the longitude of your location
 };
 
 const ContactForm = () => {
@@ -46,27 +46,19 @@ const ContactForm = () => {
         email: "",
         phone: "",
         message: "",
-        privacyAccepted: false,
-        consentGiven: false,
         queryType: "",
         captchaError: "",
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [openSnackbar, setOpenSnackbar] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState("");
 
     const handleChange = (e) => {
         setFormData((prevData) => ({
             ...prevData,
             [e.target.name]: e.target.value,
-            captchaError: "", // Clear error when input changes
-        }));
-    };
-
-    const handleCheckboxChange = (e) => {
-        setFormData((prevData) => ({
-            ...prevData,
-            [e.target.name]: e.target.checked,
-            captchaError: "", // Clear error when checkbox changes
+            captchaError: "",
         }));
     };
 
@@ -81,8 +73,6 @@ const ContactForm = () => {
             email: "",
             phone: "",
             message: "",
-            privacyAccepted: false,
-            consentGiven: false,
             queryType: "",
             captchaError: "",
         });
@@ -92,21 +82,10 @@ const ContactForm = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Validate email before proceeding
         if (!validateEmail(formData.email)) {
             setFormData((prevState) => ({
                 ...prevState,
                 captchaError: 'Invalid email format',
-            }));
-            setIsSubmitting(false);
-            return;
-        }
-
-        // Check privacy and consent acceptance
-        if (!formData.privacyAccepted || !formData.consentGiven) {
-            setFormData((prevState) => ({
-                ...prevState,
-                captchaError: 'You must accept privacy and consent terms',
             }));
             setIsSubmitting(false);
             return;
@@ -121,29 +100,31 @@ const ContactForm = () => {
             queryType: formData.queryType,
         });
 
-        // Use EmailJS to send the form data via email
         try {
             const result = await emailjs.send(
-                'service_ulaxpbp',    // Your actual Service ID
-                'template_p6rrubq',   // Your actual Template ID
+                process.env.REACT_APP_EMAILJS_SERVICE_ID,
+                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
                 {
                     name: formData.name,
                     email: formData.email,
                     message: formData.message,
-                    // Add any additional fields if necessary
-                    phone: formData.phone,  // You can add more fields as needed
+                    phone: formData.phone,
                     company: formData.company,
                     queryType: formData.queryType,
                 },
-                '7Bd6i9FWC8sxP8DGI'   // Your actual User ID
+                process.env.REACT_APP_EMAILJS_USER_ID
             );
             console.log('Email sent successfully:', result.text);
-            resetForm();  // Reset the form upon success
+            resetForm();
+            setSnackbarMessage('Form submitted successfully!');
+            setOpenSnackbar(true);
+
         } catch (error) {
-            console.error('Error sending email:', error.text);
+            console.error('Error sending email:', error);
+            const errorMessage = error.response?.data?.error || 'Failed to send email. Please try again later.';
             setFormData((prevState) => ({
                 ...prevState,
-                captchaError: 'Failed to send email. Please try again later.',
+                captchaError: errorMessage,
             }));
         } finally {
             setIsSubmitting(false);
@@ -152,6 +133,7 @@ const ContactForm = () => {
 
     return (
         <Box
+            className="slide-card"
             sx={{
                 maxWidth: 600,
                 margin: "0 auto",
@@ -163,7 +145,6 @@ const ContactForm = () => {
                 border: "1px solid #ddd",
             }}
         >
-            {/* Dropdown for query type */}
             <Select
                 name="queryType"
                 value={formData.queryType}
@@ -172,13 +153,12 @@ const ContactForm = () => {
                 sx={{ borderColor: "brown" }}
             >
                 <MenuItem value="">
-                    <em>Allgemeine Fragen</em>
+                    <em style={{ color: colors.orange2 }}>Allgemeine Fragen</em>
                 </MenuItem>
                 <MenuItem value="Angebot">Angebot</MenuItem>
                 <MenuItem value="Beschwerde">Beschwerde</MenuItem>
             </Select>
 
-            {/* Form Fields */}
             <TextField
                 name="company"
                 label="Firma"
@@ -186,6 +166,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 variant="outlined"
                 fullWidth
+                required
             />
             <TextField
                 name="name"
@@ -226,33 +207,6 @@ const ContactForm = () => {
                 required
             />
 
-            {/* Privacy & Consent Checkboxes */}
-            <FormControlLabel
-                control={
-                    <Checkbox
-                        name="privacyAccepted"
-                        checked={formData.privacyAccepted}
-                        onChange={handleCheckboxChange}
-                    />
-                }
-                label="Ich habe die Datenschutzerklärung, insbesondere Punkt III., zur Kenntnis genommen."
-            />
-            <FormControlLabel
-                control={
-                    <Checkbox
-                        name="consentGiven"
-                        checked={formData.consentGiven}
-                        onChange={handleCheckboxChange}
-                    />
-                }
-                label="Ich willige in die Verarbeitung meiner personenbezogenen Daten zum Zwecke der Kontaktaufnahme ein."
-            />
-
-            {formData.captchaError && (
-                <p style={{ color: 'red' }}>{formData.captchaError}</p>
-            )}
-
-            {/* Submit Button */}
             <Button
                 variant="contained"
                 color="primary"
@@ -262,12 +216,24 @@ const ContactForm = () => {
             >
                 {isSubmitting ? 'Senden...' : 'Senden'}
             </Button>
+
+            <Snackbar
+                open={openSnackbar}
+                autoHideDuration={6000}
+                onClose={() => setOpenSnackbar(false)}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            >
+                <Alert onClose={() => setOpenSnackbar(false)} severity="success" sx={{ width: '100%' }}>
+                    {snackbarMessage}
+                </Alert>
+            </Snackbar>
         </Box>
     );
 };
 
 export default function Kontakt() {
     const address = "Alte Dorfstraße 28, 14542 Werder/Have";
+
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <ResponsiveAppBar />

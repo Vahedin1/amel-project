@@ -42,7 +42,7 @@ function SectionUmAnbauten() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardMedia
@@ -64,7 +64,7 @@ function SectionUmAnbauten() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
@@ -98,7 +98,7 @@ function SectionTrackenBau() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardMedia
@@ -120,7 +120,7 @@ function SectionTrackenBau() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
@@ -154,7 +154,7 @@ function SectionPutzabeiten() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardMedia
@@ -177,7 +177,7 @@ function SectionPutzabeiten() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
@@ -208,7 +208,7 @@ function SectionMaurerarbeiten() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardMedia
@@ -230,7 +230,7 @@ function SectionMaurerarbeiten() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important' ,
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
@@ -264,7 +264,7 @@ function SectionMaler() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardMedia
@@ -286,7 +286,7 @@ function SectionMaler() {
                             transition: '0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>

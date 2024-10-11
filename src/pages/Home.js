@@ -134,7 +134,7 @@ export default function Home() {
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
                                 boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.35)',
-                                transform: 'scale(1.05)',
+                                transform: 'scale(1.05) !important',
                             },
                         }}
                     >
