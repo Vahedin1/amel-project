@@ -11,9 +11,5 @@ body {
 }
 
 
-.custom-label {
-    position: absolute;
-    transform: translate(-50%, -250%); 
-    z-index: 1;
-    /* Add additional styles if necessary */
-}
+
+

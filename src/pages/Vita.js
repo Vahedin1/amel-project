@@ -16,18 +16,6 @@ const VitaContent = () => {
         darkbrown: "#29180E",
     };
 
-    const titleItemStyles = {
-        color: colors.white,
-        fontWeight: 600,
-
-    }
-
-    const backgroundColorTitle = {
-        backgroundColor: colors.darkbrown,
-        color: colors.white,
-        padding: '20px 0',
-        width: '100%',
-    }
 
     return (
         <Box

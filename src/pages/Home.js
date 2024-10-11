@@ -66,7 +66,7 @@ export default function Home() {
                         ...fadeIn,
                         animation: 'fadeIn 2s ease-out',
                         position: 'relative',
-                        height: '900px',
+                        height: '1000px',
                         width: '100%',
                         display: 'flex',
                         alignItems: 'center',
