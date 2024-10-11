@@ -246,25 +246,28 @@ export default function Kontakt() {
 
                     {/* Right Column: Google Map */}
                     <Grid item xs={12} md={8}>
-                        <LoadScript googleMapsApiKey="AIzaSyCyDbweXjJ8pwSuET4WtRKLSRqws40eSNw">
+                        <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
                             <GoogleMap
                                 mapContainerStyle={mapContainerStyle}
                                 center={center}
                                 zoom={14}
                             >
-                                {/* Add a marker at the desired location */}
-                                <Marker position={center} />
 
-                                <div
-                                    style={{
-                                        position: 'absolute',
-                                        transform: 'translate(-50%, -100%)', // This keeps it centered
-                                        left: `${(center.lng + 180) * (100 / 360)}%`, // Adjust longitude position
-                                        top: `${(90 - center.lat) * (100 / 180)}%`, // Adjust latitude position
-                                        zIndex: 1
-                                    }}>
-                                    <CustomMarker label={address} />
-                                </div>
+                                <Marker
+                                    position={center}
+                                    icon={{
+                                        url: "./assets/location-point.svg",
+                                        scaledSize: new window.google.maps.Size(80, 80),
+                                    }}
+                                    label={{
+                                        text: address,
+                                        color: "red",
+                                        fontWeight: "bold",
+                                        fontSize: "25px",
+                                        className : 'custom-label',
+                                    }}
+                                />
+
 
                             </GoogleMap>
                         </LoadScript>
