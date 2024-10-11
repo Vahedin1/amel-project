@@ -2,8 +2,7 @@ import ResponsiveAppBar from '../components/AppBar';
 import Footer from '../components/Footer';
 import React, { useState } from "react";
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import { Box, Button, Alert, Snackbar, Grid, MenuItem, Select, TextField, Avatar, Typography } from "@mui/material";
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { Box, Button, Alert, Snackbar, Grid, MenuItem, Select, TextField } from "@mui/material";
 import emailjs from 'emailjs-com';
 
 const colors = {
@@ -26,18 +25,7 @@ const center = {
     lng: 20.013592,
 };
 
-const CustomMarker = ({ label }) => {
-    return (
-        <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            <Typography variant="caption" sx={{ marginBottom: '4px', color: colors.orange2, textAlign: 'center' }}>
-                {label}
-            </Typography>
-            <Avatar sx={{ bgcolor: colors.orange2, width: 40, height: 40 }}> {/* Adjust size here */}
-                <LocationOnIcon sx={{ color: 'white' }} />
-            </Avatar>
-        </div>
-    );
-};
+
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -252,11 +240,11 @@ export default function Kontakt() {
                                 center={center}
                                 zoom={14}
                             >
-
+                                {/* Code for red label red marker */}
                                 <Marker
                                     position={center}
                                     icon={{
-                                        url: "./assets/location-point.svg",
+                                        url: "./assets/location2.svg",
                                         scaledSize: new window.google.maps.Size(80, 80),
                                     }}
                                     label={{
@@ -264,10 +252,9 @@ export default function Kontakt() {
                                         color: "red",
                                         fontWeight: "bold",
                                         fontSize: "25px",
-                                        className : 'custom-label',
+                                        className: 'custom-label',
                                     }}
                                 />
-
 
                             </GoogleMap>
                         </LoadScript>
