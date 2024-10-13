@@ -1,5 +1,3 @@
-"use client";
-
 import ResponsiveAppBar from '../components/AppBar';
 import GooglesMap from '../components/MapGoogle';
 import React, { useState } from "react";
