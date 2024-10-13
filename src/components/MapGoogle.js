@@ -2,13 +2,13 @@
 
 import ResponsiveAppBar from './AppBar';
 import Footer from './Footer';
-import { APIProvider, Map, AdvancedMarker, Pin, InfoWindow, } from "@vis.gl/react-google-maps";
+import { APIProvider, Map, AdvancedMarker, InfoWindow, } from "@vis.gl/react-google-maps";
 import React, { useState } from "react";
 
 export default function GooglesMap() {
     const position = {
-        lat: 43.5461,
-        lng: 13.6150,
+        lat: 60.5461,
+        lng: 20.6150,
     };
     const [open, setOpen] = useState(false);
 
@@ -18,23 +18,25 @@ export default function GooglesMap() {
             <ResponsiveAppBar />
 
             {/* Google Map */}
-            <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+            <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY2}>
                 <div className='map-container' style={{ height: '650px', width: '100%' }}>
                     <Map
                         center={position}
-                        mapId={process.env.REACT_APP_GOOGLE_MAPS_ID}
+                        defaultCenter={position}
+                        mapId={process.env.REACT_APP_GOOGLE_MAPS_ID2}
                         zoom={16}
+                        defaultZoom={16}
+                        options={{
+                            gestureHandling: "auto",
+                            zoomControl: true,
+                            streetViewControl: true,
+                        }}
                     >
                         <AdvancedMarker
                             position={position}
                             onClick={() => setOpen(true)}
                         >
-                            <Pin
-                                background={"red"}
-                                borderColor={"red"}
-                                glyphColor={'red'}
-                            >
-                            </Pin>
+
                         </AdvancedMarker>
 
                         {open && (

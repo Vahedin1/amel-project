@@ -10,10 +10,6 @@ body {
     /* Disable/Enable scrolling (AppBar Menu)*/
 }
 
-.map-container {
-    position: relative;
-    z-index: 1; /* Ensure it's above other elements */
-}
 
 
 

@@ -220,17 +220,15 @@ const ContactForm = () => {
 export default function Kontakt() {
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <>
             <ResponsiveAppBar />
-            <div style={{ flex: '1 0 auto' }}>
-                <Grid container spacing={2} marginTop={'40px'} marginBottom={'0px'} sx={{ minHeight: '100vh', justifyContent: 'center', alignItems: 'center' }}>
-                    {/*  Contact Form */}
-                    <Grid item xs={12} md={8}>
-                        <ContactForm />
-                    </Grid>
+            <Grid container spacing={2} marginTop={'40px'} marginBottom={'0px'} sx={{ minHeight: '100vh', justifyContent: 'center', alignItems: 'center' }}>
+                {/*  Contact Form */}
+                <Grid item xs={12} md={8}>
+                    <ContactForm />
                 </Grid>
-                <GooglesMap />
-            </div>
-        </div>
+            </Grid>
+            <GooglesMap />
+        </>
     );
 };

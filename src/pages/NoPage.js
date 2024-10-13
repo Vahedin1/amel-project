@@ -1,5 +1,6 @@
 import ResponsiveAppBar from '../components/AppBar';
 import Footer from '../components/Footer';
+import GooglesMap from '../components/MapGoogle';
 
 import { Typography } from '@mui/material';
 
