@@ -60,7 +60,7 @@ const VitaContent = () => {
                             <CardContent
                             >
                                 <Avatar
-                                    src="/assets/person.jpg" // Replace with actual image URL
+                                    src="/assets/person.webp" // Replace with actual image URL
                                     alt="Person Image"
                                     sx={{
                                         width: 300, height: 340, borderRadius: 0, objectFit: 'cover',  // Ensures the image covers the box nicely

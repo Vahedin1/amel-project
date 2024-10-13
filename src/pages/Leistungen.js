@@ -49,7 +49,7 @@ function SectionUmAnbauten() {
                         <CardMedia
                             component="img"
                             height="320"
-                            image="/assets/img8.jpg"
+                            image="/assets/L-UmA.webp"
                             alt="Drywall construction"
                         />
                     </Card>
@@ -110,7 +110,7 @@ function SectionTrackenBau() {
                         <CardMedia
                             component="img"
                             height="340"
-                            image="/assets/img15.jpg"
+                            image="/assets/L-Tracken.webp"
                             alt="Drywall construction"
                         />
                     </Card>
@@ -166,7 +166,7 @@ function SectionPutzabeiten() {
                         <CardMedia
                             component="img"
                             height="300"
-                            image="/assets/img17.jpg"
+                            image="/assets/L-Putza.webp"
                             alt="Drywall construction"
                         />
                     </Card>
@@ -221,7 +221,7 @@ function SectionMaurerarbeiten() {
                         <CardMedia
                             component="img"
                             height="300"
-                            image="/assets/img11.jpg"
+                            image="/assets/L-Maurer.webp"
                             alt="Drywall construction"
                         />
                     </Card>
@@ -279,7 +279,7 @@ function SectionMaler() {
                         <CardMedia
                             component="img"
                             height="300"
-                            image="/assets/img7.jpg"
+                            image="/assets/L-Maler.webp"
                             alt="Drywall construction"
                         />
                     </Card>

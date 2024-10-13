@@ -28,9 +28,9 @@ const logoStyles = {
 };
 
 const menuItemStyles = {
-  backgroundColor: colors.white,
+  backgroundColor: colors.darkbrown,
   '&:hover': {
-    backgroundColor: '           #f7e4c6        ',
+    backgroundColor: colors.orange,
     color: colors.white,
   },
 };
@@ -40,22 +40,29 @@ const pagesItemStyles = {
   fontFamily: 'monospace',
   fontWeight: 700,
   color: {
-    xs: colors.gray,
+    xs: colors.white,
     md: colors.white,
   },
-};
+  '&:hover, &:active': {
+    backgroundColor: colors.orange,
+    color: colors.white,
+
+  },
+}
+
 
 const appbarItemStyles = {
   backgroundColor: colors.orange,
   color: colors.white,
   transition: 'background-color 0.3s', // Smooth transition
-  '&:hover': {
+  '&:hover, &:active': {
     backgroundColor: colors.orange, // Change this to your desired hover color
+    color: colors.white,
   },
 };
 
 const logo = (
-  <img src="/assets/logo-test.png" alt="Logo" style={{ height: '40px' }} />
+  <img src="/assets/logo-test.webp" alt="Logo" style={{ height: '40px' }} />
 );
 
 function ResponsiveAppBar() {
@@ -167,13 +174,26 @@ function ResponsiveAppBar() {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
+              PaperProps={{
+                sx: {
+                  backgroundColor: colors.darkbrown,
+                  margin: 0, // Remove any default margins
+                  padding: 0, // Remove any default padding
+                }
+              }}
             >
               {pages.map((page) => (
                 <MenuItem
                   key={page}
                   onClick={() => handlePageClick(page)}
-                  sx={{ ...menuItemStyles }}>
-                  <Typography sx={{ textAlign: 'center', ...pagesItemStyles }}>
+                  sx={{
+                    ...menuItemStyles,
+                    padding: '10px 20px', // Adjust padding as desired
+                  }}>
+                  <Typography sx={{
+                    textAlign: 'center', ...pagesItemStyles,
+
+                  }}>
                     {page}
                   </Typography>
                 </MenuItem>

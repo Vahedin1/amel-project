@@ -83,7 +83,7 @@ export default function Home() {
                             left: 0,
                             height: '100%',
                             width: '100%',
-                            backgroundImage: `url('/assets/img16.jpg')`,
+                            backgroundImage: `url('/assets/home.webp')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             backgroundRepeat: 'no-repeat',
