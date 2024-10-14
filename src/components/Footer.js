@@ -59,7 +59,7 @@ const pagesItemStyles = {
 };
 
 const logo = (
-    <img src="/assets/logo-test.png" alt="Logo" style={{ height: "120px" }} />
+    <img src="/assets/logo-test.webp" alt="Logo" style={{ height: "120px" }} />
 );
 
 const Footer = () => {
