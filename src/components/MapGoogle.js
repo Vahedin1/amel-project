@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import useGoogleMapState from '../hooks/useGoogleMapState';
 
 export default function GooglesMap() {
-    const position = { lat: 60.5461, lng: 20.6150 };
+    const position = { lat: 50.110924, lng: 8.682127 };
     const [open, setOpen] = useState(false);
     const { center, zoom, setCenter, setZoom } = useGoogleMapState(position);
 
@@ -27,7 +27,8 @@ export default function GooglesMap() {
                         center={center}
                         defaultCenter={position}
                         mapId={process.env.REACT_APP_GOOGLE_MAPS_ID2}
-                        zoom={14}
+                        zoom={zoom}
+                        defaultZoom={14}
                         options={{
                             gestureHandling: "auto",
                             zoomControl: true,
