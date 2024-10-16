@@ -29,7 +29,7 @@ const logoStyles = {
 };
 
 const menuItemStyles = {
-  backgroundColor: colors.black,
+  backgroundColor: "#36454F",
   '&:hover': {
     backgroundColor: colors.black,
     color: colors.white,
@@ -45,7 +45,7 @@ const pagesItemStyles = {
     md: colors.white,
   },
   '&:hover, &:active': {
-    backgroundColor: colors.black,
+    backgroundColor: colors.orange,
     color: colors.white,
 
   },
@@ -53,11 +53,11 @@ const pagesItemStyles = {
 
 
 const appbarItemStyles = {
-  backgroundColor: colors.black,
+  backgroundColor: colors.orange,
   color: colors.white,
   transition: 'background-color 0.3s', // Smooth transition
   '&:hover, &:active': {
-    backgroundColor: colors.black, // Change this to your desired hover color
+    backgroundColor: colors.orange, // Change this to your desired hover color
     color: colors.white,
   },
 };
@@ -177,7 +177,8 @@ function ResponsiveAppBar() {
               }}
               PaperProps={{
                 sx: {
-                  backgroundColor: colors.darkbrown,
+                  backgroundColor: "#36454F",
+
                   margin: 0, // Remove any default margins
                   padding: 0, // Remove any default padding
                 }

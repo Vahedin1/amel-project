@@ -18,7 +18,7 @@ const colors = {
     gray: "#7A7979",
     orange2: "#AA4D1B",
     darkbrown: "#29180E",
-    black: "#000000",
+
 };
 
 const footerItemStyles = {
@@ -45,7 +45,7 @@ const socialLinks = [
 ];
 
 const pagesItemStyles = {
-    backgroundColor: colors.black,
+    backgroundColor: colors.orange,
     color: colors.white,
     paddingTop: "40px",
     paddingBottom: "20px",
