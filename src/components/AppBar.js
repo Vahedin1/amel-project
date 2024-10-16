@@ -16,6 +16,7 @@ const colors = {
   gray: '#7A7979',
   orange2: '#AA4D1B',
   darkbrown: '#29180E',
+  black: "#000000",
 };
 
 const logoStyles = {
@@ -28,9 +29,9 @@ const logoStyles = {
 };
 
 const menuItemStyles = {
-  backgroundColor: colors.darkbrown,
+  backgroundColor: colors.black,
   '&:hover': {
-    backgroundColor: colors.orange,
+    backgroundColor: colors.black,
     color: colors.white,
   },
 };
@@ -44,7 +45,7 @@ const pagesItemStyles = {
     md: colors.white,
   },
   '&:hover, &:active': {
-    backgroundColor: colors.orange,
+    backgroundColor: colors.black,
     color: colors.white,
 
   },
@@ -52,11 +53,11 @@ const pagesItemStyles = {
 
 
 const appbarItemStyles = {
-  backgroundColor: colors.orange,
+  backgroundColor: colors.black,
   color: colors.white,
   transition: 'background-color 0.3s', // Smooth transition
   '&:hover, &:active': {
-    backgroundColor: colors.orange, // Change this to your desired hover color
+    backgroundColor: colors.black, // Change this to your desired hover color
     color: colors.white,
   },
 };

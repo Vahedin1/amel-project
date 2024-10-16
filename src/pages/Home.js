@@ -28,6 +28,7 @@ const colors = {
     gray: "#7A7979",
     orange2: "#AA4D1B",
     darkbrown: "#29180E",
+    black: "#000000",
 };
 
 // Title and background styles
@@ -37,7 +38,7 @@ const titleItemStyles = {
 };
 
 const backgroundColorTitle = {
-    backgroundColor: colors.orange,
+    backgroundColor: colors.black,
     color: colors.white,
 };
 
