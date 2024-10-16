@@ -66,7 +66,7 @@ export default function Home() {
                         ...fadeIn,
                         animation: 'fadeIn 2s ease-out',
                         position: 'relative',
-                        height: '1000px',
+                        height: {xs: '900px', md: "1000px"},
                         width: '100%',
                         display: 'flex',
                         alignItems: 'center',
@@ -172,7 +172,7 @@ export default function Home() {
                                 sx={{
                                     backgroundColor: '#f5f5f5',  // Light gray background
                                     color: '#333',
-                                    height: { md: '250px', xs: '150px' },
+                                    height: { md: '250px', xs: '180px' },
                                     widht: '150px',
                                     textAlign: 'center',             // Text color
                                     boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
@@ -196,7 +196,7 @@ export default function Home() {
                             <Card
                                 sx={{
                                     backgroundColor: '#f5f5f5',  // Light gray background
-                                    height: { md: '250px', xs: '150px' },
+                                    height: { md: '250px', xs: '180px' },
                                     widht: '150px',
                                     textAlign: 'center',
                                     color: '#333',               // Text color
@@ -221,7 +221,7 @@ export default function Home() {
                                 sx={{
                                     backgroundColor: '#f5f5f5',  // Light gray background
                                     color: '#333',
-                                    height: { md: '250px', xs: '150px' },
+                                    height: { md: '250px', xs: '180px' },
                                     widht: '150px',
                                     textAlign: 'center',              // Text color
                                     boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
@@ -245,7 +245,7 @@ export default function Home() {
                                 sx={{
                                     backgroundColor: '#f5f5f5',  // Light gray background
                                     color: '#333',
-                                    height: { md: '250px', xs: '150px' },
+                                    height: { md: '250px', xs: '180px' },
                                     widht: '150px',
                                     textAlign: 'center',              // Text color
                                     boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
@@ -269,7 +269,7 @@ export default function Home() {
                                 sx={{
                                     backgroundColor: '#f5f5f5',  // Light gray background
                                     color: '#333',
-                                    height: { md: '250px', xs: '150px' },
+                                    height: { md: '250px', xs: '180px' },
                                     widht: '150px',
                                     textAlign: 'center',            // Text color
                                     boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',

@@ -1,7 +1,7 @@
 import ResponsiveAppBar from '../components/AppBar';
 import GooglesMap from '../components/MapGoogle';
 import React, { useState } from "react";
-import { Box, Button, Alert, Snackbar, Grid, MenuItem, Select, TextField } from "@mui/material";
+import { Box, Button, Alert, Snackbar, Grid, MenuItem, Select, TextField, FormControl, InputLabel } from "@mui/material";
 import emailjs from 'emailjs-com';
 
 const colors = {
@@ -14,9 +14,6 @@ const colors = {
     darkYellow: "#DAA520",
 };
 
-
-
-
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         company: "",
@@ -27,7 +24,7 @@ const ContactForm = () => {
         queryType: "",
         captchaError: "",
     });
-
+    const [errors, setErrors] = useState({});  // Track which fields are invalid
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState("");
@@ -38,10 +35,45 @@ const ContactForm = () => {
             [e.target.name]: e.target.value,
             captchaError: "",
         }));
+
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [e.target.name]: '',
+        }));
     };
 
     const validateEmail = (email) => {
         return /\S+@\S+\.\S+/.test(email);
+    };
+
+    const validateForm = () => {
+        const newErrors = {};
+
+        if (!formData.name) {
+            newErrors.name = "Vor- & Nachname sind erforderlich";
+        }
+
+        // Email field
+        if (!validateEmail(formData.email)) {
+            newErrors.email = "Ungültige E-Mail-Adresse";
+        }
+
+        // Phone field (can add additional validation if needed)
+        if (!formData.phone) {
+            newErrors.phone = "Telefonnummer ist erforderlich";
+        }
+
+        // Message field
+        if (!formData.message) {
+            newErrors.message = "Nachricht ist erforderlich";
+        }
+
+        // Query Type field
+        if (!formData.queryType) {
+            newErrors.queryType = "Anfrageart ist erforderlich";
+        }
+
+        return newErrors;
     };
 
     const resetForm = () => {
@@ -54,6 +86,13 @@ const ContactForm = () => {
             queryType: "",
             captchaError: "",
         });
+        setErrors({});
+    };
+
+    // Check if all required fields are filled out
+    const isFormValid = () => {
+        const {name, email, phone, message, queryType } = formData;
+        return   name && email && phone && message && queryType && validateEmail(email);
     };
 
     const handleSubmit = async (e) => {
@@ -65,6 +104,12 @@ const ContactForm = () => {
                 ...prevState,
                 captchaError: 'Invalid email format',
             }));
+            setIsSubmitting(false);
+            return;
+        }
+        const validationErrors = validateForm();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
             setIsSubmitting(false);
             return;
         }
@@ -98,12 +143,8 @@ const ContactForm = () => {
             setOpenSnackbar(true);
 
         } catch (error) {
-            console.error('Error sending email:', error);
-            const errorMessage = error.response?.data?.error || 'Failed to send email. Please try again later.';
-            setFormData((prevState) => ({
-                ...prevState,
-                captchaError: errorMessage,
-            }));
+            setSnackbarMessage('Failed to send email. Please try again later.');
+            setOpenSnackbar(true);
         } finally {
             setIsSubmitting(false);
         }
@@ -123,25 +164,57 @@ const ContactForm = () => {
                 border: "1px solid #ddd",
                 boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                 transition: 'transform 0.3s, box-shadow 0.3s',
-                '&:hover': {
+                transform: 'scale(1)',
+                zIndex: -1,
+                '&:hover::before': {
                     boxShadow: '0px 30px 30px rgba(255, 165, 0, 0.25)',
-                    transform: 'scale(1.05) !important',
+                    transform: 'scale(1.05) translateZ(0) !important',
                 },
             }}
         >
-            <Select
-                name="queryType"
-                value={formData.queryType}
-                onChange={handleChange}
-                displayEmpty
-                sx={{ borderColor: "brown" }}
-            >
-                <MenuItem value="">
-                    <em style={{ color: colors.orange2 }}>Allgemeine Fragen</em>
-                </MenuItem>
-                <MenuItem value="Angebot">Angebot</MenuItem>
-                <MenuItem value="Beschwerde">Beschwerde</MenuItem>
-            </Select>
+            <FormControl fullWidth>
+                {!formData.queryType && (
+                    <InputLabel htmlFor="queryType" sx={{
+                        color: formData.queryType ? colors.gray : colors.gray, // Change color if queryType has a value
+                        '&.Mui-focused': {
+                            transform: 'translate(0, -5px) scale(1)', // Move the label 10px up when focused
+                            color: colors.gray, // Change the color when focused (optional)
+                        },
+                        '&.MuiInputLabel-shrink': {
+                            transform: 'translate(10px, -8px) scale(0.75)', // Control the position when the label shrinks
+                            backgroundColor: 'white', // Background color behind the text when it shrinks
+                            padding: '0 4px', // Add padding if necessary
+                        },
+                    }}>Anfrageart *</InputLabel>
+                )}
+                <Select
+                    name="queryType"
+                    value={formData.queryType}
+                    onChange={handleChange}
+                    sx={{
+                        borderColor: errors.queryType ? 'red' : '',
+                    }}
+                >
+                    <MenuItem value="Allgemeine Fragen">
+                        <em style={{ color: colors.orange2 }}>Allgemeine Fragen</em>
+                    </MenuItem>
+                    <MenuItem value="UmAbauten">
+                        <em style={{ color: colors.orange2 }} >UmAbauten</em>
+                    </MenuItem>
+                    <MenuItem value="TrackenBau">
+                        <em style={{ color: colors.orange2 }} >TrackenBau</em>
+                    </MenuItem>
+                    <MenuItem value="UmAbauten">
+                        <em style={{ color: colors.orange2 }} >PutzaBeiten</em>
+                    </MenuItem>
+                    <MenuItem value="TrackenBau">
+                        <em style={{ color: colors.orange2 }} >Maurerarbeiten</em>
+                    </MenuItem>
+                    <MenuItem value="Maler">
+                        <em style={{ color: colors.orange2 }} >Malerarbeiten</em>
+                    </MenuItem>
+                </Select>
+            </FormControl>
 
             <TextField
                 name="company"
@@ -150,13 +223,13 @@ const ContactForm = () => {
                 onChange={handleChange}
                 variant="outlined"
                 fullWidth
-                required
             />
             <TextField
                 name="name"
                 label="Vor- & Nachname"
                 value={formData.name}
                 onChange={handleChange}
+
                 variant="outlined"
                 fullWidth
                 required
@@ -166,6 +239,7 @@ const ContactForm = () => {
                 label="E-Mail"
                 value={formData.email}
                 onChange={handleChange}
+
                 variant="outlined"
                 fullWidth
                 required
@@ -175,6 +249,7 @@ const ContactForm = () => {
                 label="Telefonnummer"
                 value={formData.phone}
                 onChange={handleChange}
+
                 variant="outlined"
                 fullWidth
                 required
@@ -187,7 +262,7 @@ const ContactForm = () => {
                 variant="outlined"
                 fullWidth
                 multiline
-                rows={4}
+                rows={8}
                 required
             />
 
@@ -195,7 +270,7 @@ const ContactForm = () => {
                 variant="contained"
                 color="primary"
                 onClick={handleSubmit}
-                disabled={isSubmitting}
+                disabled={isSubmitting || !isFormValid()}
                 sx={{ backgroundColor: colors.orange2 }}
             >
                 {isSubmitting ? 'Senden...' : 'Senden'}

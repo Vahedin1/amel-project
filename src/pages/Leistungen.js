@@ -188,7 +188,7 @@ function SectionPutzabeiten() {
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
                             <Typography variant="h5" gutterBottom sx={{ color: colors.orange2 }}>
-                                Putzarbeiten sind nicht jedermanns Sache.
+                                Putzarbeiten 
                             </Typography>
                             <Typography variant="body1" gutterBottom>
                                 Putzarbeiten sind nicht jedermanns Sache. Ihr alter Putz sieht einfach nicht mehr gut aus oder löst sich von der Wand
