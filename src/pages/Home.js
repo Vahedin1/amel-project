@@ -38,7 +38,7 @@ const titleItemStyles = {
 };
 
 const backgroundColorTitle = {
-    backgroundColor: colors.black,
+    backgroundColor: colors.orange,
     color: colors.white,
 };
 
