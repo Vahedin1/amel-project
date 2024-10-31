@@ -76,32 +76,29 @@ const VitaContent = () => {
 
                     {/* Center - Text */}
                     <Grid item xs={12} md={6}> {/* Set md to 6 for text */}
-                        <Card
+                        <Box
                             className="slide-card"
                             sx={{
                                 marginBottom: '200px',
                                 marginTop: { xs: '0px', md: '110px' },
-                                backgroundColor: '#f5f5f5',  // Light gray background
                                 color: '#333',               // Text color
-                                transition: 'transform 0.3s, box-shadow 0.3s',
                                 '&:hover': {
                                     transform: 'scale(1.05) !important',
                                 },
-                            }}>
-                            <CardContent>
-                                <Box sx={{ width: '100%', marginBottom: '20px' }}>
-                                    <Typography className='tkt' variant="h6" component='h2' gutterBottom sx={{ color: colors.black }}>
-                                        Einer, der den Bau kennt: Sowohl aus nächster Nähe.
-                                    </Typography>
-                                </Box>
-                                <Typography variant="body1" gutterBottom>
-                                    Seit seinem 17. Lebensjahr ist Roberto Swarovsky als Handwerker tätig. Nach einer erfolgreich abgeschlossenen Ausbildung zum Maurer sammelte er vielseitige praktische Erfahrungen auf dem Bau. 2017 erlangte er seinen Meistertitel. Bis zum Jahr 2019 war Roberto Swarovsky Angestellter Bauleiter.
+                            }}
+                        >
+                            <Box sx={{ width: '100%', marginBottom: '20px' }}>
+                                <Typography className='tkt' variant="h6" component='h2' gutterBottom sx={{ color: colors.black }}>
+                                    Einer, der den Bau kennt: Sowohl aus nächster Nähe.
                                 </Typography>
-                                <Typography variant="body1" gutterBottom>
-                                    Nun ist es sein Ziel, langjährige Erfahrung in die Ausführung und Leitung Ihres Bauvorhabens einzubringen. Fundament ist für ihn hier das kontinuierliche Zusammenspiel aus Planung, Koordination und Kontrolle, sowie die stetige Absprache mit Ihnen, dem Bauherren. Sein oberstes Credo jedoch: Qualität geht vor Quantität. Besonders auf dem Bau.
-                                </Typography>
-                            </CardContent>
-                        </Card>
+                            </Box>
+                            <Typography variant="body1" gutterBottom>
+                                Seit seinem 17. Lebensjahr ist Roberto Swarovsky als Handwerker tätig. Nach einer erfolgreich abgeschlossenen Ausbildung zum Maurer sammelte er vielseitige praktische Erfahrungen auf dem Bau. 2017 erlangte er seinen Meistertitel. Bis zum Jahr 2019 war Roberto Swarovsky Angestellter Bauleiter.
+                            </Typography>
+                            <Typography variant="body1" gutterBottom>
+                                Nun ist es sein Ziel, langjährige Erfahrung in die Ausführung und Leitung Ihres Bauvorhabens einzubringen. Fundament ist für ihn hier das kontinuierliche Zusammenspiel aus Planung, Koordination und Kontrolle, sowie die stetige Absprache mit Ihnen, dem Bauherren. Sein oberstes Credo jedoch: Qualität geht vor Quantität. Besonders auf dem Bau.
+                            </Typography>
+                        </Box>
                     </Grid>
 
 
