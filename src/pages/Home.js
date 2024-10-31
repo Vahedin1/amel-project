@@ -126,7 +126,7 @@ export default function Home() {
                 <Container maxWidth="false" sx={{ maxWidth: { xs: "100%", sm: "1300px" }, margin: "0 auto", marginTop: "50px" }}>
 
                         <Box textAlign={'center'} marginBottom={4}>
-                            <Typography className='tkt' variant="h4" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px' }}>
+                            <Typography className='tkt' variant="h2" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px' }}>
                                 Jedes Bauprojekt ist eine Herzensangelegenheit.
                             </Typography>
                             <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
