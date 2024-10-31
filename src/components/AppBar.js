@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { AppBar, Box, Toolbar, Container, Button, Menu, MenuItem, Typography, IconButton } from '@mui/material';
-import { Menu as MenuIcon, LocalPhone as LocalPhoneIcon, Email as EmailIcon } from '@mui/icons-material';
+import { AppBar, Box, Toolbar, Container, Button, MenuItem, Typography, IconButton, Dialog } from '@mui/material';
+import { Menu as MenuIcon, Close as CloseIcon, LocalPhone as LocalPhoneIcon, Email as EmailIcon } from '@mui/icons-material';
 
 const pages = ['Home', 'Leistungen', 'Kontakt', 'Vita'];
 
@@ -50,17 +50,16 @@ const appbarItemStyles = {
 };
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
 
-  const handleOpenNavMenu = (event) => {
-    event.preventDefault();
-    setAnchorElNav(event.currentTarget);
+  const handleOpenNavMenu = () => {
+    setOpen(true);
     document.body.classList.add('no-scroll');
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    setOpen(false);
     document.body.classList.remove('no-scroll');
   };
 
@@ -76,7 +75,7 @@ function ResponsiveAppBar() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 600 && anchorElNav) {
+      if (window.innerWidth >= 600 && open) {
         handleCloseNavMenu();
       }
     };
@@ -86,7 +85,7 @@ function ResponsiveAppBar() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [anchorElNav]);
+  }, [open]);
 
   return (
     <AppBar position="fixed" sx={{ ...appbarItemStyles }}>
@@ -130,23 +129,45 @@ function ResponsiveAppBar() {
             <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-              keepMounted
-              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={() => handlePageClick(page)}>
-                  <Typography sx={pagesItemStyles}>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
+
+          {/* Full-Screen Dialog for Mobile Menu */}
+          <Dialog
+            fullScreen
+            open={open}
+            onClose={handleCloseNavMenu}
+            sx={{
+              '& .MuiDialog-paper': {
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: colors.white,
+                padding: 0,
+                margin: 0,
+              },
+            }}
+          >
+            {/* Close Button */}
+            <IconButton
+              onClick={handleCloseNavMenu}
+              sx={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                color: colors.black,
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+
+            {/* Menu Items */}
+            {pages.map((page) => (
+              <MenuItem key={page} onClick={() => handlePageClick(page)}>
+                <Typography sx={pagesItemStyles}>{page}</Typography>
+              </MenuItem>
+            ))}
+          </Dialog>
 
           {/* Contact Information below the centered content */}
           <Box sx={{ display: { xs: 'none', sm:'none', md: 'flex' }, gap: '20px', mt: 1 }}>

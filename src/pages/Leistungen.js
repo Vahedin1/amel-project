@@ -17,280 +17,108 @@ export default function CombinedPage() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <ResponsiveAppBar />
-            <div style={{ flex: '1 0 auto' }}>
-                <SectionUmAnbauten />
-                <SectionTrackenBau />
-                <SectionPutzabeiten />
-                <SectionMaurerarbeiten />
-                <SectionMaler />
+            <div style={{ flex: '1 0 auto', marginTop: '100px' }}>
+                <Container maxWidth="lg" sx={{ mt: 5, mb: 5 }}>
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} md={4}>
+                            <HoverCard
+                                image="/assets/L-UmA.webp"
+                                title="Beratung"
+                                text="Fragen? Gerne unterstützen wir Sie bei der Planung Ihres Bauprojekts – von der ersten Idee bis zur vollständigen Umsetzung."
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <HoverCard
+                                image="/assets/L-Tracken.webp"
+                                title="Maurerarbeiten"
+                                text="Tragende Wände, Zwischenwände oder Sicht- und Ziermauerwerk aus verschiedensten Steinarten. Bei uns erhalten Sie meisterhafte Qualität !"
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <HoverCard
+                                image="/assets/L-Putza.webp"
+                                title="Stahlbetonbau"
+                                text="Von Schalarbeiten über komplexe Bewehrungsstrukturen zur Betonage. Wir garantieren präzise Ausführung und detailgetreue Umsetzungen ihrer architektonischen sowie statischen Anforderungen."
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <HoverCard
+                                image="/assets/L-Maurer.webp"
+                                title="Abbruch u. Umbau"
+                                text="Fachgerechte Demontage und Durchbrüche. Vertrauen Sie auf unsere Expertise, um Platz für Neues zu schaffen und bestehende Strukturen optimal anzupassen."
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <HoverCard
+                                image="/assets/L-Maler.webp"
+                                title="Reparaturen/Sanierung"
+                                text="Wir revitalisieren und reparieren alte oder beschädigte Strukturen. Unsere Sanierungsdienste stellen die Integrität Ihres Eigentums wieder her und verbessern sowohl die Funktionalität als auch die Wohnqualität."
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <HoverCard
+                                image="/assets/L-Gart.webp"
+                                title="Gartengestaltung"
+                                text="Ob Sie eine idyllische Rückzugsoase oder einen praktischen und stilvollen Außenbereich wünschen – wir planen und realisieren Ihren Traumgarten, inklusive der Verlegung von Pflastersteinen und Terrassenplatten."
+                            />
+                        </Grid>
+                    </Grid>
+                </Container>
             </div>
             <Footer />
         </div>
     );
 }
 
-function SectionUmAnbauten() {
+function HoverCard({ image, title, text }) {
     return (
-        <Container>
-            <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
-                <Grid item xs={12} md={6}>
-                    <Box
-                        className="slide-card"
-                        sx={{
-                            marginBottom: { xs: '10px', md: '50px' },
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05) !important',
-                            },
-                        }}
-                    >
-                        <CardMedia
-                            component="img"
-                            height="320"
-                            image="/assets/L-UmA.webp"
-                            alt="Drywall construction"
-                        />
-                    </Box>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <Box
-                        className="slide-card"
-                        sx={{
-                            marginBottom: '50px',
-                            color: '#333',
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05) !important',
-                            },
-                            borderRadius: '8px',
-                            padding: '16px',
-                            margin: '8px'
-                        }}
-                    >
-                        <Typography variant="h6" gutterBottom sx={{ color: colors.black }}>
-                            UmAbauten
-                        </Typography>
-                        <Typography variant="body1" paragraph>
-                            Bei einem Umbau von bestehenden Gebäuden werden überwiegend Sanierungen im Innenbereich vorgenommen. Dabei kann entweder der vorhandene Grundriss
-                            umgestaltet oder das Dachgeschoss beziehungsweise allgemein der Innenbereich ausgebaut werden.
-                        </Typography>
-                    </Box>
-                </Grid>
-            </Grid>
-        </Container>
+        <Box
+            className="hover-card"
+            sx={{
+                position: 'relative',
+                overflow: 'hidden',
+                borderRadius: '8px',
+                boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
+                transition: 'transform 0.3s',
+                '&:hover': {
+                    transform: 'scale(1.05)',
+                },
+            }}
+        >
+            <CardMedia
+                component="img"
+                height="300"
+                image={image}
+                alt={title}
+                sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <Box
+                sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                    color: colors.white,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    opacity: 0,
+                    transition: 'opacity 0.3s',
+                    '&:hover': {
+                        opacity: 1,
+                    },
+                }}
+            >
+                <Typography variant="h5" gutterBottom>
+                    {title}
+                </Typography>
+                <Typography variant="body1" textAlign="center" px={2}>
+                    {text}
+                </Typography>
+            </Box>
+        </Box>
     );
 }
-
-function SectionTrackenBau() {
-    return (
-        <Container>
-            <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
-                <Grid item xs={12} md={6}>
-                    <Box
-                        className="slide-card"
-                        sx={{
-                            marginBottom: { xs: '10px', md: '50px' },
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05) !important',
-                            },
-                        }}
-                    >
-                        <CardMedia
-                            component="img"
-                            height="340"
-                            image="/assets/L-Tracken.webp"
-                            alt="Drywall construction"
-                        />
-                    </Box>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <Box
-                        className="slide-card"
-                        sx={{
-                            marginBottom: '50px',
-                            color: '#333',
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05) !important',
-                            },
-                            borderRadius: '8px',
-                            padding: '16px',
-                            margin: '8px'
-                        }}
-                    >
-                        <Typography variant="h5" gutterBottom sx={{ color: colors.black }}>
-                            TrackenBau
-                        </Typography>
-                        <Typography variant="body1" paragraph>
-                            Büroräume und Innenausbau oder einfach nur renovierungsbedingte Trockenbauarbeiten? Unsere Leistungsbereiche umschließen den kompletten Trockenbau.
-                        </Typography>
-                    </Box>
-                </Grid>
-            </Grid>
-        </Container>
-    );
-}
-
-function SectionPutzabeiten() {
-    return (
-        <Container>
-            <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
-                <Grid item xs={12} md={6}>
-                    <Box
-                        className="slide-card"
-                        sx={{
-                            marginBottom: { xs: '10px', md: '50px' },
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05) !important',
-                            },
-                        }}
-                    >
-                        <CardMedia
-                            component="img"
-                            height="300"
-                            image="/assets/L-Putza.webp"
-                            alt="Drywall construction"
-                        />
-                    </Box>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <Box
-                        className="slide-card"
-                        sx={{
-                            marginBottom: '50px',
-                            color: '#333',
-                            height: '300px',
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05) !important',
-                            },
-                            borderRadius: '8px',
-                            padding: '16px',
-                            margin: '8px'
-                        }}
-                    >
-                        <Typography variant="h5" gutterBottom sx={{ color: colors.black }}>
-                            Putzarbeiten
-                        </Typography>
-                        <Typography variant="body1" gutterBottom>
-                            Putzarbeiten sind nicht jedermanns Sache. Ihr alter Putz sieht einfach nicht mehr gut aus oder löst sich von der Wand
-                            – kein Problem! Wir entfernen und erneuern gerne alles für Sie, egal ob Innen- oder Außenputz.
-                        </Typography>
-                    </Box>
-                </Grid>
-            </Grid>
-        </Container>
-    );
-}
-
-function SectionMaurerarbeiten() {
-    return (
-        <Container>
-            <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
-                <Grid item xs={12} md={6}>
-                    <Box
-                        className="slide-card"
-                        sx={{
-                            marginBottom: { xs: '10px', md: '50px' },
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05) !important',
-                            },
-                        }}
-                    >
-                        <CardMedia
-                            component="img"
-                            height="300"
-                            image="/assets/L-Maurer.webp"
-                            alt="Drywall construction"
-                        />
-                    </Box>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <Box
-                        className="slide-card"
-                        sx={{
-                            marginBottom: '50px',
-                            color: '#333',
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05) !important',
-                            },
-                            borderRadius: '8px',
-                            padding: '16px',
-                            margin: '8px'
-                        }}
-                    >
-                        <Typography variant="h5" gutterBottom sx={{ color: colors.black }}>
-                            Maurerarbeiten
-                        </Typography>
-                        <Typography variant="body1" gutterBottom>
-                            Ebenfalls zu unserem Spektrum gehören natürlich die Maurer- und Betonarbeiten. Das Kerngeschäft unseres Unternehmens beinhaltet die Ausführung
-                            sämtlicher Maurerarbeiten. Hierzu zählen der Neubau von kleineren Anbauten, Umbauarbeiten oder auch die Kompletterrichtung von Einfamilienhäusern
-                            oder Wohn- und Geschäftshäusern.
-                        </Typography>
-                    </Box>
-                </Grid>
-            </Grid>
-        </Container>
-    );
-}
-
-function SectionMaler() {
-    return (
-        <Container>
-            <Grid container spacing={4} alignItems="center" marginTop={'50px'}>
-                <Grid item xs={12} md={6}>
-                    <Box
-                        className="slide-card"
-                        sx={{
-                            marginBottom: { xs: '10px', md: '50px' },
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05) !important',
-                            },
-                        }}
-                    >
-                        <CardMedia
-                            component="img"
-                            height="300"
-                            image="/assets/L-Maler.webp"
-                            alt="Drywall construction"
-                        />
-                    </Box>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <Box
-                        className="slide-card"
-                        sx={{
-                            marginBottom: '50px',
-                            color: '#333',
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05) !important',
-                            },
-                            borderRadius: '8px',
-                            padding: '16px',
-                            margin: '8px'
-                        }}
-                    >
-                        <Typography variant="h5" gutterBottom sx={{ color: colors.black }}>
-                            Malerarbeiten
-                        </Typography>
-                        <Typography variant="body1" gutterBottom>
-                            Egal ob weiß oder doch lieber Farbe, wir erfüllen ihn jeden Wunsch und helfen gerne bei der Umsetzung ihrer Träume.
-                            Die alte Tapete sieht einfach nicht mehr gut aus sie wollen was Modernes auch kein Problem wir entfernen ihre Tapete Spachteln und Schleifen ihre Wände
-                            in Q3 Qualität für eine Optimale glatte Wand.
-                        </Typography>
-                    </Box>
-                </Grid>
-            </Grid>
-        </Container>
-    );
-}
-
-
-
