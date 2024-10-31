@@ -1,5 +1,5 @@
 // useGoogleMapState.js
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { deepEqual } from "../utils/deepEqual";
 
 const useGoogleMapState = (initialPosition, initialZoom) => {

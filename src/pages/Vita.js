@@ -68,7 +68,6 @@ const VitaContent = () => {
                                         boxShadow: 'none',   // Remove any shadow effect
                                         padding: '0',        // Ensure no padding around the image}}
                                         outline: 'none',
-                                        borderRadius: '40px',
                                     }}
                                 />
                             </CardContent>

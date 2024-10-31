@@ -94,7 +94,7 @@ function ResponsiveAppBar() {
         <Toolbar disableGutters sx={{ flexDirection: 'column', alignItems: 'center' }}>
 
           {/* Centered Logo and Pages for Desktop */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center', gap: '40px', mb: 1 }}>
+          <Box sx={{ display: { xs: 'none', sm:'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center', gap: '40px', mb: 1 }}>
             <Typography
               variant="h2"
               noWrap
@@ -109,7 +109,7 @@ function ResponsiveAppBar() {
             >
               UNGER
             </Typography>
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '20px' }}>
+            <Box sx={{ display: { xs: 'none', sm:'none',md: 'flex' }, gap: '20px' }}>
               {pages.map((page) => (
                 <Button
                   key={page}
@@ -149,7 +149,7 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* Contact Information below the centered content */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '20px', mt: 1 }}>
+          <Box sx={{ display: { xs: 'none', sm:'none', md: 'flex' }, gap: '20px', mt: 1 }}>
             <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
               <LocalPhoneIcon />
               <Typography variant="body1" sx={{ color: colors.black }}>0162 420 66 78</Typography>

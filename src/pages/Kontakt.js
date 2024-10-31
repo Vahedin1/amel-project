@@ -1,8 +1,10 @@
 import ResponsiveAppBar from '../components/AppBar';
 import GooglesMap from '../components/MapGoogle';
 import React, { useState } from "react";
-import { Box, Button, Alert, Snackbar, Grid, MenuItem, Select, TextField, FormControl, InputLabel } from "@mui/material";
+import { Box, Button, Alert, Snackbar, Grid, MenuItem, Select, TextField, FormControl, InputLabel, FormHelperText } from "@mui/material";
 import emailjs from 'emailjs-com';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 const colors = {
     white: "#FFFFFF",
@@ -12,6 +14,7 @@ const colors = {
     orange2: "#AA4D1B",
     darkbrown: "#29180E",
     darkYellow: "#DAA520",
+    black: '#000000',
 };
 
 const ContactForm = () => {
@@ -91,8 +94,8 @@ const ContactForm = () => {
 
     // Check if all required fields are filled out
     const isFormValid = () => {
-        const {name, email, phone, message, queryType } = formData;
-        return   name && email && phone && message && queryType && validateEmail(email);
+        const { name, email, phone, message, queryType } = formData;
+        return name && email && phone && message && queryType && validateEmail(email);
     };
 
     const handleSubmit = async (e) => {
@@ -194,26 +197,26 @@ const ContactForm = () => {
                     }}
                 >
                     <MenuItem value="Allgemeine Fragen">
-                        <em style={{ color: colors.orange2 }}>Allgemeine Fragen</em>
+                        <em style={{ color: colors.black }}>Allgemeine Fragen</em>
                     </MenuItem>
                     <MenuItem value="UmAbauten">
-                        <em style={{ color: colors.orange2 }} >UmAbauten</em>
+                        <em style={{ color: colors.black }} >UmAbauten</em>
                     </MenuItem>
                     <MenuItem value="TrackenBau">
-                        <em style={{ color: colors.orange2 }} >TrackenBau</em>
+                        <em style={{ color: colors.black }} >TrackenBau</em>
                     </MenuItem>
                     <MenuItem value="UmAbauten">
-                        <em style={{ color: colors.orange2 }} >PutzaBeiten</em>
+                        <em style={{ color: colors.black }} >PutzaBeiten</em>
                     </MenuItem>
                     <MenuItem value="TrackenBau">
-                        <em style={{ color: colors.orange2 }} >Maurerarbeiten</em>
+                        <em style={{ color: colors.black }} >Maurerarbeiten</em>
                     </MenuItem>
                     <MenuItem value="Maler">
-                        <em style={{ color: colors.orange2 }} >Malerarbeiten</em>
+                        <em style={{ color: colors.black }} >Malerarbeiten</em>
                     </MenuItem>
                 </Select>
-            </FormControl>
 
+            </FormControl>
             <TextField
                 name="company"
                 label="Firma"
@@ -221,6 +224,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 variant="outlined"
                 fullWidth
+                sx={{ marginTop: '5px' }}
             />
             <TextField
                 name="name"
@@ -231,6 +235,7 @@ const ContactForm = () => {
                 variant="outlined"
                 fullWidth
                 required
+                sx={{ marginTop: '5px' }}
             />
             <TextField
                 name="email"
@@ -241,17 +246,32 @@ const ContactForm = () => {
                 variant="outlined"
                 fullWidth
                 required
+                sx={{ marginTop: '5px' }}
             />
-            <TextField
-                name="phone"
-                label="Telefonnummer"
+            <InputLabel
+                shrink
+                sx={{ margin: 0, padding: 0, marginTop: '5px', }}>
+                Telefonnummer:
+            </InputLabel>
+            <PhoneInput
+                country={'de'}
                 value={formData.phone}
-                onChange={handleChange}
-
-                variant="outlined"
-                fullWidth
-                required
+                onChange={(phone) => setFormData((prevData) => ({ ...prevData, phone }))}
+                inputStyle={{
+                    width: '100%',
+                    height: '56px',
+                    borderColor: errors.phone ? 'red' : '',
+                    paddingLeft: '50px', // to adjust for the country code padding
+                }}
+                specialLabel=""
+                containerStyle={{ width: '100%' }}
+                sx={{
+                    margin: 0, padding: 0, marginBottom: '5px'
+                }}
             />
+            {errors.phone && (
+                <FormHelperText error>{errors.phone}</FormHelperText>
+            )}
             <TextField
                 name="message"
                 label="Nachricht"
@@ -262,6 +282,7 @@ const ContactForm = () => {
                 multiline
                 rows={8}
                 required
+                sx={{ marginTop: '5px' }}
             />
 
             <Button
@@ -269,7 +290,7 @@ const ContactForm = () => {
                 color="primary"
                 onClick={handleSubmit}
                 disabled={isSubmitting || !isFormValid()}
-                sx={{ backgroundColor: colors.orange2 }}
+                sx={{ backgroundColor: colors.black }}
             >
                 {isSubmitting ? 'Senden...' : 'Senden'}
             </Button>

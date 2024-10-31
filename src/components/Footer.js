@@ -246,7 +246,6 @@ const Footer = () => {
                                         '&:hover': {
                                             transform: 'scale(1.05)',      // Slight scaling effect on hover
                                         },
-                                        display: 'inline-block',  // Make each text behave individually
                                     }}>
                                         {renderLinks(option)}
                                     </Typography>

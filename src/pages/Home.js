@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Typography, Grid, Button, Box, Card } from '@mui/material';
+import { Container, Typography, Button, Box } from '@mui/material';
 import ResponsiveAppBar from '../components/AppBar';
 import Footer from '../components/Footer.js';
 import '../CardAnimations.css';
@@ -67,7 +67,7 @@ export default function Home() {
                         ...fadeIn,
                         animation: 'fadeIn 2s ease-out',
                         position: 'relative',
-                        height: {xs: '900px', md: "1000px"},
+                        height: { xs: '900px', md: "1000px" },
                         width: '100%',
                         display: 'flex',
                         alignItems: 'center',
@@ -82,8 +82,8 @@ export default function Home() {
                             position: 'absolute',
                             top: 0,
                             left: 0,
-                            height: '100%',
                             width: '100%',
+                            minHeight: { xs: '100vh', md: '100vh' },
                             backgroundImage: `url('/assets/home.webp')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
@@ -102,7 +102,7 @@ export default function Home() {
 
                     <Box
                         sx={{ animation: `${slideIn} 1s ease-out`, position: 'relative', zIndex: 1 }}>
-                        <Typography variant="h2" component="h1" gutterBottom sx={titleItemStyles}>
+                        <Typography variant="h2" component="h1" gutterBottom sx={{ ...titleItemStyles, fontSize: { xs: '1.2rem', sm: '2rem' } }}>
                             Willkommen bei Amel-Bau
                         </Typography>
                         <Typography variant="h6" color="textSecondary" sx={{ animation: `${slideIn}, 1s ease-out`, ...titleItemStyles }}>
@@ -125,31 +125,31 @@ export default function Home() {
                 {/* Content Section */}
                 <Container maxWidth="false" sx={{ maxWidth: { xs: "100%", sm: "1300px" }, margin: "0 auto", marginTop: "50px" }}>
 
-                        <Box textAlign={'center'} marginBottom={4}>
-                            <Typography className='tkt' variant="h2" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px' }}>
-                                Jedes Bauprojekt ist eine Herzensangelegenheit.
-                            </Typography>
-                            <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
-                                Und deswegen ist es unser oberstes Ziel, Ihre architektonische Bauplanung passgenau umzusetzen. Wir sind bei Ihrem Bauprojekt die zentrale Schnittstelle
-                                in der Ausführung auf Ihrem Bau.
-                                Hierbei sorgen wir unter anderem für die Planung der Bauleistungen, die Koordination auf Ihrer Baustelle, die Gewährleistung der Bauqualität, eine stetige Kostenübersicht und
-                                terminliche Koordination.
-                                Auch finden wir für Sie das beste Preisleistungsverhältnis bei allen notwendigen Baustoffen für jeden Bereich Ihres Projekts.
-                            </Typography>
-                            <Box sx={{ borderBottom: "2px solid #444", marginY: "20px" }} />
-                            <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
-                                Wir können bereits auf mehr als 10 Jahre Erfahrung rund um den Bau zurückblicken. Hierbei handelt es sich sowohl um die praktische Ausführung von Bauprojekten,
-                                als auch eine zuverlässige Planung und Koordinierung von Baustellen.
-                                Dies kommt uns nicht nur zugute, wenn es darum geht die Qualität Ihres Bauprojekts stetig Hoch zu halten, sondern auch wichtige Details zu erkennen und für eine
-                                optimale und hochwertige Bauausführung zu sorgen.
-                            </Typography>
-                            <Box sx={{ borderBottom: "2px solid #444", marginY: "20px" }} />
-                            <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
-                                In über 10 Jahren Bauerfahrung haben wir eine Vielzahl von Bauprojekten betreut, geplant und abgeschlossen.
-                                <br />
-                                Ein Schwerpunkt unserer Arbeit lag in dieser Zeit auf dem Ausbau von Neubauten, der Sanierung von Altbauten, Terrassen und Balkonen, Klinkerarbeiten sowie Außenwand-Abdichtungen.
-                            </Typography>
-                        </Box>
+                    <Box textAlign={'center'} marginBottom={4}>
+                        <Typography className='tkt' variant="h2" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px' }}>
+                            Jedes Bauprojekt ist eine Herzensangelegenheit.
+                        </Typography>
+                        <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
+                            Und deswegen ist es unser oberstes Ziel, Ihre architektonische Bauplanung passgenau umzusetzen. Wir sind bei Ihrem Bauprojekt die zentrale Schnittstelle
+                            in der Ausführung auf Ihrem Bau.
+                            Hierbei sorgen wir unter anderem für die Planung der Bauleistungen, die Koordination auf Ihrer Baustelle, die Gewährleistung der Bauqualität, eine stetige Kostenübersicht und
+                            terminliche Koordination.
+                            Auch finden wir für Sie das beste Preisleistungsverhältnis bei allen notwendigen Baustoffen für jeden Bereich Ihres Projekts.
+                        </Typography>
+                        <Box sx={{ borderBottom: "2px solid #444", marginY: "20px" }} />
+                        <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
+                            Wir können bereits auf mehr als 10 Jahre Erfahrung rund um den Bau zurückblicken. Hierbei handelt es sich sowohl um die praktische Ausführung von Bauprojekten,
+                            als auch eine zuverlässige Planung und Koordinierung von Baustellen.
+                            Dies kommt uns nicht nur zugute, wenn es darum geht die Qualität Ihres Bauprojekts stetig Hoch zu halten, sondern auch wichtige Details zu erkennen und für eine
+                            optimale und hochwertige Bauausführung zu sorgen.
+                        </Typography>
+                        <Box sx={{ borderBottom: "2px solid #444", marginY: "20px" }} />
+                        <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
+                            In über 10 Jahren Bauerfahrung haben wir eine Vielzahl von Bauprojekten betreut, geplant und abgeschlossen.
+                            <br />
+                            Ein Schwerpunkt unserer Arbeit lag in dieser Zeit auf dem Ausbau von Neubauten, der Sanierung von Altbauten, Terrassen und Balkonen, Klinkerarbeiten sowie Außenwand-Abdichtungen.
+                        </Typography>
+                    </Box>
                 </Container>
 
             </div>
