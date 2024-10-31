@@ -18,11 +18,12 @@ const colors = {
     gray: "#7A7979",
     orange2: "#AA4D1B",
     darkbrown: "#29180E",
+    black: "#000000",
 
 };
 
 const footerItemStyles = {
-    color: colors.white,
+    color: colors.black,
     textDecoration: "none",
     fontFamily: "monospace",
     fontWeight: 700,
@@ -45,8 +46,8 @@ const socialLinks = [
 ];
 
 const pagesItemStyles = {
-    backgroundColor: colors.orange,
-    color: colors.white,
+    backgroundColor: colors.white,
+    color: colors.black,
     paddingTop: "40px",
     paddingBottom: "20px",
     width: "100%",
@@ -55,7 +56,7 @@ const pagesItemStyles = {
     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Adds shadow effect
     transition: 'background-color 0.3s', // Smooth transition
     '&:hover': {
-      backgroundColor: colors.black, // Change this to your desired hover color
+   //   backgroundColor: colors.black, // Change this to your desired hover color
     },
 };
 
@@ -140,11 +141,7 @@ const Footer = () => {
                             }}
                         >
                             {logo}
-                            <Box ml={2}>
-                                <Typography variant="h5" noWrap>MAURERMEISTER </Typography>
-                                <Typography variant="h5">AMEL MEMIC</Typography>
 
-                            </Box>
                         </Box>
                     </Grid>
 
@@ -198,7 +195,7 @@ const Footer = () => {
                             >
                                 <EmailIcon sx={{ marginRight: "5px" }} />
                                 <Typography sx={{ ...footerItemStyles }}>
-                                    office@amel-bau.de
+                                    info@unger.de
                                 </Typography>
                             </Box>
 
@@ -263,7 +260,7 @@ const Footer = () => {
 
                 {/* Copyright */}
                 <Typography variant="body2" align="center">
-                    &copy; Copyright by Amel – Amel-bau.de
+                    &copy; Copyright by Unger – Unger-bau.de
                 </Typography>
             </Container>
         </Box>

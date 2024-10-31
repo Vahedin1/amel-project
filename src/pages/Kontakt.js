@@ -162,12 +162,10 @@ const ContactForm = () => {
                 gap: 2,
                 borderRadius: "8px",
                 border: "1px solid #ddd",
-                boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                 transition: 'transform 0.3s, box-shadow 0.3s',
                 transform: 'scale(1)',
                 zIndex: -1,
                 '&:hover::before': {
-                    boxShadow: '0px 30px 30px rgba(255, 165, 0, 0.25)',
                     transform: 'scale(1.05) translateZ(0) !important',
                 },
             }}

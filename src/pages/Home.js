@@ -33,13 +33,13 @@ const colors = {
 
 // Title and background styles
 const titleItemStyles = {
-    color: colors.orange,
+    color: colors.white,
     fontWeight: 600,
 };
 
 const backgroundColorTitle = {
-    backgroundColor: colors.orange,
-    color: colors.white,
+    backgroundColor: colors.white,
+    color: colors.black,
 };
 
 // Home component
@@ -123,22 +123,8 @@ export default function Home() {
                 </Box>
 
                 {/* Content Section */}
-                <Container maxWidth="false" sx={{ maxWidth: { xs: "100%", sm: "1300px" }, margin: "0 auto" }}>
-                    <Card
-                        className="slide-card"
-                        sx={{
-                            marginBottom: '100px',
-                            marginTop: { xs: '50px', md: '110px' },
-                            backgroundColor: '#f5f5f5',
-                            color: '#333',
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
-                            transition: 'transform 0.3s, box-shadow 0.3s',
-                            '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
-                                transform: 'scale(1.05) !important',
-                            },
-                        }}
-                    >
+                <Container maxWidth="false" sx={{ maxWidth: { xs: "100%", sm: "1300px" }, margin: "0 auto", marginTop: "50px" }}>
+
                         <Box textAlign={'center'} marginBottom={4}>
                             <Typography className='tkt' variant="h4" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px' }}>
                                 Jedes Bauprojekt ist eine Herzensangelegenheit.
@@ -164,133 +150,6 @@ export default function Home() {
                                 Ein Schwerpunkt unserer Arbeit lag in dieser Zeit auf dem Ausbau von Neubauten, der Sanierung von Altbauten, Terrassen und Balkonen, Klinkerarbeiten sowie Außenwand-Abdichtungen.
                             </Typography>
                         </Box>
-                    </Card>
-
-                    {/* Services Section */}
-                    <Grid container spacing={4} justifyContent="center" alignItems="center" marginBottom='150px'>
-                        <Grid item xs={12} sm={12} md={3}>
-                            <Card
-                                sx={{
-                                    backgroundColor: '#f5f5f5',  // Light gray background
-                                    color: '#333',
-                                    height: { md: '250px', xs: '180px' },
-                                    widht: '150px',
-                                    textAlign: 'center',             // Text color
-                                    boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
-                                    transition: 'transform 0.3s, box-shadow 0.3s',
-                                    '&:hover': {
-                                        boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
-                                        transform: 'scale(1.05) !important',
-                                    },
-                                }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange }}>
-                                    TrackenBau
-                                </Typography>
-                                <Typography color='textSecondary'>
-                                    Büroräume und Innenausbau oder einfach nur renovierungsbedingte Trockenbauarbeiten? Unsere Leistungsbereiche
-                                    umschließen den kompletten Tro
-                                </Typography>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={3}>
-
-                            <Card
-                                sx={{
-                                    backgroundColor: '#f5f5f5',  // Light gray background
-                                    height: { md: '250px', xs: '180px' },
-                                    widht: '150px',
-                                    textAlign: 'center',
-                                    color: '#333',               // Text color
-                                    boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
-                                    transition: 'transform 0.3s, box-shadow 0.3s',
-                                    '&:hover': {
-                                        boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
-                                        transform: 'scale(1.05) !important',
-                                    },
-                                }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange }}>
-                                    Maurerarbeiten
-                                </Typography>
-                                <Typography color="textSecondary">
-                                    Ebenfalls zu unserem Spektrum gehören natürlich die Maurer- und Betonarbeiten. Das Kerngeschäft unseres Unternehmens beinhaltet die Ausführung sämtlicher Maurerarbeiten.
-                                </Typography>
-                            </Card>
-
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={3}>
-                            <Card
-                                sx={{
-                                    backgroundColor: '#f5f5f5',  // Light gray background
-                                    color: '#333',
-                                    height: { md: '250px', xs: '180px' },
-                                    widht: '150px',
-                                    textAlign: 'center',              // Text color
-                                    boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
-                                    transition: 'transform 0.3s, box-shadow 0.3s',
-                                    '&:hover': {
-                                        boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
-                                        transform: 'scale(1.05) !important',
-                                    },
-                                }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange }}>
-                                    Um - @ Anbauten
-                                </Typography>
-                                <Typography color="textSecondary">
-                                    Bei einem Umbau von bestehenden Gebäuden werden überwiegend Sanierungen im Innenbereich vorgenommen.
-                                </Typography>
-                            </Card>
-
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={3}>
-                            <Card
-                                sx={{
-                                    backgroundColor: '#f5f5f5',  // Light gray background
-                                    color: '#333',
-                                    height: { md: '250px', xs: '180px' },
-                                    widht: '150px',
-                                    textAlign: 'center',              // Text color
-                                    boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
-                                    transition: 'transform 0.3s, box-shadow 0.3s',
-                                    '&:hover': {
-                                        boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
-                                        transform: 'scale(1.05) !important',
-                                    },
-                                }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange }}>
-                                    Maler und Spachtelarbeiten
-                                </Typography>
-                                <Typography color="textSecondary">
-                                    Verwandeln Sie Ihre Räume mit unseren fachmännischen Renovierungsdiensten.
-                                </Typography>
-                            </Card>
-
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={12}>
-                            <Card
-                                sx={{
-                                    backgroundColor: '#f5f5f5',  // Light gray background
-                                    color: '#333',
-                                    height: { md: '250px', xs: '180px' },
-                                    widht: '150px',
-                                    textAlign: 'center',            // Text color
-                                    boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
-                                    transition: 'transform 0.3s, box-shadow 0.3s',
-                                    '&:hover': {
-                                        boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
-                                        transform: 'scale(1.05) !important',
-                                    },
-                                }}>
-                                <Typography variant="h5" component="h3" gutterBottom sx={{ color: colors.orange }}>
-                                    Putzarbeiten  {/* Corrected spelling */}
-                                </Typography>
-                                <Typography color="textSecondary">
-                                    Putzarbeiten sind nicht jedermanns Sache. Ihr alter Putz sieht einfach nicht mehr gut aus oder löst sich von der Wand –
-                                    kein Problem! Wir entfernen und erneuern gerne alles für Sie, egal ob Innen- oder Außenputz.
-                                </Typography>
-                            </Card>
-                        </Grid>
-                    </Grid>
-
                 </Container>
 
             </div>

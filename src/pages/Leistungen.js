@@ -39,10 +39,8 @@ function SectionUmAnbauten() {
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
                             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Custom shadow
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -61,15 +59,13 @@ function SectionUmAnbauten() {
                             marginBottom: '50px',
                             backgroundColor: '#f5f5f5',
                             color: '#333',
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
-                            <Typography variant="h6" gutterBottom sx={{ color: colors.orange2 }}>
+                            <Typography variant="h6" gutterBottom sx={{ color: colors.black }}>
                                 UmAbauten
                             </Typography>
                             <Typography variant="body1" paragraph>
@@ -100,10 +96,8 @@ function SectionTrackenBau() {
                         className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -122,15 +116,13 @@ function SectionTrackenBau() {
                             marginBottom: '50px',
                             backgroundColor: '#f5f5f5',
                             color: '#333',
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
-                            <Typography variant="h5" gutterBottom sx={{ color: colors.orange2 }}>
+                            <Typography variant="h5" gutterBottom sx={{ color: colors.black }}>
                                 TrackenBau
                             </Typography>
                             <Typography variant="body1" paragraph>
@@ -156,10 +148,8 @@ function SectionPutzabeiten() {
                         className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -179,15 +169,13 @@ function SectionPutzabeiten() {
                             backgroundColor: '#f5f5f5',
                             color: '#333',
                             height: '300px',
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
-                            <Typography variant="h5" gutterBottom sx={{ color: colors.orange2 }}>
+                            <Typography variant="h5" gutterBottom sx={{ color: colors.black }}>
                                 Putzarbeiten 
                             </Typography>
                             <Typography variant="body1" gutterBottom>
@@ -211,10 +199,8 @@ function SectionMaurerarbeiten() {
                         className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -233,15 +219,13 @@ function SectionMaurerarbeiten() {
                             marginBottom: '50px',
                             backgroundColor: '#f5f5f5',
                             color: '#333',
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
-                            <Typography variant="h5" gutterBottom sx={{ color: colors.orange2 }}>
+                            <Typography variant="h5" gutterBottom sx={{ color: colors.black }}>
                                 Maurerarbeiten
                             </Typography>
                             <Typography variant="body1" gutterBottom>
@@ -269,10 +253,8 @@ function SectionMaler() {
                         className="slide-card"
                         sx={{
                             marginBottom: { xs: '10px', md: '50px' },
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
@@ -291,15 +273,13 @@ function SectionMaler() {
                             marginBottom: '50px',
                             backgroundColor: '#f5f5f5',
                             color: '#333',
-                            boxShadow: '0px 14px 14px rgba(255, 165, 0, 0.25)',
                             transition: 'transform 0.3s, box-shadow 0.3s',
                             '&:hover': {
-                                boxShadow: '14px 14px 14px rgba(255, 165, 0, 0.25)',
                                 transform: 'scale(1.05) !important',
                             },
                         }}>
                         <CardContent sx={{ borderRadius: '8px', padding: '16px', margin: '8px' }}>
-                            <Typography variant="h5" gutterBottom sx={{ color: colors.orange2 }}>
+                            <Typography variant="h5" gutterBottom sx={{ color: colors.black }}>
                                 Malerarbeiten
                             </Typography>
                             <Typography variant="body1" gutterBottom>

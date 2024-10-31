@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 // Material UI components
 import { AppBar, Box, Toolbar, Container, Button, Menu, MenuItem, Typography, IconButton } from '@mui/material';
-import { Menu as MenuIcon } from '@mui/icons-material';
+import { Menu as MenuIcon, LocalPhone as LocalPhoneIcon, Email as EmailIcon } from '@mui/icons-material';
 
 const pages = ['Home', 'Leistungen', 'Kontakt', 'Vita'];
 
@@ -29,36 +29,43 @@ const logoStyles = {
 };
 
 const menuItemStyles = {
-  backgroundColor: "#36454F",
-  '&:hover': {
-    backgroundColor: colors.black,
-    color: colors.white,
-  },
+  backgroundColor: colors.white,
+
 };
 
 
 const pagesItemStyles = {
   fontFamily: 'monospace',
   fontWeight: 700,
+  fontSize: '1.2rem',
   color: {
-    xs: colors.white,
-    md: colors.white,
+    xs: colors.black,
+    md: colors.black,
   },
   '&:hover, &:active': {
-    backgroundColor: colors.orange,
-    color: colors.white,
+    color: colors.orange,
 
   },
 }
 
+const contactInfoStyles = {
+  display: 'flex',
+  alignItems: 'center',
+  color: 'inherit',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  gap: '20px', // Adjust spacing as needed
+  fontFamily: 'monospace',
+  fontWeight: 1200,
+};
 
 const appbarItemStyles = {
-  backgroundColor: colors.orange,
-  color: colors.white,
+  backgroundColor: colors.white,
+  color: colors.black,
   transition: 'background-color 0.3s', // Smooth transition
   '&:hover, &:active': {
-    backgroundColor: colors.orange, // Change this to your desired hover color
-    color: colors.white,
+    // backgroundColor: colors.orange, // Change this to your desired hover color
+    //  color: colors.white,
   },
 };
 
@@ -113,127 +120,91 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="fixed" sx={{ ...appbarItemStyles }}>
-      <Container maxWidth='false' sx={{
-        maxWidth: '1300px',
-        margin: '0 auto'
-      }}>
-        <Toolbar disableGutters >
-          {/* (PC) - Logo */}
-          <Box sx={{ flexGrow: 0 }}>
+      <Container maxWidth="false" sx={{ maxWidth: '1300px', margin: '0 auto' }}>
+        <Toolbar disableGutters sx={{ flexDirection: 'column', alignItems: 'center' }}>
+
+          {/* Logo and Pages on the Same Line */}
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+            {/* Logo */}
             <Typography
-              variant="h6"
+              variant="h2"
               noWrap
-              component="a"
               onClick={handleLogoClick}
               sx={{
                 ...logoStyles,
-                mr: 2,
-                flexDirection: 'culumn',
-                display: { xs: 'none', md: 'flex' },
-                transition: '0.3s',              // Smooth transition
-                '&:hover': {
-                  transform: 'scale(1.05)',      // Slight scaling effect on hover
-                },
+                color: colors.black,
+                cursor: 'pointer',
+                transition: 'transform 0.3s ease',
+                '&:hover': { transform: 'scale(1.05)' },
+                ml: 2,
               }}
             >
-              {logo}
-              <Box ml={2}>
-                <Typography variant="h7" noWrap sx={{ color: colors.white, }} style={{ marginTop: '30px' }} >AMEL MEMIC </Typography>
-
-              </Box>
+              UNGER
             </Typography>
-          </Box>
 
-          {/* (MobileDropDown) - Button */}
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'flex', md: 'none' },
-              justifyContent: 'flex-start',
-
-            }}
-          >
-            <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
-              <MenuIcon />
-            </IconButton>
-
-            {/* (Mobile) - Menu */}
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-              PaperProps={{
-                sx: {
-                  backgroundColor: "#36454F",
-
-                  margin: 0, // Remove any default margins
-                  padding: 0, // Remove any default padding
-                }
-              }}
-            >
+            {/* Desktop Navigation Links */}
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '20px' }}>
               {pages.map((page) => (
-                <MenuItem
+                <Button
                   key={page}
                   onClick={() => handlePageClick(page)}
                   sx={{
-                    ...menuItemStyles,
-                    padding: '10px 20px', // Adjust padding as desired
-                  }}>
-                  <Typography sx={{
-                    textAlign: 'center', ...pagesItemStyles,
-
-                  }}>
-                    {page}
-                  </Typography>
-                </MenuItem>
+                    ...pagesItemStyles,
+                    '&:hover': { transform: 'scale(1.1)' },
+                  }}
+                >
+                  {page}
+                </Button>
               ))}
-            </Menu>
+            </Box>
+
+            {/* Mobile Menu Button */}
+            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+              <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
+                <MenuIcon />
+              </IconButton>
+
+              {/* Mobile Dropdown Menu */}
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                keepMounted
+                transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{ display: { xs: 'block', md: 'none' } }}
+                PaperProps={{ sx: { margin: 0, padding: 0 } }}
+              >
+                {pages.map((page) => (
+                  <MenuItem
+                    key={page}
+                    onClick={() => handlePageClick(page)}
+                    sx={{ ...menuItemStyles, padding: '10px 20px' }}
+                  >
+                    <Typography sx={{ textAlign: 'center', ...pagesItemStyles }}>{page}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
           </Box>
 
-          {/* (PC) - Display Pages */}
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}
-          >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={() => handlePageClick(page)} // Handle click here
-                sx={{
-                  ...pagesItemStyles,
-                  my: 2,
-                  display: 'block',
-                  '&:hover': {
-                    transform: 'scale(1.1)',
-                    backgroundColor: colors.darkbrown,
-                  },
-                }}
-              >
-                {page}
-              </Button>
-            ))}
+          {/* Contact Information below in a Row */}
+          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '20px', mt: 1 }}>
+            <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
+              <LocalPhoneIcon />
+              <Typography variant="body1" sx={{ color: colors.black }}>0162 420 66 78</Typography>
+            </Box>
+            <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
+              <EmailIcon />
+              <Typography variant="body1" sx={{ color: colors.black }}>info@unger.de</Typography>
+            </Box>
           </Box>
+
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
 
-export default ResponsiveAppBar;
+export default ResponsiveAppBar; 
