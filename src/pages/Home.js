@@ -129,6 +129,7 @@ export default function Home() {
                         <Typography className='tkt' variant="h2" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px' }}>
                             Jedes Bauprojekt ist eine Herzensangelegenheit.
                         </Typography>
+                        <Box sx={{ borderBottom: "2px solid #444", marginY: "20px" }} />
                         <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
                             Und deswegen ist es unser oberstes Ziel, Ihre architektonische Bauplanung passgenau umzusetzen. Wir sind bei Ihrem Bauprojekt die zentrale Schnittstelle
                             in der Ausführung auf Ihrem Bau.
@@ -149,6 +150,7 @@ export default function Home() {
                             <br />
                             Ein Schwerpunkt unserer Arbeit lag in dieser Zeit auf dem Ausbau von Neubauten, der Sanierung von Altbauten, Terrassen und Balkonen, Klinkerarbeiten sowie Außenwand-Abdichtungen.
                         </Typography>
+                        <Box sx={{ borderBottom: "2px solid #444", marginY: "20px" }} />
                     </Box>
                 </Container>
 
