@@ -55,7 +55,7 @@ export default function GooglesMap() {
                                 onCloseClick={() => setOpen(false)}
                                 options={{ pixelOffset: new window.google.maps.Size(0, -35) }}
                             >
-                                <div style={{ padding: '10px', fontFamily: 'Arial', color: 'black', lineHeight: '1.5' }}>
+                                <div style={{ padding: '0px', fontFamily: 'Arial', color: 'black', lineHeight: '1.3', margin: '0px' }}>
                                     <h4 style={{ margin: '0', fontSize: '16px', fontWeight: 'bold' }}>Amel Ungery</h4>
                                     <p style={{ margin: '0', fontSize: '14px' }}>Am Zernsee 16, 14542 Werder/Havel</p>
                                     <p style={{ margin: '5px 0', fontSize: '14px' }}>0162 420 66 78</p>
