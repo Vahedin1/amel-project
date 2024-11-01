@@ -10,7 +10,7 @@ const colors = {
   white: '#FFFFFF',
   orange: '#FF6A1A',
   brown: '#532912',
-  gray: '#7A7979',
+  gray: '#e6e1e1',
   orange2: '#AA4D1B',
   darkbrown: '#29180E',
   black: "#000000",
@@ -44,7 +44,7 @@ const contactInfoStyles = {
 };
 
 const appbarItemStyles = {
-  backgroundColor: colors.white,
+  backgroundColor: colors.gray,
   color: colors.black,
   transition: 'background-color 0.3s',
 };
@@ -90,37 +90,55 @@ function ResponsiveAppBar() {
   return (
     <AppBar position="fixed" sx={{ ...appbarItemStyles }}>
       <Container maxWidth="false" sx={{ maxWidth: '1300px', margin: '0 auto' }}>
-        <Toolbar disableGutters sx={{ flexDirection: 'column', alignItems: 'center' }}>
+        <Toolbar disableGutters sx={{ width: '100%' }}>
 
           {/* Centered Logo and Pages for Desktop */}
-          <Box sx={{ display: { xs: 'none', sm:'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center', gap: '40px', mb: 1 }}>
-            <Typography
-              variant="h2"
-              noWrap
-              onClick={handleLogoClick}
-              sx={{
-                ...logoStyles,
-                color: colors.black,
-                cursor: 'pointer',
-                transition: 'transform 0.3s ease',
-                '&:hover': { transform: 'scale(1.05)' },
-              }}
-            >
-              UNGER
-            </Typography>
-            <Box sx={{ display: { xs: 'none', sm:'none',md: 'flex' }, gap: '20px' }}>
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={() => handlePageClick(page)}
-                  sx={{
-                    ...pagesItemStyles,
-                    '&:hover': { transform: 'scale(1.1)' },
-                  }}
-                >
-                  {page}
-                </Button>
-              ))}
+          <Box sx={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            width: '100%',
+            gap: '40px',
+          }}>
+            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, alignItems: 'center', gap: '40px', mb: 1 }}>
+              <Typography
+                variant="h2"
+                noWrap
+                onClick={handleLogoClick}
+                sx={{
+                  ...logoStyles,
+                  color: colors.black,
+                  cursor: 'pointer',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': { transform: 'scale(1.05)' },
+                }}
+              >
+                UNGER
+              </Typography>
+              <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, gap: '20px' }}>
+                {pages.map((page) => (
+                  <Button
+                    key={page}
+                    onClick={() => handlePageClick(page)}
+                    sx={{
+                      ...pagesItemStyles,
+                      '&:hover': { transform: 'scale(1.1)' },
+                    }}
+                  >
+                    {page}
+                  </Button>
+                ))}
+              </Box>
+            </Box>
+
+            {/* Contact Information on the right */}
+            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, gap: '20px',  alignItems: 'center' }}>
+              <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
+                <LocalPhoneIcon />
+                <Typography variant="body1" sx={{ color: colors.black }}>0162 420 66 78</Typography>
+              </Box>
+              <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
+                <EmailIcon />
+                <Typography variant="body1" sx={{ color: colors.black }}>info@unger.de</Typography>
+              </Box>
             </Box>
           </Box>
 
@@ -168,18 +186,6 @@ function ResponsiveAppBar() {
               </MenuItem>
             ))}
           </Dialog>
-
-          {/* Contact Information below the centered content */}
-          <Box sx={{ display: { xs: 'none', sm:'none', md: 'flex' }, gap: '20px', mt: 1 }}>
-            <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
-              <LocalPhoneIcon />
-              <Typography variant="body1" sx={{ color: colors.black }}>0162 420 66 78</Typography>
-            </Box>
-            <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
-              <EmailIcon />
-              <Typography variant="body1" sx={{ color: colors.black }}>info@unger.de</Typography>
-            </Box>
-          </Box>
 
         </Toolbar>
       </Container>

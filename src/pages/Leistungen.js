@@ -1,6 +1,6 @@
 import ResponsiveAppBar from '../components/AppBar';
 import Footer from '../components/Footer';
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, Typography, Box, CardMedia, Container } from '@mui/material';
 import '../CardAnimations.css';
 
@@ -22,42 +22,42 @@ export default function CombinedPage() {
                     <Grid container spacing={4}>
                         <Grid item xs={12} md={4}>
                             <HoverCard
-                                image="/assets/L-UmA.webp"
+                                image="/assets/Beratung.jpg"
                                 title="Beratung"
                                 text="Fragen? Gerne unterstützen wir Sie bei der Planung Ihres Bauprojekts – von der ersten Idee bis zur vollständigen Umsetzung."
                             />
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <HoverCard
-                                image="/assets/L-Tracken.webp"
+                                image="/assets/Maurerarbeiten.jpg"
                                 title="Maurerarbeiten"
                                 text="Tragende Wände, Zwischenwände oder Sicht- und Ziermauerwerk aus verschiedensten Steinarten. Bei uns erhalten Sie meisterhafte Qualität !"
                             />
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <HoverCard
-                                image="/assets/L-Putza.webp"
+                                image="/assets/Stahlbetonbau.jpg"
                                 title="Stahlbetonbau"
                                 text="Von Schalarbeiten über komplexe Bewehrungsstrukturen zur Betonage. Wir garantieren präzise Ausführung und detailgetreue Umsetzungen ihrer architektonischen sowie statischen Anforderungen."
                             />
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <HoverCard
-                                image="/assets/L-Maurer.webp"
+                                image="/assets/Abbruch u. Umbau.jpg"
                                 title="Abbruch u. Umbau"
                                 text="Fachgerechte Demontage und Durchbrüche. Vertrauen Sie auf unsere Expertise, um Platz für Neues zu schaffen und bestehende Strukturen optimal anzupassen."
                             />
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <HoverCard
-                                image="/assets/L-Maler.webp"
+                                image="/assets/Reparaturen u. Sanierung.jpg"
                                 title="Reparaturen/Sanierung"
                                 text="Wir revitalisieren und reparieren alte oder beschädigte Strukturen. Unsere Sanierungsdienste stellen die Integrität Ihres Eigentums wieder her und verbessern sowohl die Funktionalität als auch die Wohnqualität."
                             />
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <HoverCard
-                                image="/assets/L-Gart.webp"
+                                image="/assets/Gartengestaltung.jpg"
                                 title="Gartengestaltung"
                                 text="Ob Sie eine idyllische Rückzugsoase oder einen praktischen und stilvollen Außenbereich wünschen – wir planen und realisieren Ihren Traumgarten, inklusive der Verlegung von Pflastersteinen und Terrassenplatten."
                             />
@@ -71,6 +71,12 @@ export default function CombinedPage() {
 }
 
 function HoverCard({ image, title, text }) {
+    const [isOverlayVisible, setOverlayVisible] = useState(false);
+
+    const handleToggleOverlay = () => {
+        setOverlayVisible(!isOverlayVisible);
+    };
+
     return (
         <Box
             className="hover-card"
@@ -84,6 +90,7 @@ function HoverCard({ image, title, text }) {
                     transform: 'scale(1.05)',
                 },
             }}
+            onClick={handleToggleOverlay} // Toggle overlay on click for mobile
         >
             <CardMedia
                 component="img"
@@ -105,10 +112,10 @@ function HoverCard({ image, title, text }) {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    opacity: 0,
+                    opacity: { xs: isOverlayVisible ? 1 : 0, md: 0 },
                     transition: 'opacity 0.3s',
                     '&:hover': {
-                        opacity: 1,
+                        opacity: { md: 1 },
                     },
                 }}
             >

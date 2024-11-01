@@ -84,7 +84,7 @@ export default function Home() {
                             left: 0,
                             width: '100%',
                             minHeight: { xs: '100vh', md: '100vh' },
-                            backgroundImage: `url('/assets/home.webp')`,
+                            backgroundImage: `url('/assets/Homesite.jpg')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             backgroundRepeat: 'no-repeat',
@@ -123,7 +123,7 @@ export default function Home() {
                 </Box>
 
                 {/* Content Section */}
-                <Container maxWidth="false" sx={{ maxWidth: { xs: "100%", sm: "1300px" }, margin: "0 auto", marginTop: "50px" }}>
+                <Container maxWidth="false" sx={{ maxWidth: { xs: "100%", sm: "1300px" }, margin: "0 auto", marginBottom: '100px'}}>
 
                     <Box textAlign={'center'} marginBottom={4}>
                         <Typography className='tkt' variant="h2" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle }} style={{ marginBottom: '40px' }}>

@@ -15,7 +15,7 @@ const colors = {
     white: "#FFFFFF",
     orange: "#FF6A1A",
     brown: "#532912",
-    gray: "#7A7979",
+    gray: "#e6e1e1",
     orange2: "#AA4D1B",
     darkbrown: "#29180E",
     black: "#000000",
@@ -46,7 +46,7 @@ const socialLinks = [
 ];
 
 const pagesItemStyles = {
-    backgroundColor: colors.white,
+    backgroundColor: colors.gray,
     color: colors.black,
     paddingTop: "40px",
     paddingBottom: "20px",
@@ -110,7 +110,7 @@ const Footer = () => {
     ];
 
     return (
-        <Box sx={{ ...pagesItemStyles }}>
+        <Box sx={{ ...pagesItemStyles, }}>
             <Container
                 maxWidth="false"
                 sx={{

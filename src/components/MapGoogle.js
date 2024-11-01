@@ -7,7 +7,7 @@ import useGoogleMapState from '../hooks/useGoogleMapState';
 export default function GooglesMap() {
     const position = { lat: 50.110924, lng: 8.682127 };
     const [open, setOpen] = useState(false);
-    const { center, zoom} = useGoogleMapState(position);
+    const { center, zoom } = useGoogleMapState(position);
     const mapRef = useRef(null); // Declare mapRef here
 
     const handleMapIdle = (map) => {
@@ -28,7 +28,12 @@ export default function GooglesMap() {
         <>
             <ResponsiveAppBar />
             <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY2}>
-                <div className='map-container' style={{ height: '650px', width: '100%' }}>
+                <div className='map-container' style={{
+                    height: '650px', width: '65%', margin: '0 auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '100px',                }}>
                     <Map
                         center={center}
                         defaultCenter={position}
