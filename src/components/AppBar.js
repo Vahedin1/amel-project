@@ -88,7 +88,7 @@ function ResponsiveAppBar() {
   }, [open]);
 
   return (
-    <AppBar position="fixed" sx={{ ...appbarItemStyles }}>
+    <AppBar position="fixed" sx={{ ...appbarItemStyles, boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.3)", }}>
       <Container maxWidth="false" sx={{ maxWidth: '1300px', margin: '0 auto' }}>
         <Toolbar disableGutters sx={{ width: '100%' }}>
 
@@ -189,7 +189,7 @@ function ResponsiveAppBar() {
 
         </Toolbar>
       </Container>
-    </AppBar>
+    </AppBar >
   );
 }
 

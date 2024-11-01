@@ -62,7 +62,7 @@ const pagesItemStyles = {
     width: "100%",
     margin: "0 auto",
     padding: "0 auto",
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Adds shadow effect
+    boxShadow: "0px -6px 15px rgba(0, 0, 0, 0.3)", // Shadow effect similar to AppBar
     transition: 'background-color 0.3s', // Smooth transition
     '&:hover': {
         //   backgroundColor: colors.black, // Change this to your desired hover color

@@ -119,7 +119,7 @@ function HoverCard({ image, title, text }) {
                     },
                 }}
             >
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }} >
                     {title}
                 </Typography>
                 <Typography variant="body1" textAlign="center" px={2}>

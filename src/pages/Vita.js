@@ -98,7 +98,7 @@ const VitaContent = () => {
                             }}
                         >
                             <Box sx={{ width: '100%', marginBottom: '20px' }}>
-                                <Typography className="tkt" variant="h6" component="h2" gutterBottom sx={{ color: colors.black }}>
+                                <Typography className="tkt" variant="h5" component="h2" gutterBottom sx={{ color: colors.black, fontWeight: 'bold' }}>
                                     Einer, der den Bau kennt: Sowohl aus nächster Nähe.
                                 </Typography>
                             </Box>
