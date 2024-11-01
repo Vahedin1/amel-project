@@ -22,6 +22,15 @@ const colors = {
 
 };
 
+const logoStyles = {
+    fontFamily: 'monospace',
+    fontWeight: 700,
+    letterSpacing: '.3rem',
+    color: 'inherit',
+    cursor: 'pointer',
+    textDecoration: 'none',
+};
+
 const footerItemStyles = {
     color: colors.black,
     textDecoration: "none",
@@ -29,7 +38,7 @@ const footerItemStyles = {
     fontWeight: 700,
     letterSpacing: "0rem",
     textAlign: "center",
-    
+
 };
 
 const socialLinks = [
@@ -56,7 +65,7 @@ const pagesItemStyles = {
     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Adds shadow effect
     transition: 'background-color 0.3s', // Smooth transition
     '&:hover': {
-   //   backgroundColor: colors.black, // Change this to your desired hover color
+        //   backgroundColor: colors.black, // Change this to your desired hover color
     },
 };
 
@@ -140,8 +149,21 @@ const Footer = () => {
                                 },
                             }}
                         >
-                            {logo}
 
+                            {/* {logo} */}
+                            <Typography
+                                variant="h2"
+                                noWrap
+                                sx={{
+                                    ...logoStyles,
+                                    color: colors.black,
+                                    cursor: 'pointer',
+                                    transition: 'transform 0.3s ease',
+                                    '&:hover': { transform: 'scale(1.05)' },
+                                }}
+                            >
+                                UNGER
+                            </Typography>
                         </Box>
                     </Grid>
 
@@ -239,16 +261,16 @@ const Footer = () => {
                             }}
                         >
                             {menuOptions.map((option, index) => (
-                                    <Typography key={index} sx={{
-                                        ...footerItemStyles,
-                                        display: 'inline-block', // Makes each menu option its own block
-                                        transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Smooth transition for 
-                                        '&:hover': {
-                                            transform: 'scale(1.05)',      // Slight scaling effect on hover
-                                        },
-                                    }}>
-                                        {renderLinks(option)}
-                                    </Typography>
+                                <Typography key={index} sx={{
+                                    ...footerItemStyles,
+                                    display: 'inline-block', // Makes each menu option its own block
+                                    transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Smooth transition for 
+                                    '&:hover': {
+                                        transform: 'scale(1.05)',      // Slight scaling effect on hover
+                                    },
+                                }}>
+                                    {renderLinks(option)}
+                                </Typography>
                             ))}
                         </Box>
                     </Grid>
