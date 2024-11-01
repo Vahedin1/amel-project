@@ -159,8 +159,8 @@ const Footer = () => {
                             >
                                 <LocationOnIcon
                                     sx={{
-                                        marginRight: "5px",
-                                        marginBottom: { xs: "5px", sm: "5px", md: "10px" },
+                                        marginRight: "0px",
+                                        marginBottom: { xs: "16px", sm: "5px", md: "25px" },
                                         marginTop: { xs: "0px", sm: "0px" },
                                     }}
                                 />

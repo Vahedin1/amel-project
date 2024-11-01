@@ -130,20 +130,20 @@ function ResponsiveAppBar() {
             </Box>
 
             {/* Contact Information on the right */}
-            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, gap: '20px',  alignItems: 'center' }}>
+            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, gap: '20px', alignItems: 'center' }}>
               <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
                 <LocalPhoneIcon />
-                <Typography variant="body1" sx={{ color: colors.black }}>0162 420 66 78</Typography>
+                <Typography noWrap variant="body1" sx={{ color: colors.black }}>0162 420 66 78</Typography>
               </Box>
               <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
                 <EmailIcon />
-                <Typography variant="body1" sx={{ color: colors.black }}>info@unger.de</Typography>
+                <Typography noWrap variant="body1" sx={{ color: colors.black }}>info@unger.de</Typography>
               </Box>
             </Box>
           </Box>
 
           {/* Mobile Menu Button */}
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, position: 'absolute', left: '20px', top: '5px' }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, position: 'absolute', left: '20px', top: '10px' }}>
             <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />
             </IconButton>

@@ -91,6 +91,7 @@ const VitaContent = () => {
                                 marginBottom: '150px',
                                 marginTop: { xs: '0px', md: '110px' },
                                 color: '#333',
+                                textAlign: 'center',
                                 '&:hover': {
                                     transform: 'scale(1.05) !important',
                                 },
