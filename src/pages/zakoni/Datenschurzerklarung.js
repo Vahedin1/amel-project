@@ -7,7 +7,8 @@ export default function Datenschutzerklarung() {
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
 
             <ResponsiveAppBar />
-            <div style={{ flex: '1 0 auto' }}>
+            <div style={{ flex: '1 0 auto' , marginTop: '150px'}}>
+
 
                 <h1>Under Development</h1>
             </div>
