@@ -9,7 +9,6 @@ import Vita from './pages/Vita.js';
 import NoPage from './pages/NoPage.js';
 
 // Zakoni
-import Cookie from './pages/zakoni/Cookie-Richtlinie-EU.js';
 import Datenschutzerklarung from './pages/zakoni/Datenschurzerklarung.js';
 import Impressum from './pages/zakoni/Impressum.js';
 
@@ -32,7 +31,6 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/kontakt' element={<Kontakt />} />
           <Route path='/vita' element={<Vita />} />
-          <Route path='/cookie-richtlinie-eu' element={<Cookie />} />
           <Route path='/datenschutzerklarung' element={<Datenschutzerklarung />} />
           <Route path='/impressum' element={<Impressum />} />
 

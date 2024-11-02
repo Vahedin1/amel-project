@@ -111,7 +111,6 @@ const Footer = () => {
             title: "",
             links: [
                 { text: "Datenschutzerklärung", href: "/datenschutzerklarung" },
-                { text: "Cookie-Richtlinie(EU)", href: "/cookie-richtlinie-eu" },
                 { text: "Impressum", href: "/impressum" },
                 { text: "Kontakt", href: "/kontakt" },
             ],
