@@ -1,7 +1,7 @@
 import ResponsiveAppBar from './AppBar';
 import Footer from './Footer';
 import { APIProvider, Map, AdvancedMarker, InfoWindow } from "@vis.gl/react-google-maps";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import useGoogleMapState from '../hooks/useGoogleMapState';
 
 export default function GooglesMap() {
@@ -9,6 +9,16 @@ export default function GooglesMap() {
     const [open, setOpen] = useState(false);
     const { center, zoom } = useGoogleMapState(position);
     const mapRef = useRef(null); // Declare mapRef here
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Track window width
+
+    // Update windowWidth on resize
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const handleMapIdle = (map) => {
         console.log('Map instance:', map); // Debugging info
@@ -24,19 +34,22 @@ export default function GooglesMap() {
         }
     };
 
+    // Calculate the width based on window size
+    const mapContainerStyle = {
+        height: '650px',
+        margin: '0 auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '50px',
+        width: windowWidth < 768 ? '100%' : '75%', // 100% width for xs, 65% for md and above
+    };
+
     return (
         <>
             <ResponsiveAppBar />
             <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY2}>
-                <div className='map-container' style={{
-                    height: '650px', 
-                    width: {xs: '100%', md: '65%'}, 
-                    margin: '0 auto',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginTop: '50px'
-                }}>
+                <div className='map-container' style={mapContainerStyle}>
                     <Map
                         center={center}
                         defaultCenter={position}
