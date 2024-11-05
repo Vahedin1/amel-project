@@ -155,14 +155,7 @@ export default function Home() {
                     <Typography variant="body1" gutterBottom>
                         Noch unsicher? Dann erfahren Sie noch mehr <Link href="#" color='#0000FF'>über uns</Link>.
                     </Typography>
-                    <Button
-                        variant="contained"
-                        size="large"
-                        sx={{ backgroundColor: colors.orange, marginTop: 3 }}
-                        onClick={handleKontaktClick}
-                    >
-                        Schreiben Sie uns
-                    </Button>
+
                 </Box>
 
                 {/* Content Section */}
