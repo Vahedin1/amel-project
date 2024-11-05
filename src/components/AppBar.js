@@ -180,7 +180,7 @@ function ResponsiveAppBar() {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: colors.white,
+                backgroundColor: colors.black,
                 padding: 0,
                 margin: 0,
               },
@@ -191,8 +191,9 @@ function ResponsiveAppBar() {
               onClick={handleCloseNavMenu}
               sx={{
                 position: 'absolute',
-                top: '200px',
-                right: '175px',
+                top: '100px',          // Adjust this value to move the button higher or lower as needed
+                left: '50%',          // Center horizontally
+                transform: 'translateX(-50%)',
                 color: colors.black,
                 backgroundColor: colors.gray,
               }}
@@ -210,7 +211,7 @@ function ResponsiveAppBar() {
                   marginTop: '0px',
                 }}
               >
-                <Typography sx={pagesItemStyles}>{page}</Typography>
+                <Typography sx={{ ...pagesItemStyles }}>{page}</Typography>
               </MenuItem>
             ))}
           </Dialog>

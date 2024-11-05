@@ -29,7 +29,9 @@ export default function GooglesMap() {
             <ResponsiveAppBar />
             <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY2}>
                 <div className='map-container' style={{
-                    height: '650px', width: '65%', margin: '0 auto',
+                    height: '650px', 
+                    width: {xs: '100%', md: '65%'}, 
+                    margin: '0 auto',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
