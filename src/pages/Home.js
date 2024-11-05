@@ -94,7 +94,7 @@ export default function Home() {
                         justifyContent: 'center', // Center vertically
                         paddingTop: 0,
                         paddingBottom: 0,
-                        top: '0px',
+                        top: '-100px',
                         zIndex: 2,  // Make sure content is above the background
                     }}
                 >
