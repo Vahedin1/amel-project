@@ -132,8 +132,8 @@ export default function Home() {
                     </Box>
                 </Box>
 
-                <Box sx={{ padding: 3 }}>
-                    <Typography variant="h5" component="h1" gutterBottom sx={{ ...titleItemStyles, fontSize: { xs: '1.2rem', sm: '2rem' } }}>
+                <Box sx={{ padding: 3, textAlign: 'center' }}>
+                    <Typography variant="h5" component="h1" gutterBottom sx={{ fontSize: { xs: '1.2rem', sm: '2rem' } }}>
                         Herzlich Willkommen bei Unger Bau, ihrem Meisterbetrieb für Maurer- und Stahlbetonbau
                     </Typography>
                     <Typography variant="body1" gutterBottom>
