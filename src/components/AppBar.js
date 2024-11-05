@@ -143,7 +143,7 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* Mobile Menu Button */}
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, position: 'absolute', left: '20px', top: '10px' }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, position: 'absolute', left: '5px', top: '7px' }}>
             <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />
             </IconButton>
@@ -171,9 +171,10 @@ function ResponsiveAppBar() {
               onClick={handleCloseNavMenu}
               sx={{
                 position: 'absolute',
-                top: '20px',
-                right: '20px',
+                top: '200px',
+                right: '175px',
                 color: colors.black,
+                backgroundColor: colors.gray,
               }}
             >
               <CloseIcon />
@@ -181,7 +182,14 @@ function ResponsiveAppBar() {
 
             {/* Menu Items */}
             {pages.map((page) => (
-              <MenuItem key={page} onClick={() => handlePageClick(page)}>
+              <MenuItem key={page} onClick={() => handlePageClick(page)}
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  width: '100%',
+                  marginTop: '0px',
+                }}
+              >
                 <Typography sx={pagesItemStyles}>{page}</Typography>
               </MenuItem>
             ))}
