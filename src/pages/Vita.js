@@ -79,7 +79,7 @@ const VitaContent = () => {
                                             width: '100%',
                                             height: '100%',
                                             objectFit: 'contain', // Ensures the entire image is visible
-                                            borderRadius: '30px',
+                                            borderRadius: '20px',
                                             border: 'none',
                                             boxShadow: 'none',
                                             padding: 0,
@@ -97,7 +97,7 @@ const VitaContent = () => {
                             className="slide-card"
                             sx={{
                                 marginBottom: '150px',
-                                marginTop: { xs: '0px', md: '110px' },
+                                marginTop: { xs: '0px', md: '160px' },
                                 color: '#333',
                                 textAlign: 'center',
                                 '&:hover': {

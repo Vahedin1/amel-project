@@ -45,7 +45,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path='/' element={<Home />} />
             <Route path='/kontakt' element={<Kontakt />} />
-            <Route path='/vita' element={<Vita />} />
+            <Route path='/über uns' element={<Vita />} />
             <Route path='/datenschutzerklarung' element={<Datenschutzerklarung />} />
             <Route path='/impressum' element={<Impressum />} />
 
