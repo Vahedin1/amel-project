@@ -1,26 +1,22 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Typography, Button, Box } from '@mui/material';
+import { Container, Typography, Button, Box, Link } from '@mui/material';
 import ResponsiveAppBar from '../components/AppBar';
 import Footer from '../components/Footer.js';
 import '../CardAnimations.css';
-
 import { keyframes } from '@mui/system';
 
-// Define the slide-in animation
 const slideIn = keyframes`
 0% {
-    transform: translateX(-100%); /* Start off-screen to the left */
-    opacity: 0; /* Start transparent */
+    transform: translateX(-100%);
+    opacity: 0;
 }
 100% {
-    transform: translateX(0); /* End at the original position */
-    opacity: 1; /* Fully opaque */
+    transform: translateX(0);
+    opacity: 1;
 }
 `;
 
-
-// Colors object
 const colors = {
     white: "#FFFFFF",
     orange: "#FF6A1A",
@@ -31,7 +27,6 @@ const colors = {
     black: "#000000",
 };
 
-// Title and background styles
 const titleItemStyles = {
     color: colors.white,
     fontWeight: 600,
@@ -42,13 +37,13 @@ const backgroundColorTitle = {
     color: colors.black,
 };
 
-// Home component
 export default function Home() {
     const navigate = useNavigate();
 
     const handleKontaktClick = () => {
         navigate('/kontakt');
     };
+
     const fadeIn = {
         '@keyframes fadeIn': {
             '0%': { opacity: 0 },
@@ -60,7 +55,6 @@ export default function Home() {
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <ResponsiveAppBar />
             <div style={{ flex: '1 0 auto' }}>
-                {/* Welcome Section */}
                 <Box
                     textAlign="center"
                     sx={{
@@ -77,6 +71,20 @@ export default function Home() {
                         paddingBottom: 4,
                     }}
                 >
+                    {/* Logo Image on Left */}
+                    <Box
+                        component="img"
+                        src="/assets/logo sa slogan2.png" // Adjust the path if needed
+                        alt="Logo and Slogan"
+                        sx={{
+                            position: 'absolute',
+                            top: {xs: '10%', md: '30%'},
+                            left: {xs: '0%', md: '0%'},
+                            width: { xs: '100%', md: '40%' },
+                            zIndex: 2,
+                        }}
+                    />
+
                     <Box
                         sx={{
                             position: 'absolute',
@@ -95,27 +103,26 @@ export default function Home() {
                                 left: 0,
                                 width: '100%',
                                 height: '100%',
-                                backgroundColor: 'rgba(0, 0, 0, 0.5)',  // Black overlay
+                                backgroundColor: 'rgba(0, 0, 0, 0.5)',
                             },
                         }}
                     />
 
-                    <Box
-                        sx={{ animation: `${slideIn} 1s ease-out`, position: 'relative', zIndex: 1 }}>
-                        <Typography variant="h5" component="h1" gutterBottom sx={{ ...titleItemStyles, fontSize: { xs: '1.2rem', sm: '2rem' },  }}>
-                            Willkommen bei Amel-Bau
+                    <Box sx={{ animation: `${slideIn} 1s ease-out`, position: 'relative', zIndex: 1 }}>
+                        <Typography variant="h5" component="h1" gutterBottom sx={{ ...titleItemStyles, fontSize: { xs: '1.2rem', sm: '2rem' } }}>
+                            Willkommen bei Unger Bau
                         </Typography>
                         <Typography variant="h6" color="textSecondary" sx={{ animation: `${slideIn}, 1s ease-out`, ...titleItemStyles }}>
                             Ihr zuverlässiger Partner für Bauen und Renovieren.
                         </Typography>
                         <Button
                             variant="contained"
-                            color="primary"
                             size="large"
                             style={{ marginTop: '40px', transition: 'transform 0.3s' }}
                             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1.0)'}
                             onClick={handleKontaktClick}
+                            sx={{ backgroundColor: colors.orange }}
                         >
                             Schreiben Sie uns
                         </Button>
@@ -124,36 +131,10 @@ export default function Home() {
 
                 {/* Content Section */}
                 <Container maxWidth="false" sx={{ maxWidth: { xs: "100%", sm: "1300px" }, margin: "0 auto", marginBottom: '100px' }}>
-
-                    <Box textAlign={'center'} marginBottom={4}>
-                        <Typography className='tkt' variant="h4" component="h2" gutterBottom sx={{ textAlign: 'center', ...backgroundColorTitle, fontWeight: 'bold' }} style={{ marginBottom: '40px' }}>
-                            Jedes Bauprojekt ist eine Herzensangelegenheit.
-                        </Typography>
-                        <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
-                            Und deswegen ist es unser oberstes Ziel, Ihre architektonische Bauplanung passgenau umzusetzen. Wir sind bei Ihrem Bauprojekt die zentrale Schnittstelle
-                            in der Ausführung auf Ihrem Bau.
-                            Hierbei sorgen wir unter anderem für die Planung der Bauleistungen, die Koordination auf Ihrer Baustelle, die Gewährleistung der Bauqualität, eine stetige Kostenübersicht und
-                            terminliche Koordination.
-                            Auch finden wir für Sie das beste Preisleistungsverhältnis bei allen notwendigen Baustoffen für jeden Bereich Ihres Projekts.
-                        </Typography>
-                        <br />
-                        <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
-                            Wir können bereits auf mehr als 10 Jahre Erfahrung rund um den Bau zurückblicken. Hierbei handelt es sich sowohl um die praktische Ausführung von Bauprojekten,
-                            als auch eine zuverlässige Planung und Koordinierung von Baustellen.
-                            Dies kommt uns nicht nur zugute, wenn es darum geht die Qualität Ihres Bauprojekts stetig Hoch zu halten, sondern auch wichtige Details zu erkennen und für eine
-                            optimale und hochwertige Bauausführung zu sorgen.
-                        </Typography>
-                        <br />
-                        <Typography variant="body1" gutterBottom sx={{ textAlign: 'center' }}>
-                            In über 10 Jahren Bauerfahrung haben wir eine Vielzahl von Bauprojekten betreut, geplant und abgeschlossen.
-                            <br />
-                            Ein Schwerpunkt unserer Arbeit lag in dieser Zeit auf dem Ausbau von Neubauten, der Sanierung von Altbauten, Terrassen und Balkonen, Klinkerarbeiten sowie Außenwand-Abdichtungen.
-                        </Typography>
-                    </Box>
+                    {/* Content goes here */}
                 </Container>
-
             </div>
             <Footer />
-        </div >
+        </div>
     );
 }

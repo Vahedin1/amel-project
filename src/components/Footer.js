@@ -23,7 +23,7 @@ const colors = {
 };
 
 const logoStyles = {
-    fontFamily: 'monospace',
+    fontFamily: 'Bahnschrift, Arial, sans-serif',
     fontWeight: 700,
     letterSpacing: '.3rem',
     color: 'inherit',
@@ -31,15 +31,6 @@ const logoStyles = {
     textDecoration: 'none',
 };
 
-const footerItemStyles = {
-    color: colors.black,
-    textDecoration: "none",
-    fontFamily: "monospace",
-    fontWeight: 700,
-    letterSpacing: "0rem",
-    textAlign: "center",
-
-};
 
 const socialLinks = [
     {
@@ -54,9 +45,20 @@ const socialLinks = [
     },
 ];
 
+
+const footerItemStyles = {
+    color: colors.white,
+    textDecoration: "none",
+    fontFamily: 'Bahnschrift, Arial, sans-serif',
+    fontWeight: 700,
+    letterSpacing: "0rem",
+    textAlign: "center",
+
+};
+
 const pagesItemStyles = {
-    backgroundColor: colors.gray,
-    color: colors.black,
+    backgroundColor: colors.black,
+    color: colors.white,
     paddingTop: "40px",
     paddingBottom: "20px",
     width: "100%",
@@ -150,19 +152,19 @@ const Footer = () => {
                         >
 
                             {/* {logo} */}
-                            <Typography
-                                variant="h2"
-                                noWrap
+                            <Box
+                                component="img"
+                                src="assets/logo bez slogan2.png"
+                                alt="Logo"
+                                onClick={handleLogoClick}
                                 sx={{
                                     ...logoStyles,
-                                    color: colors.black,
+                                    height: '150px',
                                     cursor: 'pointer',
                                     transition: 'transform 0.3s ease',
                                     '&:hover': { transform: 'scale(1.05)' },
                                 }}
-                            >
-                                UNGER
-                            </Typography>
+                            />
                         </Box>
                     </Grid>
 

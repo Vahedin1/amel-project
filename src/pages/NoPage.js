@@ -10,7 +10,7 @@ export default function NoPage() {
             <div style={{ flex: '1 0 auto' }}>
                 <Typography sx={{
                     textDecoration: "none",
-                    fontFamily: "monospace",
+                    fontFamily: 'Bahnschrift, Arial, sans-serif',
                     fontWeight: 700,
                     letterSpacing: "0rem",
                     textAlign: "center",

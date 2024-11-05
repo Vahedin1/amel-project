@@ -33,7 +33,9 @@ export default function GooglesMap() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '100px',                }}>
+                    marginBottom: '150px',
+                    marginTop: '50px'
+                }}>
                     <Map
                         center={center}
                         defaultCenter={position}

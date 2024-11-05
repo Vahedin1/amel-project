@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { AppBar, Box, Toolbar, Container, Button, MenuItem, Typography, IconButton, Dialog } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon, LocalPhone as LocalPhoneIcon, Email as EmailIcon } from '@mui/icons-material';
@@ -17,7 +17,7 @@ const colors = {
 };
 
 const logoStyles = {
-  fontFamily: 'monospace',
+  fontFamily: 'Bahnschrift, Arial, sans-serif',
   fontWeight: 700,
   letterSpacing: '.3rem',
   color: 'inherit',
@@ -26,10 +26,10 @@ const logoStyles = {
 };
 
 const pagesItemStyles = {
-  fontFamily: 'monospace',
+  fontFamily: 'Bahnschrift, Arial, sans-serif',
   fontWeight: 700,
   fontSize: '1.5rem',
-  color: colors.black,
+  color: colors.white,
   '&:hover, &:active': {
     color: colors.orange,
   },
@@ -39,19 +39,21 @@ const contactInfoStyles = {
   display: 'flex',
   alignItems: 'center',
   gap: '20px',
-  fontFamily: 'monospace',
+  fontFamily: 'Bahnschrift, Arial, sans-serif',
   fontWeight: 700,
 };
 
 const appbarItemStyles = {
-  backgroundColor: colors.gray,
-  color: colors.black,
+  backgroundColor: colors.black,
+  color: colors.white,
   transition: 'background-color 0.3s',
 };
 
 function ResponsiveAppBar() {
   const [open, setOpen] = React.useState(false);
+  const [showLogo, setShowLogo] = React.useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleOpenNavMenu = () => {
     setOpen(true);
@@ -80,12 +82,25 @@ function ResponsiveAppBar() {
       }
     };
 
+    const handleScroll = () => {
+      if (location.pathname === '/') {
+        setShowLogo(window.scrollY > 100);
+      }
+    };
+
+    // Reset showLogo when navigating away from Home
+    if (location.pathname !== '/') {
+      setShowLogo(true);
+    }
+
     window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [open]);
+  }, [open, location.pathname]);
 
   return (
     <AppBar position="fixed" sx={{ ...appbarItemStyles, boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.3)", }}>
@@ -94,26 +109,32 @@ function ResponsiveAppBar() {
 
           {/* Centered Logo and Pages for Desktop */}
           <Box sx={{
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             width: '100%',
             gap: '40px',
           }}>
-            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, alignItems: 'center', gap: '40px', mb: 1 }}>
-              <Typography
-                variant="h2"
-                noWrap
-                onClick={handleLogoClick}
-                sx={{
-                  ...logoStyles,
-                  color: colors.black,
-                  cursor: 'pointer',
-                  transition: 'transform 0.3s ease',
-                  '&:hover': { transform: 'scale(1.05)' },
-                }}
-              >
-                UNGER
-              </Typography>
-              <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, gap: '20px' }}>
+            {/* Logo Section */}
+            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, alignItems: 'center', gap: '40px' }}>
+              {showLogo && (
+                <Box
+                  component="img"
+                  src="assets/logo bez slogan2.png"
+                  alt="Logo"
+                  onClick={handleLogoClick}
+                  sx={{
+                    ...logoStyles,
+                    height: '75px',
+                    cursor: 'pointer',
+                    transition: 'transform 0.3s ease',
+                    '&:hover': { transform: 'scale(1.05)' },
+                  }}
+                />
+              )}
+
+              {/* Pages Section */}
+              <Box sx={{ display: 'flex', gap: '20px' }}>
                 {pages.map((page) => (
                   <Button
                     key={page}
@@ -129,19 +150,18 @@ function ResponsiveAppBar() {
               </Box>
             </Box>
 
-            {/* Contact Information on the right */}
+            {/* Contact Information Section */}
             <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, gap: '20px', alignItems: 'center' }}>
-              <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <LocalPhoneIcon />
-                <Typography noWrap variant="body1" sx={{ color: colors.black }}>0162 420 66 78</Typography>
+                <Typography noWrap variant="body1" sx={{ ...appbarItemStyles }}>0162 420 66 78</Typography>
               </Box>
-              <Box sx={{ ...contactInfoStyles, gap: '5px' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <EmailIcon />
-                <Typography noWrap variant="body1" sx={{ color: colors.black }}>info@unger.de</Typography>
+                <Typography noWrap variant="body1" sx={{ ...appbarItemStyles }}>info@unger.de</Typography>
               </Box>
             </Box>
           </Box>
-
           {/* Mobile Menu Button */}
           <Box sx={{ display: { xs: 'flex', md: 'none' }, position: 'absolute', left: '5px', top: '7px' }}>
             <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
@@ -197,7 +217,7 @@ function ResponsiveAppBar() {
 
         </Toolbar>
       </Container>
-    </AppBar >
+    </AppBar>
   );
 }
 
