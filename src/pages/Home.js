@@ -85,15 +85,16 @@ export default function Home() {
                     sx={{
                         ...fadeIn,
                         animation: 'fadeIn 2s ease-out',
-                        position: 'relative',
+                        position: 'absolute',
                         height: { xs: '900px', md: '1000px' },
                         width: '100%',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center', // Center horizontally
                         justifyContent: 'center', // Center vertically
-                        paddingTop: 4,
-                        paddingBottom: 4,
+                        paddingTop: 0,
+                        paddingBottom: 0,
+                        top: '0px',
                         zIndex: 2,  // Make sure content is above the background
                     }}
                 >
@@ -104,7 +105,7 @@ export default function Home() {
                         alt="Logo and Slogan"
                         sx={{
                             width: { xs: '80%', sm: '40%' }, // Adjust size based on screen size
-                            marginBottom: 3, // Add some margin between logo and text
+                            marginBottom: 0, // Add some margin between logo and text
                         }}
                     />
 
@@ -121,7 +122,7 @@ export default function Home() {
                         <Button
                             variant="contained"
                             size="large"
-                            style={{ marginTop: '40px', transition: 'transform 0.3s' }}
+                            style={{ marginTop: '20px', transition: 'transform 0.3s' }}
                             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1.0)'}
                             onClick={handleKontaktClick}

@@ -163,7 +163,7 @@ const ContactForm = () => {
                 display: "flex",
                 flexDirection: "column",
                 gap: 2,
-                marginTop: '150px',
+                marginTop: '80px',
                 marginBottom: '100px',
                 borderRadius: "8px",
                 border: "1px solid #ddd",
