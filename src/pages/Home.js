@@ -58,7 +58,7 @@ export default function Home() {
                 {/* Background Image Box */}
                 <Box
                     sx={{
-                        position: 'absolute',
+                        position: 'relative',
                         top: 0,
                         left: 0,
                         width: '100%',
