@@ -35,7 +35,6 @@ export default function GooglesMap() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '150px',
                     marginTop: '50px'
                 }}>
                     <Map
