@@ -164,7 +164,7 @@ export default function Home() {
                 </Box>
 
                 {/* Content Section */}
-                <Container maxWidth="false" sx={{ maxWidth: { xs: "100%", sm: "1300px" }, margin: "0 auto", marginBottom: '100px' }}>
+                <Container maxWidth="false" sx={{ maxWidth: { xs: "100%", sm: "1300px" }, margin: "0 auto", marginBottom: '50px' }}>
                     {/* Content goes here */}
                 </Container>
             </div>
