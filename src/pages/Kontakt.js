@@ -1,7 +1,7 @@
 import ResponsiveAppBar from '../components/AppBar';
 import GooglesMap from '../components/MapGoogle';
 import React, { useState } from "react";
-import { Box, Button, Alert, Snackbar, Grid, MenuItem, Select, TextField, FormControl, InputLabel, FormHelperText } from "@mui/material";
+import { Box, Button, Alert, Snackbar, Grid, MenuItem, Select, TextField, FormControl, InputLabel, FormHelperText, Typography } from "@mui/material";
 import emailjs from 'emailjs-com';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
@@ -32,6 +32,13 @@ const ContactForm = () => {
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState("");
 
+    const [charLimitErrors, setCharLimitErrors] = useState({
+        company: "",
+        name: "",
+        email: "",
+        message: "",
+    }); // New state to track char limit errors
+
     const handleChange = (e) => {
         setFormData((prevData) => ({
             ...prevData,
@@ -43,6 +50,57 @@ const ContactForm = () => {
             ...prevErrors,
             [e.target.name]: '',
         }));
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+
+        if (name === "company" && value.length > 50) {
+            setSnackbarMessage("Maximale Zeichenbegrenzung für Firma erreicht.");
+            setOpenSnackbar(true);
+            setCharLimitErrors((prev) => ({ ...prev, company: "Maximale Zeichen erreicht!" }));
+            return;
+        }
+
+        if (name === "name" && value.length > 100) {
+            setSnackbarMessage("Maximale Zeichenbegrenzung für Vor- & Nachname erreicht.");
+            setOpenSnackbar(true);
+            setCharLimitErrors((prev) => ({ ...prev, name: "Maximale Zeichen erreicht!" }));
+            return;
+        }
+
+        if (name === "email" && value.length > 100) {
+            setSnackbarMessage("Maximale Zeichenbegrenzung für E-Mail erreicht.");
+            setOpenSnackbar(true);
+            setCharLimitErrors((prev) => ({ ...prev, email: "Maximale Zeichen erreicht!" }));
+            return;
+        }
+
+        if (name === "message" && value.length > 500) {
+            setSnackbarMessage("Maximale Zeichenbegrenzung für Nachricht erreicht.");
+            setOpenSnackbar(true);
+            setCharLimitErrors((prev) => ({ ...prev, message: "Maximale Zeichen erreicht!" }));
+            return;
+        }
+
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+
+        // Clear character limit error when user types before reaching limit
+        if (value.length <= 50 && name === "company") {
+            setCharLimitErrors((prev) => ({ ...prev, company: "" }));
+        }
+        if (value.length <= 100 && name === "name") {
+            setCharLimitErrors((prev) => ({ ...prev, name: "" }));
+        }
+        if (value.length <= 100 && name === "email") {
+            setCharLimitErrors((prev) => ({ ...prev, email: "" }));
+        }
+        if (value.length <= 500 && name === "message") {
+            setCharLimitErrors((prev) => ({ ...prev, message: "" }));
+        }
     };
 
     const validateEmail = (email) => {
@@ -90,9 +148,9 @@ const ContactForm = () => {
             captchaError: "",
         });
         setErrors({});
+        setCharLimitErrors({});  // Reset character limit error state
     };
 
-    // Check if all required fields are filled out
     const isFormValid = () => {
         const { name, email, phone, message, queryType } = formData;
         return name && email && phone && message && queryType && validateEmail(email);
@@ -102,29 +160,12 @@ const ContactForm = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        if (!validateEmail(formData.email)) {
-            setFormData((prevState) => ({
-                ...prevState,
-                captchaError: 'Invalid email format',
-            }));
-            setIsSubmitting(false);
-            return;
-        }
         const validationErrors = validateForm();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             setIsSubmitting(false);
             return;
         }
-
-        console.log('Sending email with data:', {
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-            phone: formData.phone,
-            company: formData.company,
-            queryType: formData.queryType,
-        });
 
         try {
             const result = await emailjs.send(
@@ -140,13 +181,13 @@ const ContactForm = () => {
                 },
                 process.env.REACT_APP_EMAILJS_USER_ID
             );
-            console.log('Email sent successfully:', result.text);
+            console.log('E-Mail erfolgreich gesendet:', result.text);
             resetForm();
-            setSnackbarMessage('Form submitted successfully!');
+            setSnackbarMessage('Formular erfolgreich abgesendet!');
             setOpenSnackbar(true);
 
         } catch (error) {
-            setSnackbarMessage('Failed to send email. Please try again later.');
+            setSnackbarMessage('Fehler beim Senden der E-Mail. Bitte versuche es später noch einmal.');
             setOpenSnackbar(true);
         } finally {
             setIsSubmitting(false);
@@ -175,18 +216,19 @@ const ContactForm = () => {
                 },
             }}
         >
+            {/* Query Type Select */}
             <FormControl fullWidth>
                 {!formData.queryType && (
                     <InputLabel htmlFor="queryType" sx={{
-                        color: formData.queryType ? colors.gray : colors.gray, // Change color if queryType has a value
+                        color: formData.queryType ? colors.gray : colors.gray,
                         '&.Mui-focused': {
-                            transform: 'translate(0, -5px) scale(1)', // Move the label 10px up when focused
-                            color: colors.gray, // Change the color when focused (optional)
+                            transform: 'translate(0, -5px) scale(1)',
+                            color: colors.gray,
                         },
                         '&.MuiInputLabel-shrink': {
-                            transform: 'translate(10px, -8px) scale(0.75)', // Control the position when the label shrinks
-                            backgroundColor: 'white', // Background color behind the text when it shrinks
-                            padding: '0 4px', // Add padding if necessary
+                            transform: 'translate(10px, -8px) scale(0.75)',
+                            backgroundColor: 'white',
+                            padding: '0 4px',
                         },
                     }}>Anfrageart *</InputLabel>
                 )}
@@ -201,58 +243,69 @@ const ContactForm = () => {
                     <MenuItem value="Allgemeine Fragen">
                         <em style={{ color: colors.black }}>Allgemeine Fragen</em>
                     </MenuItem>
-                    <MenuItem value="UmAbauten">
-                        <em style={{ color: colors.black }} >UmAbauten</em>
+                    <MenuItem value="Maurerarbeiten">
+                        <em style={{ color: colors.black }}>Maurerarbeiten</em>
                     </MenuItem>
-                    <MenuItem value="TrackenBau">
-                        <em style={{ color: colors.black }} >TrackenBau</em>
+                    <MenuItem value="Stahlbetonbau">
+                        <em style={{ color: colors.black }}>Stahlbetonbau</em>
                     </MenuItem>
-                    <MenuItem value="UmAbauten">
-                        <em style={{ color: colors.black }} >PutzaBeiten</em>
+                    <MenuItem value="Abbruch u. Umbau">
+                        <em style={{ color: colors.black }}>Abbruch u. Umbau</em>
                     </MenuItem>
-                    <MenuItem value="TrackenBau">
-                        <em style={{ color: colors.black }} >Maurerarbeiten</em>
+                    <MenuItem value="Reparaturen/Sanierung">
+                        <em style={{ color: colors.black }}>Reparaturen/Sanierung</em>
                     </MenuItem>
-                    <MenuItem value="Maler">
-                        <em style={{ color: colors.black }} >Malerarbeiten</em>
+                    <MenuItem value="Gartengestaltung">
+                        <em style={{ color: colors.black }}>Gartengestaltung</em>
                     </MenuItem>
                 </Select>
-
             </FormControl>
+
+            {/* Company TextField */}
             <TextField
                 name="company"
                 label="Firma"
                 value={formData.company}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 variant="outlined"
                 fullWidth
                 sx={{ marginTop: '5px' }}
+                inputProps={{ maxLength: 100 }} // Add character limit here
             />
+            {charLimitErrors.company && <Typography color="red" variant="body2">{charLimitErrors.company}</Typography>}
+
+            {/* Name TextField */}
             <TextField
                 name="name"
                 label="Vor- & Nachname"
                 value={formData.name}
-                onChange={handleChange}
-
+                onChange={handleInputChange}
                 variant="outlined"
                 fullWidth
                 required
                 sx={{ marginTop: '5px' }}
+                inputProps={{ maxLength: 150 }} // Character limit for name
             />
+            {charLimitErrors.name && <Typography color="red" variant="body2">{charLimitErrors.name}</Typography>}
+
+            {/* Email TextField */}
             <TextField
                 name="email"
                 label="E-Mail"
                 value={formData.email}
-                onChange={handleChange}
-
+                onChange={handleInputChange}
                 variant="outlined"
                 fullWidth
                 required
                 sx={{ marginTop: '5px' }}
+                inputProps={{ maxLength: 150 }} // Character limit for email
             />
+            {charLimitErrors.email && <Typography color="red" variant="body2">{charLimitErrors.email}</Typography>}
+
+            {/* Phone Input */}
             <InputLabel
                 shrink
-                sx={{ margin: 0, padding: 0, marginTop: '5px', }}>
+                sx={{ margin: 0, padding: 0, marginTop: '5px' }}>
                 Telefonnummer:
             </InputLabel>
             <PhoneInput
@@ -271,22 +324,29 @@ const ContactForm = () => {
                     margin: 0, padding: 0, marginBottom: '5px'
                 }}
             />
+
+            {/* Phone error */}
             {errors.phone && (
                 <FormHelperText error>{errors.phone}</FormHelperText>
             )}
+
+            {/* Message TextField */}
             <TextField
                 name="message"
                 label="Nachricht"
                 value={formData.message}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 variant="outlined"
                 fullWidth
                 multiline
                 rows={8}
                 required
                 sx={{ marginTop: '5px' }}
+                inputProps={{ maxLength: 1000 }} // Character limit for message
             />
+            {charLimitErrors.message && <Typography color="red" variant="body2">{charLimitErrors.message}</Typography>}
 
+            {/* Submit Button */}
             <Button
                 variant="contained"
                 color="primary"
@@ -297,13 +357,14 @@ const ContactForm = () => {
                 {isSubmitting ? 'Senden...' : 'Senden'}
             </Button>
 
+            {/* Snackbar Notification */}
             <Snackbar
                 open={openSnackbar}
                 autoHideDuration={6000}
                 onClose={() => setOpenSnackbar(false)}
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
             >
-                <Alert onClose={() => setOpenSnackbar(false)} severity="success" sx={{ width: '100%' }}>
+                <Alert onClose={() => setOpenSnackbar(false)} severity="info" sx={{ width: '100%' }}>
                     {snackbarMessage}
                 </Alert>
             </Snackbar>
@@ -312,12 +373,10 @@ const ContactForm = () => {
 };
 
 export default function Kontakt() {
-
     return (
         <>
             <ResponsiveAppBar />
             <Grid container spacing={2} marginTop={'40px'} marginBottom={'0px'} sx={{ minHeight: '100vh', justifyContent: 'center', alignItems: 'center' }}>
-                {/*  Contact Form */}
                 <Grid item xs={12} md={8}>
                     <ContactForm />
                 </Grid>
@@ -325,4 +384,4 @@ export default function Kontakt() {
             <GooglesMap />
         </>
     );
-};
+}

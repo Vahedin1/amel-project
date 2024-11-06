@@ -4,7 +4,12 @@ import { useEffect } from 'react';
 import { AppBar, Box, Toolbar, Container, Button, MenuItem, Typography, IconButton, Dialog } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon, LocalPhone as LocalPhoneIcon, Email as EmailIcon } from '@mui/icons-material';
 
-const pages = ['Home', 'Leistungen', 'Kontakt', 'Über uns'];
+const pages = [
+  { name: 'Home', route: '/' },
+  { name: 'Leistungen', route: '/leistungen' },
+  { name: 'Kontakt', route: '/kontakt' },
+  { name: 'Über uns', route: '/über-uns' },
+];
 
 const colors = {
   white: '#FFFFFF',
@@ -13,7 +18,7 @@ const colors = {
   gray: '#e6e1e1',
   orange2: '#AA4D1B',
   darkbrown: '#29180E',
-  black: "#000000",
+  black: "#3b3a38",
 };
 
 const logoStyles = {
@@ -66,7 +71,7 @@ function ResponsiveAppBar() {
   };
 
   const handlePageClick = (page) => {
-    const route = page === 'Home' ? '/' : `/${page.toLowerCase()}`;
+    const route = page.route
     navigate(route);
     handleCloseNavMenu();
   };
@@ -137,14 +142,14 @@ function ResponsiveAppBar() {
               <Box sx={{ display: 'flex', gap: '20px' }}>
                 {pages.map((page) => (
                   <Button
-                    key={page}
+                    key={page.name}
                     onClick={() => handlePageClick(page)}
                     sx={{
                       ...pagesItemStyles,
                       '&:hover': { transform: 'scale(1.1)' },
                     }}
                   >
-                    {page}
+                    {page.name}
                   </Button>
                 ))}
               </Box>
