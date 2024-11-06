@@ -38,7 +38,7 @@ export default function Home() {
 
     const handleKontaktClick = () => navigate('/kontakt');
     const handleLeistungenClick = () => navigate('/leistungen');
-    const handleUberUnsClick = () => navigate('/über-uns');
+
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -81,7 +81,7 @@ export default function Home() {
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        paddingTop: {xs :'0px', sm:'25px'},
+                        paddingTop: { xs: '0px', sm: '25px' },
                         zIndex: 2,  // Ensures content stays above overlay
                     }}
                 >
@@ -104,7 +104,7 @@ export default function Home() {
                             variant="h5"
                             component="h1"
                             gutterBottom
-                            sx={{ animation: `${slideIn} 1s ease-out`,...titleItemStyles, fontSize: { xs: '1.5rem', sm: '2rem' }, mb: 0 }}
+                            sx={{ animation: `${slideIn} 1s ease-out`, ...titleItemStyles, fontSize: { xs: '1.5rem', sm: '2rem' }, mb: 0 }}
                         >
                             Willkommen bei Unger Bau
                         </Typography>
@@ -150,6 +150,9 @@ export default function Home() {
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                         Unser weiteres Angebot entnehmen sie unserem
+                        <Link to="/leistungen" style={{ color: '#0000FF' }}>
+                        Leistungsverzeichnis
+                        </Link>
                         <Link href="#" onClick={handleLeistungenClick} color='#0000FF'> Leistungsverzeichnis</Link>.
                     </Typography>
                     <Typography variant="body1" gutterBottom>
@@ -159,7 +162,9 @@ export default function Home() {
                         Kontaktieren Sie uns für eine persönliche Beratung und erfahren Sie, wie wir Ihr Projekt mit Engagement und Fachkompetenz zum Erfolg führen können. Wir freuen uns darauf, Ihre Bauprojekte mit Ihnen gemeinsam zu verwirklichen!
                     </Typography>
                     <Typography variant="body1" gutterBottom>
-                        Noch unsicher? Dann erfahren Sie noch mehr <Link href="#" onClick={handleUberUnsClick} color='#0000FF'>über uns</Link>.
+                        Noch unsicher? Dann erfahren Sie noch mehr <Link to="/über-uns" style={{ color: '#0000FF' }}>
+                            über uns
+                        </Link>
                     </Typography>
                 </Box>
 
