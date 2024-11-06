@@ -4,12 +4,7 @@ import { useEffect } from 'react';
 import { AppBar, Box, Toolbar, Container, Button, MenuItem, Typography, IconButton, Dialog } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon, LocalPhone as LocalPhoneIcon, Email as EmailIcon } from '@mui/icons-material';
 
-const pages = [
-  { name: 'Home', route: '/' },
-  { name: 'Leistungen', route: '/leistungen' },
-  { name: 'Kontakt', route: '/kontakt' },
-  { name: 'Über uns', route: '/über-uns' },
-];
+const pages = ['Home', 'Leistungen', 'Kontakt', 'Über uns'];
 
 const colors = {
   white: '#FFFFFF',
@@ -71,7 +66,14 @@ function ResponsiveAppBar() {
   };
 
   const handlePageClick = (page) => {
-    const route = page.route
+    let route = '';
+    if (page === 'Home') {
+      route = '/';
+    } else if (page === 'Über uns') {
+      route = '/über-uns';  // Handle the special route for "Über uns"
+    } else {
+      route = `/${page.toLowerCase()}`;
+    }
     navigate(route);
     handleCloseNavMenu();
   };
@@ -137,19 +139,18 @@ function ResponsiveAppBar() {
                   }}
                 />
               )}
-
               {/* Pages Section */}
               <Box sx={{ display: 'flex', gap: '20px' }}>
                 {pages.map((page) => (
                   <Button
-                    key={page.name}
+                    key={page}
                     onClick={() => handlePageClick(page)}
                     sx={{
                       ...pagesItemStyles,
                       '&:hover': { transform: 'scale(1.1)' },
                     }}
                   >
-                    {page.name}
+                    {page}
                   </Button>
                 ))}
               </Box>
@@ -230,7 +231,7 @@ function ResponsiveAppBar() {
 
         </Toolbar>
       </Container>
-    </AppBar>
+    </AppBar >
   );
 }
 
