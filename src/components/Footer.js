@@ -170,60 +170,65 @@ const Footer = () => {
 
                     {/* Contact Information and Social Media Icons */}
                     <Grid item xs={12} sm={12} md={3}>
-                        <Box sx={{ textAlign: { xs: "center", sm: "center" } }}>
+                        <Box
+                            sx={{
+                                textAlign: "center", // Center-aligns the text within each Box
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                gap: "15px", // Controls the vertical spacing between items
+                            }}
+                        >
                             <Box
                                 sx={{
                                     display: "flex",
-                                    flexDirection: { xs: "row", sm: "row" },
                                     alignItems: "center",
                                     justifyContent: "center",
-                                    marginBottom: "15px",
+                                    gap: "5px", // Controls the spacing between the icon and text
                                 }}
                             >
-                                <LocationOnIcon
-                                    sx={{
-                                        marginRight: "0px",
-                                        marginBottom: { xs: "16px", sm: "5px", md: "25px" },
-                                        marginTop: { xs: "0px", sm: "0px" },
-                                    }}
-                                />
-                                <Typography sx={{ ...footerItemStyles }}>
+                                <LocationOnIcon />
+                                <Typography noWrap sx={{ ...footerItemStyles }}>
                                     Alte Dorfstraße 28, 14542 Werder/Havel
                                 </Typography>
                             </Box>
+
                             <Box
                                 sx={{
                                     display: "flex",
-                                    flexDirection: { xs: "row", sm: "row" },
                                     alignItems: "center",
                                     justifyContent: "center",
-                                    marginBottom: "15px",
+                                    gap: "5px",
                                 }}
                             >
-                                <LocalPhoneIcon
-                                    sx={{ marginRight: "5px", marginBottom: "2px" }}
-                                />
+                                <LocalPhoneIcon />
                                 <Typography sx={{ ...footerItemStyles }}>
                                     0162 420 66 78
                                 </Typography>
                             </Box>
+
                             <Box
                                 sx={{
                                     display: "flex",
-                                    flexDirection: { xs: "row", sm: "row" },
                                     alignItems: "center",
                                     justifyContent: "center",
-                                    marginBottom: "15px",
+                                    gap: "5px",
                                 }}
                             >
-                                <EmailIcon sx={{ marginRight: "5px" }} />
+                                <EmailIcon />
                                 <Typography sx={{ ...footerItemStyles }}>
                                     info@unger.de
                                 </Typography>
                             </Box>
 
                             {/* Social Media Icons */}
-                            <Box>
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    gap: "10px", // Controls spacing between social media icons
+                                }}
+                            >
                                 {socialLinks.map(({ href, icon, label }) => (
                                     <a
                                         key={label}
@@ -233,7 +238,6 @@ const Footer = () => {
                                         style={{
                                             textDecoration: "none",
                                             color: "inherit",
-                                            margin: "0 10px",
                                         }}
                                         aria-label={label}
                                     >
@@ -243,6 +247,7 @@ const Footer = () => {
                             </Box>
                         </Box>
                     </Grid>
+
 
                     {/* Menu Links */}
                     <Grid
