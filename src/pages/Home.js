@@ -37,7 +37,6 @@ export default function Home() {
     const navigate = useNavigate();
 
     const handleKontaktClick = () => navigate('/kontakt');
-    const handleLeistungenClick = () => navigate('/leistungen');
 
 
     return (
@@ -153,7 +152,6 @@ export default function Home() {
                         <Link to="/leistungen" style={{ color: '#0000FF' }}>
                         Leistungsverzeichnis
                         </Link>
-                        <Link href="#" onClick={handleLeistungenClick} color='#0000FF'> Leistungsverzeichnis</Link>.
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                         Als Ihr lokaler Baupartner legen wir großen Wert auf direkte Kommunikation und transparente Prozesse. Wir verstehen, dass jedes Projekt einzigartig ist, und bieten daher maßgeschneiderte Lösungen, die genau auf Ihre Bedürfnisse und Wünsche zugeschnitten sind. Zuverlässigkeit und Pünktlichkeit stehen bei uns an erster Stelle, damit ihr Bauvorhaben reibungslos und termingerecht realisiert wird.
