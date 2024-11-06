@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Container, Typography, Button, Box, Link } from '@mui/material';
+import { useNavigate, Link } from 'react-router-dom';
+import { Container, Typography, Button, Box } from '@mui/material';
 import ResponsiveAppBar from '../components/AppBar';
 import Footer from '../components/Footer.js';
 import '../CardAnimations.css';
@@ -148,9 +148,8 @@ export default function Home() {
                         Unsere Spezialgebiete umfassen Maurer- und Betonarbeiten, die sowohl für Neubauten als auch für Anbauten grundlegend sind, sowie die Sanierung und Modernisierung bestehender Bauten.
                     </Typography>
                     <Typography variant="body1" gutterBottom>
-                        Unser weiteres Angebot entnehmen sie unserem
-                        <Link to="/leistungen" style={{ color: '#0000FF' }}>
-                        Leistungsverzeichnis
+                        Unser weiteres Angebot entnehmen sie unserem <Link to="/leistungen" style={{ color: '#0000FF' }}>
+                            Leistungsverzeichnis
                         </Link>
                     </Typography>
                     <Typography variant="body1" gutterBottom>
