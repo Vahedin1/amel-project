@@ -194,8 +194,14 @@ function ResponsiveAppBar() {
                 top: '100px',          // Adjust this value to move the button higher or lower as needed
                 left: '50%',          // Center horizontally
                 transform: 'translateX(-50%)',
-                color: colors.black,
+                color: colors.orange,
                 backgroundColor: colors.gray,
+                cursor: 'pointer',
+                transition: 'background-color 0.3s',
+                '&:hover': {
+                  background: colors.orange,
+                  color: colors.white,
+                },
               }}
             >
               <CloseIcon />

@@ -187,7 +187,9 @@ const Footer = () => {
                                     gap: "5px", // Controls the spacing between the icon and text
                                 }}
                             >
-                                <LocationOnIcon />
+                                <LocationOnIcon sx={{marginBottom: '0px'}}>
+
+                                </LocationOnIcon>
                                 <Typography noWrap sx={{ ...footerItemStyles }}>
                                     Alte Dorfstraße 28, 14542 Werder/Havel
                                 </Typography>

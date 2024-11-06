@@ -43,6 +43,14 @@ export default function Home() {
     const handleKontaktClick = () => {
         navigate('/kontakt');
     };
+    const handleLeistungenClick = () => {
+        navigate('/leistungen');
+    };
+
+    const handleUberUnsClick = () => {
+        navigate('/überuns');
+    };
+
 
     const fadeIn = {
         '@keyframes fadeIn': {
@@ -134,7 +142,7 @@ export default function Home() {
                 </Box>
 
                 <Box sx={{
-                    padding: 3, 
+                    padding: 3,
                     maxWidth: { xs: "100%", sm: "1300px" },
                     margin: '0 auto',
                 }}>
@@ -149,7 +157,7 @@ export default function Home() {
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                         Unser weiteres Angebot entnehmen sie unserem
-                        <Link href="#" color='#0000FF'> Leistungsverzeichnis</Link>.
+                        <Link href="#" onClick={handleLeistungenClick} color='#0000FF'> Leistungsverzeichnis</Link>.
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                         Als Ihr lokaler Baupartner legen wir großen Wert auf direkte Kommunikation und transparente Prozesse. Wir verstehen, dass jedes Projekt einzigartig ist, und bieten daher maßgeschneiderte Lösungen, die genau auf Ihre Bedürfnisse und Wünsche zugeschnitten sind. Zuverlässigkeit und Pünktlichkeit stehen bei uns an erster Stelle, damit ihr Bauvorhaben reibungslos und termingerecht realisiert wird.
@@ -158,7 +166,7 @@ export default function Home() {
                         Kontaktieren Sie uns für eine persönliche Beratung und erfahren Sie, wie wir Ihr Projekt mit Engagement und Fachkompetenz zum Erfolg führen können. Wir freuen uns darauf, Ihre Bauprojekte mit Ihnen gemeinsam zu verwirklichen!
                     </Typography>
                     <Typography variant="body1" gutterBottom>
-                        Noch unsicher? Dann erfahren Sie noch mehr <Link href="#" color='#0000FF'>über uns</Link>.
+                        Noch unsicher? Dann erfahren Sie noch mehr <Link href="#" onClick={handleUberUnsClick} color='#0000FF'>über uns</Link>.
                     </Typography>
 
                 </Box>
