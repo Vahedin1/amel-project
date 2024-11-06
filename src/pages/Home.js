@@ -38,7 +38,7 @@ export default function Home() {
 
     const handleKontaktClick = () => navigate('/kontakt');
     const handleLeistungenClick = () => navigate('/leistungen');
-    const handleUberUnsClick = () => navigate('/überuns');
+    const handleUberUnsClick = () => navigate('/über-uns');
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -91,6 +91,7 @@ export default function Home() {
                         src="/assets/logo sa slogan2.png"
                         alt="Logo and Slogan"
                         sx={{
+                            animation: `${slideIn} 1s ease-out`,
                             width: { xs: '70%', sm: '40%' }, // Adjust size based on screen size
                             marginBottom: 0,
                         }}
@@ -103,7 +104,7 @@ export default function Home() {
                             variant="h5"
                             component="h1"
                             gutterBottom
-                            sx={{ ...titleItemStyles, fontSize: { xs: '1.5rem', sm: '2rem' }, mb: 0 }}
+                            sx={{ animation: `${slideIn} 1s ease-out`,...titleItemStyles, fontSize: { xs: '1.5rem', sm: '2rem' }, mb: 0 }}
                         >
                             Willkommen bei Unger Bau
                         </Typography>
@@ -119,6 +120,7 @@ export default function Home() {
                         <Button
                             variant="contained"
                             sx={{
+                                animation: `${slideIn} 1s ease-out`,
                                 backgroundColor: colors.orange,
                                 paddingX: 0.5,
                                 paddingY: 0.5,
