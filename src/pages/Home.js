@@ -7,14 +7,8 @@ import '../CardAnimations.css';
 import { keyframes } from '@mui/system';
 
 const slideIn = keyframes`
-0% {
-    transform: translateX(-100%); 
-    opacity: 0; 
-}
-100% {
-    transform: translateX(0); 
-    opacity: 1; 
-}
+0% { transform: translateX(-100%); opacity: 0; }
+100% { transform: translateX(0); opacity: 1; }
 `;
 
 const colors = {
@@ -32,43 +26,28 @@ const titleItemStyles = {
     fontWeight: 600,
 };
 
-const backgroundColorTitle = {
-    backgroundColor: colors.white,
-    color: colors.black,
+const fadeIn = {
+    '@keyframes fadeIn': {
+        '0%': { opacity: 0 },
+        '100%': { opacity: 1 },
+    },
 };
 
 export default function Home() {
     const navigate = useNavigate();
 
-    const handleKontaktClick = () => {
-        navigate('/kontakt');
-    };
-    const handleLeistungenClick = () => {
-        navigate('/leistungen');
-    };
-
-    const handleUberUnsClick = () => {
-        navigate('/überuns');
-    };
-
-
-    const fadeIn = {
-        '@keyframes fadeIn': {
-            '0%': { opacity: 0 },
-            '100%': { opacity: 1 },
-        },
-    };
+    const handleKontaktClick = () => navigate('/kontakt');
+    const handleLeistungenClick = () => navigate('/leistungen');
+    const handleUberUnsClick = () => navigate('/überuns');
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <ResponsiveAppBar />
             <div style={{ flex: '1 0 auto' }}>
-                {/* Background Image Box */}
+                {/* Background Image Box with Overlay */}
                 <Box
                     sx={{
                         position: 'relative',
-                        top: 0,
-                        left: 0,
                         width: '100%',
                         minHeight: { xs: '100vh', md: '100vh' },
                         backgroundImage: `url('/assets/Homesite.jpg')`,
@@ -83,69 +62,81 @@ export default function Home() {
                             width: '100%',
                             height: '100%',
                             backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            zIndex: 1,
                         },
                     }}
                 />
 
-                {/* Content (Logo and Text) Box */}
+                {/* Content Box for Logo and Text */}
                 <Box
-                    textAlign="center"
                     sx={{
                         ...fadeIn,
                         animation: 'fadeIn 2s ease-out',
                         position: 'absolute',
-                        height: { xs: '900px', md: '1000px' },
+                        top: 0,
+                        left: 0,
+                        height: '100%',
                         width: '100%',
                         display: 'flex',
                         flexDirection: 'column',
-                        alignItems: 'center', // Center horizontally
-                        justifyContent: 'center', // Center vertically
-                        paddingTop: 0,
-                        paddingBottom: 0,
-                        top: '-100px',
-                        zIndex: 2,  // Make sure content is above the background
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingTop: {xs :'0px', sm:'25px'},
+                        zIndex: 2,  // Ensures content stays above overlay
                     }}
                 >
                     {/* Logo Image */}
                     <Box
                         component="img"
-                        src="/assets/logo sa slogan2.png" // Adjust the path if needed
+                        src="/assets/logo sa slogan2.png"
                         alt="Logo and Slogan"
                         sx={{
-                            width: { xs: '80%', sm: '40%' }, // Adjust size based on screen size
-                            marginBottom: 0, // Add some margin between logo and text
+                            width: { xs: '70%', sm: '40%' }, // Adjust size based on screen size
+                            marginBottom: 0,
                         }}
                     />
 
-                    {/* Welcome Text */}
-                    <Box sx={{ animation: `${slideIn} 1s ease-out`, zIndex: 1 }}>
-                        <Typography variant="h5" component="h1" gutterBottom sx={{ ...titleItemStyles, fontSize: { xs: '1.5rem', sm: '2rem' } }}>
+                    {/* Centered Content Container */}
+                    <Container maxWidth="sm" sx={{ textAlign: 'center', zIndex: 2 }}>
+                        {/* Welcome Text */}
+                        <Typography
+                            variant="h5"
+                            component="h1"
+                            gutterBottom
+                            sx={{ ...titleItemStyles, fontSize: { xs: '1.5rem', sm: '2rem' }, mb: 0 }}
+                        >
                             Willkommen bei Unger Bau
                         </Typography>
-                        <Typography variant="h6" color="textSecondary" sx={{ animation: `${slideIn} 1s ease-out`, ...titleItemStyles }}>
+                        <Typography
+                            variant="h6"
+                            color="textSecondary"
+                            sx={{ animation: `${slideIn} 1s ease-out`, ...titleItemStyles, mb: 0 }}
+                        >
                             Ihr zuverlässiger Partner für Bauen und Renovieren.
                         </Typography>
 
                         {/* Button */}
                         <Button
                             variant="contained"
-                            size="large"
-                            style={{ marginTop: '20px', transition: 'transform 0.3s' }}
-                            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1.0)'}
+                            sx={{
+                                backgroundColor: colors.orange,
+                                paddingX: 0.5,
+                                paddingY: 0.5,
+                                fontSize: { xs: '0.9rem', sm: '1rem' },
+                                marginTop: 0,
+                                width: 'auto',
+                                transition: 'transform 0.3s',
+                                '&:hover': { transform: 'scale(1.05)' },
+                            }}
                             onClick={handleKontaktClick}
-                            sx={{ backgroundColor: colors.orange }}
                         >
                             Schreiben Sie uns
                         </Button>
-                    </Box>
+                    </Container>
                 </Box>
 
-                <Box sx={{
-                    padding: 3,
-                    maxWidth: { xs: "100%", sm: "1300px" },
-                    margin: '0 auto',
-                }}>
+                {/* Main Content Section */}
+                <Box sx={{ padding: 3, maxWidth: { xs: "100%", sm: "1300px" }, margin: '0 auto', marginTop: 2 }}>
                     <Typography variant="h5" component="h1" gutterBottom sx={{ fontSize: { xs: '1.2rem', sm: '2rem' } }}>
                         Herzlich Willkommen bei Unger Bau, ihrem Meisterbetrieb für Maurer- und Stahlbetonbau
                     </Typography>
@@ -168,15 +159,11 @@ export default function Home() {
                     <Typography variant="body1" gutterBottom>
                         Noch unsicher? Dann erfahren Sie noch mehr <Link href="#" onClick={handleUberUnsClick} color='#0000FF'>über uns</Link>.
                     </Typography>
-
                 </Box>
 
-                {/* Content Section */}
-                <Container maxWidth="false" sx={{ maxWidth: { xs: "100%", sm: "1300px" }, margin: "0 auto", marginBottom: '50px' }}>
-                    {/* Content goes here */}
-                </Container>
+                {/* Footer Section */}
+                <Footer />
             </div>
-            <Footer />
         </div>
     );
 }

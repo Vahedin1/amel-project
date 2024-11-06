@@ -191,13 +191,14 @@ function ResponsiveAppBar() {
               onClick={handleCloseNavMenu}
               sx={{
                 position: 'absolute',
-                top: '100px',          // Adjust this value to move the button higher or lower as needed
-                left: '50%',          // Center horizontally
+                top: { xs: '5vh', sm: '10vh' }, // Use viewport units for top positioning
+                left: '50%',
                 transform: 'translateX(-50%)',
                 color: colors.orange,
                 backgroundColor: colors.gray,
                 cursor: 'pointer',
                 transition: 'background-color 0.3s',
+                zIndex: 1000,
                 '&:hover': {
                   background: colors.orange,
                   color: colors.white,
