@@ -13,7 +13,7 @@ const colors = {
   gray: '#e6e1e1',
   orange2: '#AA4D1B',
   darkbrown: '#29180E',
-  black: "#3b3a38",
+  black: "#000000",
 };
 
 const logoStyles = {
