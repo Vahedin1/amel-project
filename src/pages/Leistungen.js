@@ -1,7 +1,7 @@
 import ResponsiveAppBar from '../components/AppBar';
 import Footer from '../components/Footer';
 import React, { useState, useEffect } from 'react';
-import { Grid, Typography, Box, CardMedia, Container, Button } from '@mui/material';
+import { Grid, Box, Container, CardMedia, Typography, Button } from '@mui/material';
 import '../CardAnimations.css';
 
 const colors = {
@@ -18,8 +18,8 @@ export default function CombinedPage() {
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <ResponsiveAppBar />
             <div style={{ flex: '1 0 auto' }}>
-                <Container maxWidth="lg" sx={{ mt: 5, mb: 15 }}>
-                    <Grid container spacing={4} sx={{ mt: 7 }}> {/* Add marginTop between header and cards */}
+                <Container maxWidth="lg" sx={{ mt: 12, mb: 10 }}>
+                    <Grid container spacing={4} sx={{ mt: 7 }}>
                         <Grid item xs={12} md={4}>
                             <HoverCard
                                 image="/assets/Beratung.jpg"
@@ -65,14 +65,13 @@ export default function CombinedPage() {
                     </Grid>
                 </Container>
             </div>
-            <Footer sx={{ mt: 5 }} /> {/* Add marginBottom between cards and footer */}
+            <Footer sx={{ mt: 5 }} />
         </div>
     );
 }
 
 function HoverCard({ image, title, text }) {
-    const [isOverlayVisible, setOverlayVisible] = useState(false);
-    const [expanded, setExpanded] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
     // Check window size to determine if it's mobile
@@ -85,12 +84,12 @@ function HoverCard({ image, title, text }) {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const handleToggleOverlay = () => {
-        setOverlayVisible(!isOverlayVisible);
+    const handleMouseEnter = () => {
+        setIsHovered(true);
     };
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
+    const handleMouseLeave = () => {
+        setIsHovered(false);
     };
 
     return (
@@ -103,10 +102,11 @@ function HoverCard({ image, title, text }) {
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
                 transition: 'transform 0.3s',
                 '&:hover': {
-                    transform: isMobile ? 'none' : 'scale(1.05)', // Disable hover effect on mobile
+                    transform: 'scale(1.05)', // Scale on hover
                 },
             }}
-            onClick={handleToggleOverlay} // Toggle overlay on click for mobile
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             <CardMedia
                 component="img"
@@ -116,8 +116,27 @@ function HoverCard({ image, title, text }) {
                 sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
 
-            {/* Title and Text on hover for Desktop */}
-            {!isMobile && (
+            {/* Title always visible (only for Desktop) */}
+            {!isMobile && !isHovered && (
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        bottom: 10,
+                        left: 10,
+                        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                        color: colors.white,
+                        padding: '0px 5px',
+                        borderRadius: '5px',
+                    }}
+                >
+                    <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: colors.orange }}>
+                        {title}
+                    </Typography>
+                </Box>
+            )}
+
+            {/* Title and Text shown on hover */}
+            {isHovered && (
                 <Box
                     sx={{
                         position: 'absolute',
@@ -131,14 +150,10 @@ function HoverCard({ image, title, text }) {
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        opacity: isOverlayVisible ? 1 : 0,
-                        transition: 'opacity 0.3s',
-                        '&:hover': {
-                            opacity: 1,
-                        },
+                        padding: '10px',
                     }}
                 >
-                    <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
+                    <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: colors.orange }}>
                         {title}
                     </Typography>
                     <Typography variant="body1" textAlign="center" px={2}>
@@ -148,33 +163,14 @@ function HoverCard({ image, title, text }) {
             )}
 
             {/* Mobile Content */}
-            {isMobile && (
+            {isMobile && !isHovered && (
                 <Box sx={{ padding: 2, textAlign: 'center' }}>
-                    <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                    <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: colors.orange }}>
                         {title}
                     </Typography>
-                    <Typography
-                        variant="body2"
-                        textAlign="center"
-                        sx={{
-                            display: '-webkit-box',
-                            WebkitLineClamp: expanded ? 'none' : '2', // Limit text to 2 lines
-                            WebkitBoxOrient: 'vertical',
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                        }}
-                    >
+                    <Typography variant="body2" textAlign="center">
                         {text}
                     </Typography>
-                    {text.length > 100 && ( // Adjust length as needed
-                        <Button
-                            size="small"
-                            onClick={handleExpandClick}
-                            sx={{ mt: 1, color: colors.orange }}
-                        >
-                            {expanded ? 'Weniger anzeigen' : 'Mehr anzeigen'} {/* German text */}
-                        </Button>
-                    )}
                 </Box>
             )}
         </Box>

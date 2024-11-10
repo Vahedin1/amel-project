@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { AppBar, Box, Toolbar, Container, Button, MenuItem, Typography, IconButton, Dialog } from '@mui/material';
+import { AppBar, Box, Toolbar, Container, Button, MenuItem, Typography, IconButton, Dialog, Grid } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon, LocalPhone as LocalPhoneIcon, Email as EmailIcon } from '@mui/icons-material';
 
-const pages = ['Home', 'Leistungen', 'Über uns' , 'Kontakt'];
+const pages = ['Home', 'Leistungen', 'Über uns', 'Kontakt'];
 
 const colors = {
   white: '#FFFFFF',
@@ -110,7 +110,7 @@ function ResponsiveAppBar() {
   }, [open, location.pathname]);
 
   return (
-    <AppBar position="fixed" sx={{ ...appbarItemStyles, boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.3)", }}>
+    <AppBar position="fixed" sx={{ ...appbarItemStyles, boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.3)",height: {xs: '75px', md:'100px'} }}>
       <Container maxWidth="false" sx={{ maxWidth: '1300px', margin: '0 auto' }}>
         <Toolbar disableGutters sx={{ width: '100%' }}>
 
@@ -121,9 +121,14 @@ function ResponsiveAppBar() {
             justifyContent: 'center',
             width: '100%',
             gap: '40px',
+            marginTop: '20px',
           }}>
-            {/* Logo Section */}
-            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, alignItems: 'center', gap: '40px' }}>
+            {/* Logo Section for Desktop */}
+            <Box sx={{
+              display: { xs: 'none', sm: 'none', md: 'flex' },
+              alignItems: 'center',
+              gap: '40px',
+            }}>
               {showLogo && (
                 <Box
                   component="img"
@@ -156,24 +161,67 @@ function ResponsiveAppBar() {
               </Box>
             </Box>
 
-            {/* Contact Information Section */}
+            {/* Contact Information Section for Desktop */}
             <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, gap: '20px', alignItems: 'center' }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <LocalPhoneIcon />
-                <Typography noWrap variant="body1" sx={{ ...appbarItemStyles }}>0162 420 66 78</Typography>
+                <Typography noWrap variant="body1" sx={{ ...appbarItemStyles }}>+49 1766 2433192</Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <EmailIcon />
-                <Typography noWrap variant="body1" sx={{ ...appbarItemStyles }}>info@unger.de</Typography>
+                <Typography noWrap variant="body1" sx={{ ...appbarItemStyles }}>kontakt@unger-bau.info</Typography>
               </Box>
             </Box>
           </Box>
-          {/* Mobile Menu Button */}
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, position: 'absolute', left: '5px', top: '7px' }}>
-            <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
+
+          {/* Mobile Menu Button and Logo - Adjusted */}
+          <Box
+            sx={{
+              display: { xs: 'flex', md: 'none' },
+              alignItems: 'center',
+              width: '100vw', // Ensures full viewport width
+              height: '60px',
+              padding: 0,
+              margin: 0,
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              zIndex: 1000,
+            }}
+          >
+            {/* Logo on the Left */}
+            {showLogo && (
+              <Box
+                component="img"
+                src="assets/logo bez slogan2.png"
+                alt="Logo"
+                onClick={handleLogoClick}
+                sx={{
+                  height: '50px',
+                  cursor: 'pointer',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': { transform: 'scale(1.05)' },
+                  marginLeft: 0, // Ensure no extra margin
+                  paddingLeft: '16px', // Optional: space from edge
+                }}
+              />
+            )}
+
+            {/* Menu Button on the Right */}
+            <IconButton
+              size="large"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+              sx={{
+                marginLeft: 'auto', // Ensures the button is pushed to the right
+                paddingRight: '16px', // Optional: space from edge
+              }}
+            >
               <MenuIcon />
             </IconButton>
           </Box>
+
+
 
           {/* Full-Screen Dialog for Mobile Menu */}
           <Dialog
@@ -197,7 +245,7 @@ function ResponsiveAppBar() {
               onClick={handleCloseNavMenu}
               sx={{
                 position: 'absolute',
-                top: { xs: '5vh', sm: '10vh' }, // Use viewport units for top positioning
+                top: { xs: '5vh', sm: '10vh' },
                 left: '50%',
                 transform: 'translateX(-50%)',
                 color: colors.orange,
@@ -231,7 +279,7 @@ function ResponsiveAppBar() {
 
         </Toolbar>
       </Container>
-    </AppBar >
+    </AppBar>
   );
 }
 

@@ -25,6 +25,7 @@ const ContactForm = () => {
         phone: "",
         message: "",
         queryType: "",
+        gender: "", // New gender field
         captchaError: "",
     });
     const [errors, setErrors] = useState({});  // Track which fields are invalid
@@ -134,6 +135,11 @@ const ContactForm = () => {
             newErrors.queryType = "Anfrageart ist erforderlich";
         }
 
+        // Gender field
+        if (!formData.gender) {
+            newErrors.gender = "Geschlecht ist erforderlich";
+        }
+
         return newErrors;
     };
 
@@ -145,6 +151,7 @@ const ContactForm = () => {
             phone: "",
             message: "",
             queryType: "",
+            gender: "", // Reset gender
             captchaError: "",
         });
         setErrors({});
@@ -152,8 +159,8 @@ const ContactForm = () => {
     };
 
     const isFormValid = () => {
-        const { name, email, phone, message, queryType } = formData;
-        return name && email && phone && message && queryType && validateEmail(email);
+        const { name, email, phone, message, queryType, gender } = formData;
+        return name && email && phone && message && queryType && gender && validateEmail(email);
     };
 
     const handleSubmit = async (e) => {
@@ -178,6 +185,7 @@ const ContactForm = () => {
                     phone: formData.phone,
                     company: formData.company,
                     queryType: formData.queryType,
+                    gender: formData.gender, // Send gender as part of the form data
                 },
                 process.env.REACT_APP_EMAILJS_USER_ID
             );
@@ -205,7 +213,7 @@ const ContactForm = () => {
                 flexDirection: "column",
                 gap: 2,
                 marginTop: '80px',
-                marginBottom: '100px',
+                marginBottom: '50px',
                 borderRadius: "8px",
                 border: "1px solid #ddd",
                 transition: 'transform 0.3s, box-shadow 0.3s',
@@ -216,22 +224,56 @@ const ContactForm = () => {
                 },
             }}
         >
+            {/* Name TextField */}
+            <TextField
+                name="name"
+                label="Vor- & Nachname"
+                value={formData.name}
+                onChange={handleInputChange}
+                variant="outlined"
+                fullWidth
+                required
+                sx={{ marginTop: '5px' }}
+                inputProps={{ maxLength: 150 }} // Character limit for name
+            />
+            {charLimitErrors.name && <Typography color="red" variant="body2">{charLimitErrors.name}</Typography>}
+
+            {/* Gender Select */}
+            <FormControl fullWidth>
+                <InputLabel htmlFor="gender" sx={{ backgroundColor: colors.white, color: formData.gender ? colors.gray : colors.gray, padding: '0 5px' }}>
+                    Geschlecht *
+                </InputLabel>
+                <Select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    sx={{
+                        borderColor: errors.gender ? 'red' : '',
+                    }}
+                >
+                    <MenuItem value="male">Männlich</MenuItem>
+                    <MenuItem value="female">Weiblich</MenuItem>
+                </Select>
+            </FormControl>
+            {errors.gender && <FormHelperText error>{errors.gender}</FormHelperText>}
+
+            {/* Firma TextField */}
+            <TextField
+                name="company"
+                label="Firma"
+                value={formData.company}
+                onChange={handleInputChange}
+                variant="outlined"
+                fullWidth
+                sx={{ marginTop: '5px' }}
+                inputProps={{ maxLength: 100 }} // Add character limit here
+            />
+
             {/* Query Type Select */}
             <FormControl fullWidth>
-                {!formData.queryType && (
-                    <InputLabel htmlFor="queryType" sx={{
-                        color: formData.queryType ? colors.gray : colors.gray,
-                        '&.Mui-focused': {
-                            transform: 'translate(0, -5px) scale(1)',
-                            color: colors.gray,
-                        },
-                        '&.MuiInputLabel-shrink': {
-                            transform: 'translate(10px, -8px) scale(0.75)',
-                            backgroundColor: 'white',
-                            padding: '0 4px',
-                        },
-                    }}>Anfrageart *</InputLabel>
-                )}
+                <InputLabel htmlFor="queryType" sx={{ padding: '0 5px', backgroundColor: colors.white, color: formData.queryType ? colors.gray : colors.gray }}>
+                    Anfrageart *
+                </InputLabel>
                 <Select
                     name="queryType"
                     value={formData.queryType}
@@ -260,33 +302,7 @@ const ContactForm = () => {
                     </MenuItem>
                 </Select>
             </FormControl>
-
-            {/* Company TextField */}
-            <TextField
-                name="company"
-                label="Firma"
-                value={formData.company}
-                onChange={handleInputChange}
-                variant="outlined"
-                fullWidth
-                sx={{ marginTop: '5px' }}
-                inputProps={{ maxLength: 100 }} // Add character limit here
-            />
-            {charLimitErrors.company && <Typography color="red" variant="body2">{charLimitErrors.company}</Typography>}
-
-            {/* Name TextField */}
-            <TextField
-                name="name"
-                label="Vor- & Nachname"
-                value={formData.name}
-                onChange={handleInputChange}
-                variant="outlined"
-                fullWidth
-                required
-                sx={{ marginTop: '5px' }}
-                inputProps={{ maxLength: 150 }} // Character limit for name
-            />
-            {charLimitErrors.name && <Typography color="red" variant="body2">{charLimitErrors.name}</Typography>}
+            {errors.queryType && <FormHelperText error>{errors.queryType}</FormHelperText>}
 
             {/* Email TextField */}
             <TextField
@@ -303,11 +319,6 @@ const ContactForm = () => {
             {charLimitErrors.email && <Typography color="red" variant="body2">{charLimitErrors.email}</Typography>}
 
             {/* Phone Input */}
-            <InputLabel
-                shrink
-                sx={{ margin: 0, padding: 0, marginTop: '5px' }}>
-                Telefonnummer:
-            </InputLabel>
             <PhoneInput
                 country={'de'}
                 value={formData.phone}
@@ -318,17 +329,12 @@ const ContactForm = () => {
                     borderColor: errors.phone ? 'red' : '',
                     paddingLeft: '50px', // to adjust for the country code padding
                 }}
-                specialLabel=""
                 containerStyle={{ width: '100%' }}
                 sx={{
                     margin: 0, padding: 0, marginBottom: '5px'
                 }}
             />
-
-            {/* Phone error */}
-            {errors.phone && (
-                <FormHelperText error>{errors.phone}</FormHelperText>
-            )}
+            {errors.phone && <FormHelperText error>{errors.phone}</FormHelperText>}
 
             {/* Message TextField */}
             <TextField
@@ -376,7 +382,7 @@ export default function Kontakt() {
     return (
         <>
             <ResponsiveAppBar />
-            <Grid container spacing={2} marginTop={'40px'} marginBottom={'0px'} sx={{ minHeight: '100vh', justifyContent: 'center', alignItems: 'center' }}>
+            <Grid container spacing={2} marginTop={'70px'} marginBottom={'0px'} sx={{ minHeight: '100vh', justifyContent: 'center', alignItems: 'center' }}>
                 <Grid item xs={12} md={8}>
                     <ContactForm />
                 </Grid>

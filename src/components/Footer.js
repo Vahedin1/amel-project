@@ -34,7 +34,7 @@ const logoStyles = {
 
 const socialLinks = [
     {
-        href: "https://instagram.com/profile",
+        href: "https://www.instagram.com/unger_bau/",
         icon: <InstagramIcon />,
         label: "Instagram",
     },
@@ -187,7 +187,7 @@ const Footer = () => {
                                     gap: "5px", // Controls the spacing between the icon and text
                                 }}
                             >
-                                <LocationOnIcon sx={{marginBottom: '0px'}}>
+                                <LocationOnIcon sx={{ marginBottom: '0px' }}>
 
                                 </LocationOnIcon>
                                 <Typography noWrap sx={{ ...footerItemStyles }}>
@@ -205,7 +205,7 @@ const Footer = () => {
                             >
                                 <LocalPhoneIcon />
                                 <Typography sx={{ ...footerItemStyles }}>
-                                    0162 420 66 78
+                                    +49 1766 2433192
                                 </Typography>
                             </Box>
 
@@ -219,7 +219,7 @@ const Footer = () => {
                             >
                                 <EmailIcon />
                                 <Typography sx={{ ...footerItemStyles }}>
-                                    info@unger.de
+                                    kontakt@unger-bau.info
                                 </Typography>
                             </Box>
 
@@ -289,7 +289,8 @@ const Footer = () => {
 
                 {/* Copyright */}
                 <Typography variant="body2" align="center">
-                    &copy; Copyright by Unger – Unger-bau.de
+                    &copy; 2024 | www.unger-bau.de
+
                 </Typography>
             </Container>
         </Box>

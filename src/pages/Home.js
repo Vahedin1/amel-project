@@ -91,7 +91,7 @@ export default function Home() {
                         alt="Logo and Slogan"
                         sx={{
                             animation: `${slideIn} 1s ease-out`,
-                            width: { xs: '70%', sm: '40%' }, // Adjust size based on screen size
+                            width: { xs: '100%', sm: '40%', md: '50%' }, // Adjust size based on screen size
                             marginBottom: 0,
                         }}
                     />

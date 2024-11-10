@@ -6,7 +6,6 @@ import { Grid, Card, CardContent, Typography, Avatar, Box, Container, Link } fro
 import '../CardAnimations.css';
 
 const VitaContent = () => {
-
     const navigate = useNavigate();
     const colors = {
         white: "#FFFFFF",
@@ -27,32 +26,31 @@ const VitaContent = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
+                py: 4, // Adds vertical padding for a bit of spacing at top and bottom
             }}
         >
             <Container
-                maxWidth="false"
+                maxWidth="lg"
                 sx={{
-                    maxWidth: { xs: "100%", sm: "1300px" },
-                    margin: "0 auto",
                     display: 'flex',
-                    alignContent: 'center',
-                    alignItems: 'center',
                     justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                    marginTop: '0px',
+                    marginBottom: '30px',
                 }}
             >
-                <Grid container spacing={4} alignItems="center" justifyContent="center">
+                <Grid container spacing={4} alignItems="center" justifyContent="center" sx={{mt: 6}}>
                     {/* Left Side - Image */}
-                    <Grid item xs={12} md={3}>
+                    <Grid item xs={12} md={4}>
                         <Card
                             className="slide-card"
                             sx={{
-                                marginTop: '200px',
                                 display: 'flex',
                                 alignContent: 'center',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 flexDirection: 'column',
-                                marginBottom: { xs: '0px', md: '200px' },
                                 boxShadow: 'none',
                                 border: 'none',
                                 transition: '0.3s',
@@ -64,8 +62,8 @@ const VitaContent = () => {
                             <CardContent>
                                 <Box
                                     sx={{
-                                        width: 300, // Set your desired width
-                                        height: 400, // Set your desired height
+                                        width: 350, // Set your desired width
+                                        height: 450, // Set your desired height
                                         overflow: 'hidden',
                                         display: 'flex',
                                         alignItems: 'center',
@@ -80,10 +78,7 @@ const VitaContent = () => {
                                             height: '100%',
                                             objectFit: 'contain', // Ensures the entire image is visible
                                             borderRadius: '20px',
-                                            border: 'none',
                                             boxShadow: 'none',
-                                            padding: 0,
-                                            outline: 'none',
                                         }}
                                     />
                                 </Box>
@@ -96,20 +91,16 @@ const VitaContent = () => {
                         <Box
                             className="slide-card"
                             sx={{
-                                marginBottom: '150px',
-                                marginTop: { xs: '0px', md: '160px' },
                                 color: '#333',
                                 textAlign: 'center',
                                 '&:hover': {
-                                    transform: 'scale(1.05) !important',
+                                //    transform: 'scale(1.05) !important',
                                 },
                             }}
                         >
-                            <Box sx={{ width: '100%', marginBottom: '20px' }}>
-                                <Typography className="tkt" variant="h5" component="h2" gutterBottom sx={{ color: colors.black, fontWeight: 'bold' }}>
-                                    Ich bin Amel Unger, Gründer von Unger Bau.
-                                </Typography>
-                            </Box>
+                            <Typography variant="h5" component="h2" gutterBottom sx={{ color: colors.black, fontWeight: 'bold' }}>
+                                Ich bin Amel Unger, Gründer von Unger Bau.
+                            </Typography>
                             <Typography variant="body1" gutterBottom>
                                 Mit einer Ausbildung als Maurer und einem Meistertitel im Maurer- und Stahlbetonbau sowie langjähriger Erfahrung auf der Baustelle bringe ich das nötige Fachwissen und die handwerkliche Präzision mit, die Grundpfeiler jedes soliden Bauvorhabens sind.
                             </Typography>
@@ -124,10 +115,7 @@ const VitaContent = () => {
                                 eine Alternative zu größeren Bauunternehmen zu schaffen. Mein Ansatz ermöglicht es, speziell kleinere Projekte mit voller Hingabe persönlich zu planen und auszuführen.
                             </Typography>
                             <Typography variant="body1" gutterBottom>
-                                Ich freue mich auf unsere Zusammenarbeit, schreiben Sie mir gerne über unser<Link href="#" onClick={handleKontaktClick} sx={{ color: 'blue' }}> Kontaktformular</Link>.
-                            </Typography>
-                            <Typography variant="body1" gutterBottom>
-
+                                Ich freue mich auf unsere Zusammenarbeit, schreiben Sie mir gerne über unser <Link href="#" onClick={handleKontaktClick} sx={{ color: 'blue' }}>Kontaktformular</Link>.
                             </Typography>
                         </Box>
                     </Grid>
@@ -140,9 +128,9 @@ const VitaContent = () => {
 // About us page
 export default function Vita() {
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', }}>
             <ResponsiveAppBar />
-            <div style={{ flex: '1 0 auto',marginTop:'-120px',marginBottom:'0' }}>
+            <div style={{ flex: '1 0 auto' }}>
                 <VitaContent />
             </div>
             <Footer />
