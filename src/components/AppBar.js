@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { AppBar, Box, Toolbar, Container, Button, MenuItem, Typography, IconButton, Dialog } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon, LocalPhone as LocalPhoneIcon, Email as EmailIcon } from '@mui/icons-material';
 
-const pages = ['Home', 'Leistungen', 'Kontakt', 'Über uns'];
+const pages = ['Home', 'Leistungen', 'Über uns' , 'Kontakt'];
 
 const colors = {
   white: '#FFFFFF',

@@ -114,7 +114,7 @@ const VitaContent = () => {
                                 Mit einer Ausbildung als Maurer und einem Meistertitel im Maurer- und Stahlbetonbau sowie langjähriger Erfahrung auf der Baustelle bringe ich das nötige Fachwissen und die handwerkliche Präzision mit, die Grundpfeiler jedes soliden Bauvorhabens sind.
                             </Typography>
                             <Typography variant="body1" gutterBottom>
-                                Aktuell erweitere Ich meine Fachkenntnisse durch ein Studium des Bauingenieurswesens, um die neusten Techniken und Standards in die Praxis unserer Projekte zu integrieren.
+                                Aktuell erweitere ich meine Fachkenntnisse durch ein Studium des Bauingenieurswesens, um die neusten Techniken und Standards in die Praxis unserer Projekte zu integrieren.
                             </Typography>
                             <Typography variant="body1" gutterBottom>
                                 Schon in jungen Jahren entdeckte ich meine Leidenschaft für das Bauwesen, und diese Begeisterung ist der Kern meiner beruflichen Laufbahn.
@@ -142,7 +142,7 @@ export default function Vita() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <ResponsiveAppBar />
-            <div style={{ flex: '1 0 auto' }}>
+            <div style={{ flex: '1 0 auto',marginTop:'-120px',marginBottom:'0' }}>
                 <VitaContent />
             </div>
             <Footer />

@@ -19,7 +19,7 @@ export default function CombinedPage() {
             <ResponsiveAppBar />
             <div style={{ flex: '1 0 auto' }}>
                 <Container maxWidth="lg" sx={{ mt: 5, mb: 15 }}>
-                    <Grid container spacing={4} sx={{ mt: 15 }}> {/* Add marginTop between header and cards */}
+                    <Grid container spacing={4} sx={{ mt: 7 }}> {/* Add marginTop between header and cards */}
                         <Grid item xs={12} md={4}>
                             <HoverCard
                                 image="/assets/Beratung.jpg"

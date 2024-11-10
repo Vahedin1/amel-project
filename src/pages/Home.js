@@ -99,21 +99,21 @@ export default function Home() {
                     {/* Centered Content Container */}
                     <Container maxWidth="sm" sx={{ textAlign: 'center', zIndex: 2 }}>
                         {/* Welcome Text */}
-                        <Typography
+                        {/* <Typography
                             variant="h5"
                             component="h1"
                             gutterBottom
                             sx={{ animation: `${slideIn} 1s ease-out`, ...titleItemStyles, fontSize: { xs: '1.5rem', sm: '2rem' }, mb: 0 }}
                         >
                             Willkommen bei Unger Bau
-                        </Typography>
-                        <Typography
+                        </Typography> */}
+                        {/* <Typography
                             variant="h6"
                             color="textSecondary"
                             sx={{ animation: `${slideIn} 1s ease-out`, ...titleItemStyles, mb: 0 }}
                         >
                             Ihr zuverlässiger Partner für Bauen und Renovieren.
-                        </Typography>
+                        </Typography> */}
 
                         {/* Button */}
                         <Button
@@ -138,7 +138,7 @@ export default function Home() {
 
                 {/* Main Content Section */}
                 <Box sx={{ padding: 3, maxWidth: { xs: "100%", sm: "1300px" }, margin: '0 auto', marginTop: 2 }}>
-                    <Typography variant="h5" component="h1" gutterBottom sx={{ fontSize: { xs: '1.2rem', sm: '2rem' } }}>
+                    <Typography variant="h5" component="h1" gutterBottom sx={{ fontSize: { xs: '1.2rem', sm: '2rem' },fontWeight:'bold' }}>
                         Herzlich Willkommen bei Unger Bau, ihrem Meisterbetrieb für Maurer- und Stahlbetonbau
                     </Typography>
                     <Typography variant="body1" gutterBottom>
@@ -146,8 +146,6 @@ export default function Home() {
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                         Unsere Spezialgebiete umfassen Maurer- und Betonarbeiten, die sowohl für Neubauten als auch für Anbauten grundlegend sind, sowie die Sanierung und Modernisierung bestehender Bauten.
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
                         Unser weiteres Angebot entnehmen sie unserem <Link to="/leistungen" style={{ color: '#0000FF' }}>
                             Leistungsverzeichnis
                         </Link>

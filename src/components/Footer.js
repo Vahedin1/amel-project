@@ -154,7 +154,7 @@ const Footer = () => {
                             {/* {logo} */}
                             <Box
                                 component="img"
-                                src="assets/logo bez slogan2.png"
+                                src="assets/logo sa slogan2.png"
                                 alt="Logo"
                                 onClick={handleLogoClick}
                                 sx={{
