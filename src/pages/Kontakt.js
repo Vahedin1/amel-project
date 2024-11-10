@@ -25,7 +25,7 @@ const ContactForm = () => {
         phone: "",
         message: "",
         queryType: "",
-        gender: "", // New gender field
+        gender: "", 
         captchaError: "",
     });
     const [errors, setErrors] = useState({});  // Track which fields are invalid
@@ -247,6 +247,7 @@ const ContactForm = () => {
                     name="gender"
                     value={formData.gender}
                     onChange={handleChange}
+                    required
                     sx={{
                         borderColor: errors.gender ? 'red' : '',
                     }}
@@ -339,7 +340,7 @@ const ContactForm = () => {
             {/* Message TextField */}
             <TextField
                 name="message"
-                label="Nachricht"
+                label=""
                 value={formData.message}
                 onChange={handleInputChange}
                 variant="outlined"
