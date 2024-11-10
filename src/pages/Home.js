@@ -137,7 +137,7 @@ export default function Home() {
                 </Box>
 
                 {/* Main Content Section */}
-                <Box sx={{ padding: 3, maxWidth: { xs: "100%", sm: "1300px" }, margin: '0 auto', marginTop: 2 }}>
+                <Box sx={{ padding: 3, maxWidth: { xs: "100%", sm: "1300px" }, margin: '0 auto', marginTop: 2, marginBottom: '16px', }}>
                     <Typography variant="h5" component="h1" gutterBottom sx={{ fontSize: { xs: '1.2rem', sm: '2rem' },fontWeight:'bold' }}>
                         Herzlich Willkommen bei Unger Bau, ihrem Meisterbetrieb für Maurer- und Stahlbetonbau
                     </Typography>

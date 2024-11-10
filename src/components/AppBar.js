@@ -110,7 +110,7 @@ function ResponsiveAppBar() {
   }, [open, location.pathname]);
 
   return (
-    <AppBar position="fixed" sx={{ ...appbarItemStyles, boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.3)",height: {xs: '75px', md:'100px'} }}>
+    <AppBar position="fixed" sx={{ ...appbarItemStyles, boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.3)", height: { xs: '75px', md: '100px' } }}>
       <Container maxWidth="false" sx={{ maxWidth: '1300px', margin: '0 auto' }}>
         <Toolbar disableGutters sx={{ width: '100%' }}>
 
@@ -121,13 +121,15 @@ function ResponsiveAppBar() {
             justifyContent: 'center',
             width: '100%',
             gap: '40px',
-            marginTop: '20px',
+            marginTop: '10px',
           }}>
             {/* Logo Section for Desktop */}
             <Box sx={{
               display: { xs: 'none', sm: 'none', md: 'flex' },
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '40px',
+              marginTop: location.pathname === '/' ? '10px' : '0px',
             }}>
               {showLogo && (
                 <Box
