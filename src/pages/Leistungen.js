@@ -85,13 +85,12 @@ function HoverCard({ image, title, text }) {
     }, []);
 
     const handleMouseEnter = () => {
-        setIsHovered(true);
+        if (!isMobile) setIsHovered(true);
     };
 
     const handleMouseLeave = () => {
-        setIsHovered(false);
+        if (!isMobile) setIsHovered(false);
     };
-
     return (
         <Box
             className="hover-card"
@@ -165,7 +164,7 @@ function HoverCard({ image, title, text }) {
             {/* Mobile Content */}
             {isMobile && !isHovered && (
                 <Box sx={{ padding: 2, textAlign: 'center' }}>
-                    <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: colors.white }}>
+                    <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: colors.black }}>
                         {title}
                     </Typography>
                     <Typography variant="body2" textAlign="center">
