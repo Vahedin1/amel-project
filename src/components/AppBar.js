@@ -42,7 +42,21 @@ const appbarItemStyles = {
 
 function ResponsiveAppBar() {
   const [open, setOpen] = React.useState(false);
+  const [showLogo, setShowLogo] = React.useState(false);
   const navigate = useNavigate();
+
+  // Scroll listener to handle logo visibility
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.location.pathname === '/') {
+        // Show the logo when scrolled down 100px or more, hide otherwise
+        setShowLogo(window.scrollY > 100);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleOpenNavMenu = () => {
     setOpen(true);
@@ -92,19 +106,22 @@ function ResponsiveAppBar() {
               justifyContent: 'center',
               gap: '40px',
             }}>
-              <Box
-                component="img"
-                src="assets/logo bez slogan2.png"
-                alt="Logo"
-                onClick={handleLogoClick}
-                sx={{
-                  ...logoStyles,
-                  height: '75px',
-                  cursor: 'pointer',
-                  transition: 'transform 0.3s ease',
-                  '&:hover': { transform: 'scale(1.05)' },
-                }}
-              />
+              {showLogo && (
+                <Box
+                  component="img"
+                  src="assets/logo bez slogan2.png"
+                  alt="Logo"
+                  onClick={handleLogoClick}
+                  sx={{
+                    ...logoStyles,
+                    height: '75px',
+                    cursor: 'pointer',
+                    transition: 'transform 0.3s ease, opacity 0.3s ease-in-out',
+                    opacity: showLogo ? 1 : 0,
+                    '&:hover': { transform: 'scale(1.05)' },
+                  }}
+                />
+              )}
               {/* Pages Section */}
               <Box sx={{ display: 'flex', gap: '20px' }}>
                 {pages.map((page) => (
@@ -116,11 +133,12 @@ function ResponsiveAppBar() {
                       '&:hover': { transform: 'scale(1.1)' },
                     }}
                   >
-                    <Typography noWrap sx={{...pagesItemStyles}}>{page}</Typography>
+                    <Typography noWrap sx={{ ...pagesItemStyles }}>{page}</Typography>
                   </Button>
                 ))}
               </Box>
             </Box>
+
             {/* Contact Information */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '20px', alignItems: 'center' }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
@@ -134,12 +152,12 @@ function ResponsiveAppBar() {
             </Box>
           </Box>
 
-          {/* Mobile Menu Button and Logo - Adjusted */}
+          {/* Mobile Menu Button and Logo */}
           <Box
             sx={{
               display: { xs: 'flex', md: 'none' },
               alignItems: 'center',
-              width: '100vw', // Ensures full viewport width
+              width: '100vw',
               height: '60px',
               padding: 0,
               margin: 0,
@@ -149,22 +167,23 @@ function ResponsiveAppBar() {
               zIndex: 1000,
             }}
           >
-            {/* Logo on the Left */}
-            <Box
-              component="img"
-              src="assets/logo bez slogan2.png"
-              alt="Logo"
-              onClick={handleLogoClick}
-              sx={{
-                marginTop: '20px',
-                height: '70px',
-                cursor: 'pointer',
-                transition: 'transform 0.3s ease',
-                '&:hover': { transform: 'scale(1.05)' },
-                marginLeft: 3, // Ensure no extra margin
-                paddingLeft: '16px', // Optional: space from edge
-              }}
-            />
+            {showLogo && (
+              <Box
+                component="img"
+                src="assets/logo bez slogan2.png"
+                alt="Logo"
+                onClick={handleLogoClick}
+                sx={{
+                  height: '70px',
+                  cursor: 'pointer',
+                  transition: 'transform 0.3s ease, opacity 0.3s ease-in-out',
+                  opacity: showLogo ? 1 : 0,
+                  marginLeft: 3,
+                  paddingLeft: '16px',
+                  '&:hover': { transform: 'scale(1.05)' },
+                }}
+              />
+            )}
 
             {/* Menu Button on the Right */}
             <IconButton
@@ -172,8 +191,8 @@ function ResponsiveAppBar() {
               onClick={handleOpenNavMenu}
               color="inherit"
               sx={{
-                marginLeft: 'auto', // Ensures the button is pushed to the right
-                paddingRight: '16px', // Optional: space from edge
+                marginLeft: 'auto',
+                paddingRight: '16px',
                 marginRight: '40px',
                 marginTop: '20px'
               }}
@@ -183,42 +202,10 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* Full-Screen Dialog for Mobile Menu */}
-          <Dialog
-            fullScreen
-            open={open}
-            onClose={handleCloseNavMenu}
-            sx={{
-              '& .MuiDialog-paper': {
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: colors.black,
-                padding: 0,
-                margin: 0,
-              },
-            }}
-          >
-            {/* Close Button */}
-            <IconButton
-              onClick={handleCloseNavMenu}
-              sx={{
-                position: 'absolute',
-                top: '5vh',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                color: colors.orange,
-                backgroundColor: colors.gray,
-                '&:hover': {
-                  background: colors.orange,
-                  color: colors.white,
-                },
-              }}
-            >
+          <Dialog fullScreen open={open} onClose={handleCloseNavMenu} sx={{ '& .MuiDialog-paper': { backgroundColor: colors.black } }}>
+            <IconButton onClick={handleCloseNavMenu} sx={{ position: 'absolute', top: '5vh', left: '50%', transform: 'translateX(-50%)', color: colors.orange }}>
               <CloseIcon />
             </IconButton>
-
-            {/* Menu Items */}
             {pages.map((page) => (
               <MenuItem key={page} onClick={() => handlePageClick(page)}>
                 <Typography sx={{ ...pagesItemStyles }}>{page}</Typography>
