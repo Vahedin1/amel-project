@@ -39,7 +39,7 @@ const socialLinks = [
         label: "Instagram",
     },
     {
-        href: "https://facebook.com/profile",
+        href: "https://www.facebook.com/share/Zxt1mD54FCszW2FG/?mibextid=LQQJ4d",
         icon: <FacebookIcon />,
         label: "Facebook",
     },
@@ -191,7 +191,7 @@ const Footer = () => {
 
                                 </LocationOnIcon>
                                 <Typography noWrap sx={{ ...footerItemStyles }}>
-                                    Alte Dorfstraße 28, 14542 Werder/Havel
+                                    Römerstraße 9, 73265 Dettingen unter Teck
                                 </Typography>
                             </Box>
 

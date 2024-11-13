@@ -129,7 +129,7 @@ function HoverCard({ image, title, text }) {
                         borderRadius: '5px',
                     }}
                 >
-                    <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: colors.orange }}>
+                    <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: colors.white }}>
                         {title}
                     </Typography>
                 </Box>
@@ -153,7 +153,7 @@ function HoverCard({ image, title, text }) {
                         padding: '10px',
                     }}
                 >
-                    <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: colors.orange }}>
+                    <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: colors.white }}>
                         {title}
                     </Typography>
                     <Typography variant="body1" textAlign="center" px={2}>
@@ -165,7 +165,7 @@ function HoverCard({ image, title, text }) {
             {/* Mobile Content */}
             {isMobile && !isHovered && (
                 <Box sx={{ padding: 2, textAlign: 'center' }}>
-                    <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: colors.orange }}>
+                    <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: colors.white }}>
                         {title}
                     </Typography>
                     <Typography variant="body2" textAlign="center">

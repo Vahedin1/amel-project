@@ -5,7 +5,7 @@ import React, { useState, useRef, useEffect } from "react";
 import useGoogleMapState from '../hooks/useGoogleMapState';
 
 export default function GooglesMap() {
-    const position = { lat: 50.110924, lng: 8.682127 };
+    const position = { lat: 48.61960651631407, lng: 9.451728084660788 };
     const [open, setOpen] = useState(false);
     const { center, zoom } = useGoogleMapState(position);
     const mapRef = useRef(null); // Declare mapRef here
@@ -77,12 +77,12 @@ export default function GooglesMap() {
                                 options={{ pixelOffset: new window.google.maps.Size(0, -35) }}
                             >
                                 <div style={{ padding: '0px', fontFamily: 'Arial', color: 'black', lineHeight: '1.3', margin: '0px' }}>
-                                    <h4 style={{ margin: '0', fontSize: '16px', fontWeight: 'bold' }}>Amel Ungery</h4>
-                                    <p style={{ margin: '0', fontSize: '14px' }}>Am Zernsee 16, 14542 Werder/Havel</p>
-                                    <p style={{ margin: '5px 0', fontSize: '14px' }}>0162 420 66 78</p>
+                                    <h4 style={{ margin: '0', fontSize: '16px', fontWeight: 'bold' }}>UNGER BAU</h4>
+                                    <p style={{ margin: '0', fontSize: '14px' }}>Römerstraße 9, 73265 Dettingen unter Teck</p>
+                                    <p style={{ margin: '5px 0', fontSize: '14px' }}>+49 1766 2433192</p>
                                     <p style={{ margin: '0', fontSize: '14px' }}>
                                         <a href="mailto:office@amel-bau.de" style={{ color: '#4285F4', textDecoration: 'none' }}>
-                                            office@Unger-bau.de
+                                            kontakt@unger-bau.info
                                         </a>
                                     </p>
                                 </div>

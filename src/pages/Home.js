@@ -147,7 +147,7 @@ export default function Home() {
                     <Typography variant="body1" gutterBottom>
                         Unsere Spezialgebiete umfassen Maurer- und Betonarbeiten, die sowohl für Neubauten als auch für Anbauten grundlegend sind, sowie die Sanierung und Modernisierung bestehender Bauten.
                         Unser weiteres Angebot entnehmen sie unserem <Link to="/leistungen" style={{ color: '#0000FF' }}>
-                            Leistungsverzeichnis
+                            Leistungsverzeichnis.
                         </Link>
                     </Typography>
                     <Typography variant="body1" gutterBottom>
@@ -158,7 +158,7 @@ export default function Home() {
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                         Noch unsicher? Dann erfahren Sie noch mehr <Link to="/über-uns" style={{ color: '#0000FF' }}>
-                            über uns
+                            über uns.
                         </Link>
                     </Typography>
                 </Box>

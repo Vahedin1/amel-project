@@ -25,7 +25,7 @@ const ContactForm = () => {
         phone: "",
         message: "",
         queryType: "",
-        gender: "", 
+        gender: "",
         captchaError: "",
     });
     const [errors, setErrors] = useState({});  // Track which fields are invalid
@@ -224,51 +224,6 @@ const ContactForm = () => {
                 },
             }}
         >
-            {/* Name TextField */}
-            <TextField
-                name="name"
-                label="Vor- & Nachname"
-                value={formData.name}
-                onChange={handleInputChange}
-                variant="outlined"
-                fullWidth
-                required
-                sx={{ marginTop: '5px' }}
-                inputProps={{ maxLength: 150 }} // Character limit for name
-            />
-            {charLimitErrors.name && <Typography color="red" variant="body2">{charLimitErrors.name}</Typography>}
-
-            {/* Gender Select */}
-            <FormControl fullWidth>
-                <InputLabel htmlFor="gender" sx={{ backgroundColor: colors.white, color: formData.gender ? colors.gray : colors.gray, padding: '0 5px' }}>
-                    Geschlecht *
-                </InputLabel>
-                <Select
-                    name="gender"
-                    value={formData.gender}
-                    onChange={handleChange}
-                    required
-                    sx={{
-                        borderColor: errors.gender ? 'red' : '',
-                    }}
-                >
-                    <MenuItem value="male">Männlich</MenuItem>
-                    <MenuItem value="female">Weiblich</MenuItem>
-                </Select>
-            </FormControl>
-            {errors.gender && <FormHelperText error>{errors.gender}</FormHelperText>}
-
-            {/* Firma TextField */}
-            <TextField
-                name="company"
-                label="Firma"
-                value={formData.company}
-                onChange={handleInputChange}
-                variant="outlined"
-                fullWidth
-                sx={{ marginTop: '5px' }}
-                inputProps={{ maxLength: 100 }} // Add character limit here
-            />
 
             {/* Query Type Select */}
             <FormControl fullWidth>
@@ -304,6 +259,58 @@ const ContactForm = () => {
                 </Select>
             </FormControl>
             {errors.queryType && <FormHelperText error>{errors.queryType}</FormHelperText>}
+
+            {/* Firma TextField */}
+            <TextField
+                name="company"
+                label="Firma"
+                value={formData.company}
+                onChange={handleInputChange}
+                variant="outlined"
+                fullWidth
+                sx={{ marginTop: '5px' }}
+                inputProps={{ maxLength: 100 }} // Add character limit here
+            />
+
+
+
+            {/* Gender Select */}
+            <FormControl fullWidth>
+                <InputLabel htmlFor="gender" sx={{ backgroundColor: colors.white, color: formData.gender ? colors.gray : colors.gray, padding: '0 5px' }}>
+                    Anrede *
+                </InputLabel>
+                <Select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    required
+                    sx={{
+                        borderColor: errors.gender ? 'red' : '',
+                    }}
+                >
+                    <MenuItem value="male">Herr</MenuItem>
+                    <MenuItem value="female">Frau</MenuItem>
+                </Select>
+            </FormControl>
+            {errors.gender && <FormHelperText error>{errors.gender}</FormHelperText>}
+
+            {/* Name TextField */}
+            <TextField
+                name="name"
+                label="Vor- & Nachname"
+                value={formData.name}
+                onChange={handleInputChange}
+                variant="outlined"
+                fullWidth
+                required
+                sx={{ marginTop: '5px' }}
+                inputProps={{ maxLength: 150 }} // Character limit for name
+            />
+            {charLimitErrors.name && <Typography color="red" variant="body2">{charLimitErrors.name}</Typography>}
+
+
+
+
 
             {/* Email TextField */}
             <TextField
