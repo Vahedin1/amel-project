@@ -18,6 +18,7 @@ import {
 import emailjs from "emailjs-com";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { Link } from "react-router-dom";
 
 const colors = {
   white: "#FFFFFF",
@@ -433,7 +434,9 @@ const ContactForm = () => {
             onChange={(e) => setIsPrivacyChecked(e.target.checked)}
             required
           />
-          Ich habe die Datenschutzerklärung zur Kenntnis genommen.
+          Ich habe die{" "}
+          <Link to="/datenschutzerklarung">Datenschutzerklärung</Link>
+          {" "} zur Kenntnis genommen.
         </label>
         {!isPrivacyChecked && (
           <FormHelperText error>

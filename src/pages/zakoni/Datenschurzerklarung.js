@@ -170,7 +170,8 @@ export default function Datenschutzerklarung() {
                             7. Cookies
                         </Typography>
                         <Typography variant="body2">
-                            Auf dieser Webseite sind keine Cookies eingesetzt
+                            Auf dieser Webseite sind keine Cookies eingesetzt.
+                            <br />
                             <br />
                             Info über Cookies: <br />
 
@@ -194,7 +195,7 @@ export default function Datenschutzerklarung() {
                                 rel="noopener noreferrer"
                                 style={{ color: '#1976d2', textDecoration: 'underline' }}
                             >
-                                https://www.google.de/intl/de/policies/privacy/
+                                {' '} https://www.google.de/intl/de/policies/privacy/
 
                             </a>
                         </Typography>
@@ -202,7 +203,7 @@ export default function Datenschutzerklarung() {
 
                     <Divider sx={{ my: 3 }} />
 
-                    <Box sx={{ mb: 4, marginBottom: '100px' }}>
+                    <Box sx={{ mb: 4/*, marginBottom: '100px'*/ }}>
                         <Typography variant="h5" component="h2" gutterBottom>
                             9. Widerspruch Werbe-Mails
                         </Typography>
@@ -211,7 +212,9 @@ export default function Datenschutzerklarung() {
                         </Typography>
                     </Box>
 
-                    <Box sx={{ mb: 4, marginBottom: '100px' }}>
+                    <Divider sx={{ my: 3 }} />
+
+                    <Box sx={{ mb: 4}}>
                         <Typography variant="h5" component="h2" gutterBottom>
                             10. Urheberrecht und Bildnachweise
                         </Typography>
@@ -233,7 +236,9 @@ export default function Datenschutzerklarung() {
                         </Typography>
                     </Box>
 
-                    <Box sx={{ mb: 4, marginBottom: '100px' }}>
+                    <Divider sx={{ my: 3 }} />
+
+                    <Box sx={{ mb: 4}}>
                         <Typography variant="h5" component="h2" gutterBottom>
                             11. Betroffenenrechte
                         </Typography>
@@ -250,7 +255,9 @@ export default function Datenschutzerklarung() {
                         </Typography>
                     </Box>
 
-                    <Box sx={{ mb: 4, marginBottom: '100px' }}>
+                    <Divider sx={{ my: 3 }} />
+
+                    <Box sx={{ mb: 4}}>
                         <Typography variant="h5" component="h2" gutterBottom>
                             12. Beschwerderecht bei der Aufsichtsbehörde
                         </Typography>
@@ -259,14 +266,16 @@ export default function Datenschutzerklarung() {
                         </Typography>
                     </Box>
 
-                    <Box sx={{ mb: 4, marginBottom: '100px' }}>
+                    <Divider sx={{ my: 3 }} />
+
+                    <Box sx={{ mb: 4}}>
                         <Typography variant="h5" component="h2" gutterBottom>
                             13. Streitschlichtung
                         </Typography>
                         <Typography variant="body2">
                             Wir sind nicht verpflichtet und grundsätzlich nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
                             <br />
-                            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+                            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: {' '} 
                             <a
                                 href="https://ec.europa.eu/consumers/odr"
                                 target="_blank"

@@ -139,7 +139,7 @@ export default function Home() {
                 {/* Main Content Section */}
                 <Box sx={{ padding: 3, maxWidth: { xs: "100%", sm: "1300px" }, margin: '0 auto', marginTop: 2, marginBottom: '16px', }}>
                     <Typography variant="h5" component="h1" gutterBottom sx={{ fontSize: { xs: '1.2rem', sm: '2rem' },fontWeight:'bold' }}>
-                        Herzlich Willkommen bei Unger Bau, ihrem Meisterbetrieb für Maurer- und Stahlbetonbau
+                        Herzlich willkommen bei Unger Bau, Ihrem Meisterbetrieb für Maurer- und Stahlbetonbau
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                         Gegründet auf langjähriger Erfahrung in der Baubranche, bieten wir als junges Kleinunternehmen frische Perspektiven und passende Lösungen für Ihr Bauvorhaben.
@@ -147,8 +147,8 @@ export default function Home() {
                     <Typography variant="body1" gutterBottom>
                         Unsere Spezialgebiete umfassen Maurer- und Betonarbeiten, die sowohl für Neubauten als auch für Anbauten grundlegend sind, sowie die Sanierung und Modernisierung bestehender Bauten.
                         Unser weiteres Angebot entnehmen sie unserem <Link to="/leistungen" style={{ color: '#0000FF' }}>
-                            Leistungsverzeichnis.
-                        </Link>
+                            Leistungsverzeichnis
+                        </Link>.
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                         Als Ihr lokaler Baupartner legen wir großen Wert auf direkte Kommunikation und transparente Prozesse. Wir verstehen, dass jedes Projekt einzigartig ist, und bieten daher maßgeschneiderte Lösungen, die genau auf Ihre Bedürfnisse und Wünsche zugeschnitten sind. Zuverlässigkeit und Pünktlichkeit stehen bei uns an erster Stelle, damit ihr Bauvorhaben reibungslos und termingerecht realisiert wird.
@@ -158,8 +158,8 @@ export default function Home() {
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                         Noch unsicher? Dann erfahren Sie noch mehr <Link to="/über-uns" style={{ color: '#0000FF' }}>
-                            über uns.
-                        </Link>
+                            über uns
+                        </Link>.
                     </Typography>
                 </Box>
 

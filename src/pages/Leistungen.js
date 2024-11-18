@@ -128,7 +128,7 @@ function HoverCard({ image, title, text }) {
                         borderRadius: '5px',
                     }}
                 >
-                    <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: colors.white }}>
+                    <Typography variant="h5" gutterBottom sx={{margin:'0px',fontWeight: 'bold', color: colors.white }}>
                         {title}
                     </Typography>
                 </Box>
