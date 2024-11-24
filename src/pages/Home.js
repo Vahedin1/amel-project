@@ -151,7 +151,7 @@ export default function Home() {
                         </Link>.
                     </Typography>
                     <Typography variant="body1" gutterBottom>
-                        Als Ihr lokaler Baupartner legen wir großen Wert auf direkte Kommunikation und transparente Prozesse. Wir verstehen, dass jedes Projekt einzigartig ist, und bieten daher maßgeschneiderte Lösungen, die genau auf Ihre Bedürfnisse und Wünsche zugeschnitten sind. Zuverlässigkeit und Pünktlichkeit stehen bei uns an erster Stelle, damit ihr Bauvorhaben reibungslos und termingerecht realisiert wird.
+                        Als Ihr lokaler Baupartner legen wir großen Wert auf direkte Kommunikation und transparente Prozesse. Wir verstehen, dass jedes Projekt einzigartig ist, und bieten daher maßgeschneiderte Lösungen, die genau auf Ihre Bedürfnisse und Wünsche zugeschnitten sind. Zuverlässigkeit und Pünktlichkeit stehen bei uns an erster Stelle, damit Ihr Bauvorhaben reibungslos und termingerecht realisiert wird.
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                         Kontaktieren Sie uns für eine persönliche Beratung und erfahren Sie, wie wir Ihr Projekt mit Engagement und Fachkompetenz zum Erfolg führen können. Wir freuen uns darauf, Ihre Bauprojekte mit Ihnen gemeinsam zu verwirklichen!

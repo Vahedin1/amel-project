@@ -199,11 +199,12 @@ function ResponsiveAppBar() {
                 alt="Logo"
                 onClick={handleLogoClick}
                 sx={{
-                  height: '50px',
+                  height: '75px',
                   cursor: 'pointer',
                   transition: 'transform 0.3s ease',
                   '&:hover': { transform: 'scale(1.05)' },
                   marginLeft: 0, // Ensure no extra margin
+                  marginTop:'10px',
                   paddingLeft: '16px', // Optional: space from edge
                 }}
               />

@@ -289,7 +289,7 @@ const Footer = () => {
 
                 {/* Copyright */}
                 <Typography variant="body2" align="center">
-                    &copy; 2024 | www.unger-bau.de
+                    &copy; 2024 | www.unger-bau.info
 
                 </Typography>
             </Container>
